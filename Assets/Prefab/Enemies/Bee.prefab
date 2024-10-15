@@ -132,4 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f081a7ed452da1a4d80b5245c7a85636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyData: {fileID: 11400000, guid: 1bcae23531c3e814abf51bfa50aed59d, type: 2}
   healthBarPrefab: {fileID: 8454658746098689806, guid: e60953314846ad0488eef929adaf8e72, type: 3}
+  currencyManager: {fileID: 6515129260341692180, guid: d52ea1d4c3601a143bcb06e8b6a12e4a, type: 3}

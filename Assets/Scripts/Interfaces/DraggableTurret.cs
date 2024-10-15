@@ -8,7 +8,7 @@ public class DraggableTurret : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 {
     public Image image;
     [HideInInspector] public Transform parentAfterDrag;
-    
+
     // thử chức năng kéo tháp vào bản đồ chính
     [SerializeField] private GameObject pfTurret;
     private GameObject turretPreview;
@@ -35,20 +35,9 @@ public class DraggableTurret : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0f; // Đặt z bằng 0 để đối tượng không bị lệch trên trục z
+        turretPreview.transform.position = mouseWorldPosition; // Đặt vị trí đối tượng theo tọa độ thế giới
 
-        GameObject turret = GameObject.Find("Turret_1_Level_1");
 
-        if (mouseWorldPosition.x < turret.transform.position.x + turret.GetComponent<BoxCollider2D>().size.x / 2 &&
-            mouseWorldPosition.x > turret.transform.position.x - turret.GetComponent<BoxCollider2D>().size.x / 2 &&
-            mouseWorldPosition.y < turret.transform.position.y + turret.GetComponent<BoxCollider2D>().size.y / 2 &&
-            mouseWorldPosition.y > turret.transform.position.y - turret.GetComponent<BoxCollider2D>().size.y / 2)
-        {
-            Debug.Log("OK");
-        }
-        else
-        {
-            turretPreview.transform.position = mouseWorldPosition; // Đặt vị trí đối tượng theo tọa độ thế giới
-        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -58,11 +47,5 @@ public class DraggableTurret : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         //image.raycastTarget = true;
     }
 
-    public void CheckProperPosition()
-    {
-        
-    }
-
-    
 }
 

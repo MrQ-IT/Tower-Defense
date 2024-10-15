@@ -113,7 +113,7 @@ TextureImporter:
       name: S_Attack_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 8
         y: 15
         width: 32
         height: 32
@@ -218,7 +218,7 @@ TextureImporter:
       name: S_Attack_5
       rect:
         serializedVersion: 2
-        x: 247
+        x: 248
         y: 15
         width: 32
         height: 32

@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25015cc67c059064ba20403d0871ca37
+      spriteID: ee180226cc9569144a7f445218ec8c01
       internalID: -1230068934
       vertices: []
       indices: 
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fa512c59fac3044eb28b4f65a372a8d
+      spriteID: da7458839b20ce445aaaf1c51fb75ef7
       internalID: 1484885441
       vertices: []
       indices: 
@@ -155,7 +155,7 @@ TextureImporter:
       name: U_Attack_2
       rect:
         serializedVersion: 2
-        x: 103
+        x: 104
         y: 15
         width: 32
         height: 32
@@ -166,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60fb1907b96b3144ba9bb8f83b4f4f87
+      spriteID: 6aa83cc74e0f11f4dbbc36d3601767f8
       internalID: -15237119
       vertices: []
       indices: 
@@ -176,7 +176,7 @@ TextureImporter:
       name: U_Attack_3
       rect:
         serializedVersion: 2
-        x: 151
+        x: 152
         y: 15
         width: 32
         height: 32
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dc8406118185fe499ba58f2e33cdd81
+      spriteID: 3932e55717ebeb04a8a05db1f7790aad
       internalID: -1066745727
       vertices: []
       indices: 
@@ -197,7 +197,7 @@ TextureImporter:
       name: U_Attack_4
       rect:
         serializedVersion: 2
-        x: 199
+        x: 200
         y: 15
         width: 32
         height: 32
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42117a4c4340ca447b6583911b2cb362
+      spriteID: 279454f07cd264c45a1e5cb3fd7e1e84
       internalID: -891722534
       vertices: []
       indices: 
@@ -218,7 +218,7 @@ TextureImporter:
       name: U_Attack_5
       rect:
         serializedVersion: 2
-        x: 247
+        x: 248
         y: 15
         width: 32
         height: 32
@@ -229,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87056f5a9b406154e9c0361455b665e9
+      spriteID: 9e12c10937e0f2a44a49ab1e139bc3ad
       internalID: 1220197698
       vertices: []
       indices: 
