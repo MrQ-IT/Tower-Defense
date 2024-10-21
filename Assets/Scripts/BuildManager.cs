@@ -8,7 +8,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager main;
     [Header("References")]
     [SerializeField] private GameObject[] towerPrefabs;
-    private Image[] childGameObject;
+    [SerializeField] private TurretInShop[] turretInShop;
 
     private int selectedTower = 0;
     // Start is called before the first frame update
@@ -25,15 +25,13 @@ public class BuildManager : MonoBehaviour
 
     private void Initialize()
     {
-        childGameObject = transform.GetComponentsInChildren<Image>();
-        for (int i = 0; i < childGameObject.Length; i++)
-        {
-            
-        }
+        towerPrefabs = transform.GetComponentsInChildren<GameObject>();
     }
 
     public GameObject GetSelectedTower()
     {
         return towerPrefabs[selectedTower];
     }
+
+    
 }

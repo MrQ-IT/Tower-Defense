@@ -8,8 +8,9 @@ public class Plot : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
 
-    private GameObject tower;
     private Color startColor;
+    public bool checkTurret { get; set; }
+    public bool selected { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class Plot : MonoBehaviour
     private void Initialize()
     {
         startColor = sr.color;
+        checkTurret = false;
+        selected = false;
     }
 
     private void OnMouseEnter()
@@ -40,11 +43,18 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (tower != null)
+        if (!selected)
         {
-            return; 
+            UIManager.main.plot = this;
+            UIManager.main.EnableBuildManager();
+            Debug.Log("Plot assigned in OnMouseDown: " + UIManager.main.plot);
+            selected = true;
         }
-        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        else
+        {
+            UIManager.main.plot = null;
+            UIManager.main.DisableBuildManager();
+            selected = false;
+        }
     }
 }

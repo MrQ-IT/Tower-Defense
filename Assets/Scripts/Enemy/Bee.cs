@@ -6,13 +6,16 @@ using UnityEngine;
 public class Bee : MonoBehaviour, Enemy
 {
     public EnemySO EnemyData;
-
-    private HealthBar healthBar;
-    private float dieHealth = 0;
-    [SerializeField] private GameObject healthBarPrefab;
     public int speed { get; set; }
     public int health { get; set; }
     public int currency { get; set; }
+    private HealthBar healthBar;
+    private GameObject healthBarObject;
+    [SerializeField] private UIManager uIManager;
+    
+    private Animator animator;
+    private float dieHealth = 0;
+
 
     // Thử chức năng tiền
     [SerializeField] private CurrencyManager currencyManager;
@@ -26,7 +29,11 @@ public class Bee : MonoBehaviour, Enemy
     // Update is called once per frame
     void Update()
     {
-        
+        if (healthBarObject != null)
+        {
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+            healthBarObject.transform.position = screenPosition + new Vector3(0, 10, 0); // Điều chỉnh vị trí nếu cần
+        }
     }
     
     public void TakeDamage(int damage)
@@ -41,20 +48,28 @@ public class Bee : MonoBehaviour, Enemy
 
     public void Die()
     {   
+        animator.SetBool("Death", true);
+    }
+
+    // Animation Event
+    public void DestroyBee()
+    {
         currencyManager.IncreaseCurrency(currency);
         Destroy(gameObject);
     }
 
     // Show HealthBar
     public void SpawnHealthBar()
-    {   
-        GameObject healthBarObject = Instantiate(healthBarPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
-        healthBarObject.transform.SetParent(transform);
+    {
+        healthBarObject = uIManager.CreateHealthBar();
+        healthBarObject.transform.SetParent(uIManager.transform, false);
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
+
     }
 
     private void Initialize()
-    {
+    {   
+        animator = GetComponent<Animator>();
         health = EnemyData.health;
         speed = (int)EnemyData.speed;
         currency = EnemyData.currency;
