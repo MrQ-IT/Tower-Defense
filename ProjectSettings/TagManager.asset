@@ -52,12 +52,12 @@ TagManager:
   - name: Shadow
     uniqueID: 1288140033
     locked: 0
-  - name: Decor
-    uniqueID: 3365299969
-    locked: 0
   - name: Tower
     uniqueID: 2553876729
     locked: 0
   - name: Archer
     uniqueID: 3967012449
+    locked: 0
+  - name: Decor
+    uniqueID: 3365299969
     locked: 0

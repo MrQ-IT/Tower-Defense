@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class Archer : MonoBehaviour, Unit
 {   
+    public ArcherSO archerSO;
     public int attackRange { get; set; }
     [SerializeField] private GameObject pfProjectileArrow;
     [SerializeField] private GameObject attackArrow;
     private Animator animator;
     private GameObject[] Bees;
     private GameObject focusBee;
+    private GameObject arrow;
     private bool isSelected; // Kiểm tra sự kiện click vào Archer
     
     // Start is called before the first frame update
@@ -29,12 +31,8 @@ public class Archer : MonoBehaviour, Unit
     // Khởi tạo
     private void Initialize()
     {
-        attackRange = 4;
+        attackRange = archerSO.attackRange;
         animator = GetComponent<Animator>();
-        animator.SetBool("Idle", true);
-        animator.SetFloat("X", 0);
-        animator.SetFloat("Y", -1);
-
         // Tắt hình tròn hiện tầm bắn ban đầu
         attackArrow.SetActive(false);
         isSelected = false;
@@ -43,10 +41,10 @@ public class Archer : MonoBehaviour, Unit
     // Đây là Event Animation
     public void ShootArrow()
     {
-        if (focusBee != null )
+        if (focusBee != null && arrow == null)
         {   
             // Tạo ra mũi tên và đặt kẻ địch cần bắn cho nó
-            GameObject arrow = Instantiate(pfProjectileArrow, transform.position, Quaternion.identity);
+            arrow = Instantiate(pfProjectileArrow, transform.position, Quaternion.identity);
             arrow.GetComponent<ProjectileArrow>().CheckFocusEnemy(focusBee.GetComponent<Bee>());
         }
     }
@@ -84,11 +82,9 @@ public class Archer : MonoBehaviour, Unit
         Bees = GameObject.FindGameObjectsWithTag("Bee"); // Lấy tất cả các GameObject Bee
         focusBee = GetEnemyInRange(Bees); // Kiểm tra tầm bắn
 
-        if (focusBee != null) // Nếu có đối tượng trong vùng thì chuyển animation
+        if (focusBee != null ) // Nếu có đối tượng trong vùng thì chuyển animation
         {
             Vector3 dir = (focusBee.transform.position - transform.position).normalized; // Cập nhật hướng đối tượng liên tục
-            animator.SetBool("Idle", false);
-
             if (Math.Abs(dir.x) > Math.Abs(dir.y)) // Ưu tiên hướng có giá trị lớn hơn
             {
                 dir.x = Mathf.Sign(dir.x);  // Làm tròn về 1 hoặc -1
@@ -100,7 +96,8 @@ public class Archer : MonoBehaviour, Unit
                 dir.x = 0;
             }
             animator.SetFloat("X", dir.x);
-            animator.SetFloat("Y", dir.y);
+            animator.SetFloat("Y", dir.y); 
+            animator.SetBool("Idle", false);
         }
         else
         {

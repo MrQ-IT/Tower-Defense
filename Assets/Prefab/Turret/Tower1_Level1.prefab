@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1435499763314706506, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
+      propertyPath: archerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ac2befef77750842930c3ec89ea1739, type: 2}
     - target: {fileID: 2064544388777640335, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.03

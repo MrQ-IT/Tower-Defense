@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CurrencyManager : MonoBehaviour
-{
+{   
+    public static CurrencyManager main;
     private int initialCurrency;
     private int currentCurrency;
     private Text currencyText;
@@ -22,6 +23,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Initialize()
     {
+        main = this;
         initialCurrency = 200;
         currentCurrency = initialCurrency;
         currencyText = GetComponentInChildren<Text>();
@@ -31,7 +33,6 @@ public class CurrencyManager : MonoBehaviour
     public void IncreaseCurrency(int amount)
     {
         currentCurrency += amount;
-        Debug.Log(currencyText);
         currencyText.text = currentCurrency.ToString();
     }
 

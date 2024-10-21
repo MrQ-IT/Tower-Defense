@@ -59,7 +59,7 @@ public class EnemysMove : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            GetComponent<Bee>().DestroyBee();
         }
     }
     

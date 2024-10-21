@@ -11,14 +11,9 @@ public class Bee : MonoBehaviour, Enemy
     public int currency { get; set; }
     private HealthBar healthBar;
     private GameObject healthBarObject;
-    [SerializeField] private UIManager uIManager;
     
     private Animator animator;
     private float dieHealth = 0;
-
-
-    // Thử chức năng tiền
-    [SerializeField] private CurrencyManager currencyManager;
 
     // Start is called before the first frame update
     void Start()
@@ -54,15 +49,16 @@ public class Bee : MonoBehaviour, Enemy
     // Animation Event
     public void DestroyBee()
     {
-        currencyManager.IncreaseCurrency(currency);
+        CurrencyManager.main.IncreaseCurrency(currency);
+        Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name + ": " + currency);
         Destroy(gameObject);
+        Destroy(healthBarObject);
     }
 
     // Show HealthBar
     public void SpawnHealthBar()
     {
-        healthBarObject = uIManager.CreateHealthBar();
-        healthBarObject.transform.SetParent(uIManager.transform, false);
+        healthBarObject = UIManager.main.CreateHealthBar();
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
 
     }

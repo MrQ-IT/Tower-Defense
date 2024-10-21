@@ -40,7 +40,6 @@ public class TurretInShop : MonoBehaviour
     public void SetupTurret(Plot plot)
     {
         this.plot = plot;
-        Debug.Log("set plot in shop" + plot );
         
     }
 
@@ -50,7 +49,6 @@ public class TurretInShop : MonoBehaviour
         if ( plot.checkTurret == false && plot != null)
         {
             Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
-            Debug.Log("Build Tower");
             buildManager.SetActive(false);
             plot.checkTurret = true;
         }

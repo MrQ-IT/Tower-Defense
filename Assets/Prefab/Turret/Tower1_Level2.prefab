@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ead15820163b784e802f161126aa865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  archerSO: {fileID: 11400000, guid: 4ac2befef77750842930c3ec89ea1739, type: 2}
   pfProjectileArrow: {fileID: 2693069313780928850, guid: 754d78dafac50554b917206b9213a8f8, type: 3}
   attackArrow: {fileID: 7002992973293625092}
 --- !u!58 &2180636929476591436
