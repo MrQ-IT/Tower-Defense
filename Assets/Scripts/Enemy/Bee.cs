@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Logic;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bee : MonoBehaviour, Enemy
+public class Bee : MonoBehaviour
 {
     public EnemySO EnemyData;
     public int speed { get; set; }
@@ -11,7 +10,8 @@ public class Bee : MonoBehaviour, Enemy
     public int currency { get; set; }
     private HealthBar healthBar;
     private GameObject healthBarObject;
-    
+    private bool isDestroyed = false;
+
     private Animator animator;
     private float dieHealth = 0;
 
@@ -49,8 +49,9 @@ public class Bee : MonoBehaviour, Enemy
     // Animation Event
     public void DestroyBee()
     {
+        if (isDestroyed) return; // Nếu đã được destroy thì không làm gì nữa
+        isDestroyed = true;
         CurrencyManager.main.IncreaseCurrency(currency);
-        Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name + ": " + currency);
         Destroy(gameObject);
         Destroy(healthBarObject);
     }
@@ -71,5 +72,12 @@ public class Bee : MonoBehaviour, Enemy
         currency = EnemyData.currency;
         SpawnHealthBar();
         healthBar.SetMaxHealth(health);
+    }
+
+    public void ChangeMovementAnimation(Vector3 direction)
+    {
+        animator.SetFloat("X", direction.normalized.x);
+        animator.SetFloat("Y", direction.normalized.y);
+        //Debug.Log($"Animation changed: X={direction.normalized.x}, Y={direction.normalized.y}");
     }
 }

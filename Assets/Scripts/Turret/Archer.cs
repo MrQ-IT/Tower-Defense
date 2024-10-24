@@ -1,10 +1,9 @@
-﻿using Assets.Scripts.Logic;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Archer : MonoBehaviour, Unit
+public class Archer : MonoBehaviour
 {   
     public ArcherSO archerSO;
     public int attackRange { get; set; }

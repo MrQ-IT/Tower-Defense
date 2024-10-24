@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -929667327
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 109158353, guid: 9d674c82bf8b33c4c8797c292621bf08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c664961d5442a44933306ba1b673fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointManager: {fileID: 9124559981762446174, guid: ec4d96dbf723d014283f649719491571, type: 3}
+  livesManager: {fileID: 6332837001405562374, guid: e9d8f8b273a4e6f4ca3f9b3779f6e921, type: 3}
 --- !u!114 &1644768212235458973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,4 +135,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 1bcae23531c3e814abf51bfa50aed59d, type: 2}
-  uIManager: {fileID: 6452584130939248513, guid: d78195f6d8aa79247ab305030e6b0113, type: 3}

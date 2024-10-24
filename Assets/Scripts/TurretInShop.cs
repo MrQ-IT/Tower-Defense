@@ -32,7 +32,7 @@ public class TurretInShop : MonoBehaviour
         turretPrefab = turretSO.turretPrefab;
 
         Image[] image = GetComponentsInChildren<Image>();
-        image[0].sprite = turretSprite;
+        image[1].sprite = turretSprite;
         GetComponentInChildren<Text>().text = turretCost.ToString();;
 
     }

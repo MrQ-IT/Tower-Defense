@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int health;
     private Vector3 dragOrigin;
     [SerializeField] private float dragSpeed = 0.1f;
     // Start is called before the first frame update
@@ -17,23 +16,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         DragMap();
-    }
-
-    private void Initialize()
-    {
-        health = 20;
-    }
-
-    private void LoseHealth()
-    {
-        if (health > 0)
-        {
-            health -= 1;
-        }
-        else
-        {
-            GameOver();
-        }
     }
 
     private void GameOver()
@@ -59,13 +41,13 @@ public class GameManager : MonoBehaviour
             Vector3 finalPosition = Camera.main.transform.position;
 
             // Kiểm tra giới hạn cho trục x
-            if (newPosition.x >= -1 && newPosition.x <= 11)
+            if (newPosition.x >= -5 && newPosition.x <= 16)
             {
                 finalPosition.x = newPosition.x;
             }
 
             // Kiểm tra giới hạn cho trục y
-            if (newPosition.y >= -7 && newPosition.y <= 5)
+            if (newPosition.y >= -6 && newPosition.y <= 4)
             {
                 finalPosition.y = newPosition.y;
             }
