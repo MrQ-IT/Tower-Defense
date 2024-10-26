@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1741090567
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1925078015, guid: 362879332303fe74690b91e218fbdb4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -161,17 +161,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1830421377693609841}
     m_Modifications:
+    - target: {fileID: 875148728034889547, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1172462018198515154, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
       propertyPath: archerSO
       value: 
-      objectReference: {fileID: 11400000, guid: 4ac2befef77750842930c3ec89ea1739, type: 2}
+      objectReference: {fileID: 11400000, guid: 251b0434753958e4dbc7a5a3dc34a808, type: 2}
+    - target: {fileID: 1664951512057406272, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037468312715377079, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037468312715377079, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3338650206409130949, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3338650206409130949, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3338650206409130949, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -208,6 +224,10 @@ PrefabInstance:
     - target: {fileID: 5994645983276582706, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
       propertyPath: m_Name
       value: Archer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994645983276582706, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

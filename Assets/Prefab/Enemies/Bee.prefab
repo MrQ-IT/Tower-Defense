@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1644768212235458973}
   m_Layer: 0
   m_Name: Bee
-  m_TagString: Bee
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,8 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c664961d5442a44933306ba1b673fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointManager: {fileID: 9124559981762446174, guid: ec4d96dbf723d014283f649719491571, type: 3}
-  livesManager: {fileID: 6332837001405562374, guid: e9d8f8b273a4e6f4ca3f9b3779f6e921, type: 3}
 --- !u!114 &1644768212235458973
 MonoBehaviour:
   m_ObjectHideFlags: 0

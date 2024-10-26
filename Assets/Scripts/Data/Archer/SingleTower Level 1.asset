@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819f6bcd4129ff24f97971db77d628a2, type: 3}
+  m_Name: SingleTower Level 1
+  m_EditorClassIdentifier: 
+  range: 5
+  towerName: Single Tower Level 1
+  damage: 20
+  attackSpeed: 1
+  turretPrefab: {fileID: 5742081352563395753, guid: dd7e71a6a0da33d4baf9b42f55a841b6, type: 3}
+  turretCost: 150
+  upgradeCost: 90
+  sellCost: 75
+  description: Single-target tower, medium attack speed, consistent damage.
+  turretSprite: {fileID: -2146500778, guid: d81f8a5b4d2d85c438dc442027a74477, type: 3}

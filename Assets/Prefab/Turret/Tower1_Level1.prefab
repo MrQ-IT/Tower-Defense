@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1741090567
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1925078015, guid: 362879332303fe74690b91e218fbdb4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -173,13 +173,25 @@ PrefabInstance:
       propertyPath: archerSO
       value: 
       objectReference: {fileID: 11400000, guid: 4ac2befef77750842930c3ec89ea1739, type: 2}
+    - target: {fileID: 1845721316860430388, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935683550319388812, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935683550319388812, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2064544388777640335, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2064544388777640335, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2064544388777640335, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
       propertyPath: m_LocalPosition.z
@@ -213,6 +225,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2840282598368350602, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429099222218056243, guid: 66751d7e65ca5564cbac2f07e6db8750, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 36b8ab7de697d6c428f7bf7fc98ff868, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

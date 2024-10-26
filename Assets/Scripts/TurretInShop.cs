@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TurretInShop : MonoBehaviour
 {
-    public TurretSO turretSO;
+    public ArcherSO archerSO;
     public GameObject turretPrefab { get; set; }
     public int turretCost { get; set; }
     public Sprite turretSprite { get; set; }
@@ -27,20 +27,18 @@ public class TurretInShop : MonoBehaviour
 
     private void Initialize()
     {
-        turretCost = turretSO.turretCost;
-        turretSprite = turretSO.turretSprite;
-        turretPrefab = turretSO.turretPrefab;
+        turretCost = archerSO.turretCost;
+        turretSprite = archerSO.turretSprite;
+        turretPrefab = archerSO.turretPrefab;
 
         Image[] image = GetComponentsInChildren<Image>();
         image[1].sprite = turretSprite;
         GetComponentInChildren<Text>().text = turretCost.ToString();;
-
     }
 
     public void SetupTurret(Plot plot)
     {
         this.plot = plot;
-        
     }
 
     // Button Event
@@ -50,6 +48,7 @@ public class TurretInShop : MonoBehaviour
         {
             Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
             buildManager.SetActive(false);
+            CurrencyManager.main.SpendCurrency(turretCost);
             plot.checkTurret = true;
         }
         else

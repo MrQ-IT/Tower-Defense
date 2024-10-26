@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class EnemysMove : MonoBehaviour
 {
-    private int enemySpeed = 2;
-    [SerializeField] private WaypointManager waypointManager;
-    private int indexWaypoint = 0;
+    private int enemySpeed;
+    private WaypointManager waypointManager;
+    private int indexWaypoint;
     private Vector3 direction;
     private LivesManager livesManager;
 
@@ -26,6 +26,9 @@ public class EnemysMove : MonoBehaviour
     private void Initialize()
     {
         livesManager = UIManager.main.GetComponentInChildren<LivesManager>();
+        waypointManager = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
+        enemySpeed = GetComponent<Bee>().speed;
+        indexWaypoint = 0;
     }
 
     private void EnemyMoves()
