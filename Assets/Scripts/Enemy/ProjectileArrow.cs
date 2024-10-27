@@ -5,11 +5,12 @@ using UnityEngine;
 public class ProjectileArrow : MonoBehaviour
 {
     // khai bao bien
-    private float projectileArrowSpeed = 7.0f;
+    private float projectileArrowSpeed = 10.0f;
     private Vector3 targetPostion;
     private Vector3 spawnPosition;
     private Bee focusBee;
     private Animator animator;
+    private int damage;
 
     // Start is called before the first frame update
 
@@ -29,6 +30,7 @@ public class ProjectileArrow : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spawnPosition = transform.position;
+        damage = GetComponentInParent<Archer>().damage;
     }
 
     // Truyền bee trong tầm bắn từ Archer vào
@@ -56,7 +58,7 @@ public class ProjectileArrow : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, targetPostion) < 1.5f && focusBee != null)
         {
-            focusBee.TakeDamage(20);
+            focusBee.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

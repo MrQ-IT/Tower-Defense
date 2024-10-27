@@ -24,7 +24,7 @@ public class CurrencyManager : MonoBehaviour
     private void Initialize()
     {
         main = this;
-        initialCurrency = 200;
+        initialCurrency = 500;
         currentCurrency = initialCurrency;
         currencyText = GetComponentInChildren<Text>();
         currencyText.text = initialCurrency.ToString();

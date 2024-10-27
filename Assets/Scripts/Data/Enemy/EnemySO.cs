@@ -8,4 +8,5 @@ public class EnemySO : ScriptableObject
     public float speed;
     public int health;
     public int currency;
+    public string enemyName;
 }
