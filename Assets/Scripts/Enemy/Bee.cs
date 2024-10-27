@@ -43,9 +43,14 @@ public class Bee : MonoBehaviour
     // Animation Event
     public void DestroyBee()
     {
+        RemoveOnPathEnd();
+        CurrencyManager.main.IncreaseCurrency(currency);
+    }
+
+    public void RemoveOnPathEnd()
+    {
         if (isDestroyed) return;
         isDestroyed = true;
-        CurrencyManager.main.IncreaseCurrency(currency);
         Destroy(gameObject);
         Destroy(healthBarObject);
     }

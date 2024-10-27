@@ -6,18 +6,21 @@ using UnityEngine;
 public class Archer : MonoBehaviour
 {   
     public ArcherSO archerSO;
-    public int attackRange { get; set; }
-    public int turretCost {  get; set; }
+    public float attackRange { get; set; }
+    public int towerCost {  get; set; }
     public int damage { get; set; }
-    public int attackSpeed { get; set; }
+    public float attackSpeed { get; set; }
+    public string description { get; set; }
+    public Sprite towerSprite { get; set; }
+    public string towerName { get; set; }
     [SerializeField] private GameObject pfProjectileArrow;
-    [SerializeField] private GameObject attackArrow;
+    public GameObject range;
     private Animator animator;
     private GameObject[] enemies;
     private GameObject focusBee;
     private GameObject arrow;
-    private bool isSelected; // Kiểm tra sự kiện click vào Archer
-    private bool isAttack;
+    private bool isSelected;
+    public bool isAttack { get; set; }
 
     private void Start()
     {
@@ -33,12 +36,15 @@ public class Archer : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         attackRange = archerSO.range;
-        turretCost = archerSO.turretCost;
+        towerCost = archerSO.towerCost;
         damage = archerSO.damage;
         attackSpeed = archerSO.attackSpeed;
-        transform.Find("AttackRange").localScale = new Vector3(attackRange*2, attackRange*2, 0);
+        description = archerSO.description;
+        towerSprite = archerSO.towerSprite;
+        towerName = archerSO.towerName;
+        range.transform.localScale = new Vector3(attackRange*2, attackRange*2, 0);
         // Tắt hình tròn hiện tầm bắn ban đầu
-        attackArrow.SetActive(false);
+        range.SetActive(false);
         isSelected = false;
         isAttack = false;
     }
@@ -73,9 +79,10 @@ public class Archer : MonoBehaviour
     private void OnMouseDown()
     {
         isSelected = !isSelected;
-        attackArrow.SetActive(isSelected);
+        range.SetActive(isSelected);
         UIManager.main.transform.Find("TowerInfoManager").gameObject.SetActive(isSelected);
-        TowerInfoManager.main.SetArcherSO(this.archerSO);
+        Tower tower =  transform.parent.GetComponentInChildren<Tower>();
+        TowerInfoManager.main.SetArcherSO(this, tower);
     }  
 
     // Thay đổi animation của Archer
@@ -83,7 +90,7 @@ public class Archer : MonoBehaviour
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Lấy tất cả các GameObject Bee
         focusBee = GetEnemyInRange(enemies); // Kiểm tra tầm bắn
-
+        Debug.Log(isAttack);
         if (focusBee != null && !isAttack) // Nếu có đối tượng trong vùng thì chuyển animation
         {
             Vector3 dir = (focusBee.transform.position - transform.position).normalized; // Cập nhật hướng đối tượng liên tục

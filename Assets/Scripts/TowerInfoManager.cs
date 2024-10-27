@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,8 @@ using UnityEngine.UI;
 public class TowerInfoManager : MonoBehaviour
 {
     public static TowerInfoManager main;
-    [SerializeField] private ArcherSO archerSO;   
+    private Archer archer;   
+    private Tower tower;
     
     private Image sprite;
     private Text towerName;
@@ -39,24 +41,63 @@ public class TowerInfoManager : MonoBehaviour
         attackSpeed = transform.Find("AttackSpeed").GetComponent<Text>();
         upgradeCost = transform.Find("Upgrade").GetComponentInChildren<Text>();
         sellCost = transform.Find("Sell").GetComponentInChildren<Text>();
-
     }
 
-    public void SetArcherSO(ArcherSO archerSO)
+    public void SetArcherSO(Archer archer, Tower tower)
     {
-        this.archerSO = archerSO;
+        this.archer = archer;
+        this.tower = tower;
         UpdateTowerInfoManager();
     }
 
     public void UpdateTowerInfoManager()
     {
-        sprite.sprite = archerSO.turretSprite;
-        towerName.text = archerSO.towerName;
-        towerDescription.text = "Description: " + archerSO.description;
-        range.text = "Range: " + archerSO.range.ToString();
-        damage.text = "Damage: " + archerSO.damage.ToString();
-        attackSpeed.text = "Attack Speed: " + archerSO.attackSpeed.ToString();
-        upgradeCost.text = archerSO.upgradeCost.ToString();
-        sellCost.text = archerSO.sellCost.ToString();
+        sprite.sprite = archer.towerSprite;
+        towerName.text = archer.towerName + " Level " + tower.upgradeNumber;
+        towerDescription.text = "Description: " + archer.description;
+        range.text = "Range: " + archer.attackRange.ToString();
+        damage.text = "Damage: " + archer.damage.ToString();
+        attackSpeed.text = "Attack Speed: " + archer.attackSpeed.ToString();
+        upgradeCost.text = RoundToTen( archer.towerCost * 0.5 ).ToString();
+        sellCost.text = RoundToTen(archer.towerCost * 0.5).ToString();
+    }
+
+    // Button Event
+    public void Upgrade()
+    {
+        if (tower.upgradeNumber < 5)
+        {
+            if ( !CurrencyManager.main.SpendCurrency(RoundToTen(archer.towerCost * 0.5)))
+            {
+                return;
+            }
+            archer.damage = archer.damage + (int)(archer.damage * 0.2);
+            archer.attackRange += 0.25f;
+            archer.range.transform.localScale = new Vector3(archer.attackRange * 2, archer.attackRange * 2, 0);
+            archer.towerCost = archer.towerCost + RoundToTen(archer.towerCost * 0.5);
+            archer.isAttack = false;
+            tower.UpgradeTower();
+            
+            archer.transform.localPosition = new Vector3(0, (float)(archer.transform.localPosition.y + 0.5), 0);
+            if (tower.upgradeNumber >= 4)
+            {
+                archer.transform.localPosition = new Vector3(0, 1.5f, 0);
+            }
+            UpdateTowerInfoManager();
+        }
+        else
+        {
+            Debug.Log("Tower is max level");
+        }
+    }
+
+    public void Sell()
+    {
+
+    }
+
+    public int RoundToTen(double value)
+    {
+        return (int)(value / 10.0) * 10;
     }
 }

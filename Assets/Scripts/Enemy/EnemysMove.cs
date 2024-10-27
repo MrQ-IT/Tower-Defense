@@ -47,7 +47,7 @@ public class EnemysMove : MonoBehaviour
         else
         {   
             livesManager.DecreaseLives();
-            GetComponent<Bee>().DestroyBee();
+            GetComponent<Bee>().RemoveOnPathEnd();
         }
     }
     

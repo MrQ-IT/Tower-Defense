@@ -27,8 +27,8 @@ public class TurretInShop : MonoBehaviour
 
     private void Initialize()
     {
-        turretCost = archerSO.turretCost;
-        turretSprite = archerSO.turretSprite;
+        turretCost = archerSO.towerCost;
+        turretSprite = archerSO.towerSprite;
         turretPrefab = archerSO.turretPrefab;
 
         Image[] image = GetComponentsInChildren<Image>();
