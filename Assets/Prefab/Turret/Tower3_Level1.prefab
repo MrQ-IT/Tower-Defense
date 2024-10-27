@@ -161,6 +161,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 15673693820213429}
     m_Modifications:
+    - target: {fileID: 1078203879825517508, guid: 973a29243e2241143a86813f44afd38c, type: 3}
+      propertyPath: archerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ac2befef77750842930c3ec89ea1739, type: 2}
     - target: {fileID: 4340553848153985005, guid: 973a29243e2241143a86813f44afd38c, type: 3}
       propertyPath: m_Name
       value: Archer3

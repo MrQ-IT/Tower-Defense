@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Logic;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bee : MonoBehaviour, Enemy
+public class Bee : MonoBehaviour
 {
     public EnemySO EnemyData;
     public int speed { get; set; }
@@ -11,14 +10,10 @@ public class Bee : MonoBehaviour, Enemy
     public int currency { get; set; }
     private HealthBar healthBar;
     private GameObject healthBarObject;
-    [SerializeField] private UIManager uIManager;
-    
+    private bool isDestroyed = false;
+
     private Animator animator;
     private float dieHealth = 0;
-
-
-    // Thử chức năng tiền
-    [SerializeField] private CurrencyManager currencyManager;
 
     // Start is called before the first frame update
     void Start()
@@ -54,15 +49,17 @@ public class Bee : MonoBehaviour, Enemy
     // Animation Event
     public void DestroyBee()
     {
-        currencyManager.IncreaseCurrency(currency);
+        if (isDestroyed) return; // Nếu đã được destroy thì không làm gì nữa
+        isDestroyed = true;
+        CurrencyManager.main.IncreaseCurrency(currency);
         Destroy(gameObject);
+        Destroy(healthBarObject);
     }
 
     // Show HealthBar
     public void SpawnHealthBar()
     {
-        healthBarObject = uIManager.CreateHealthBar();
-        healthBarObject.transform.SetParent(uIManager.transform, false);
+        healthBarObject = UIManager.main.CreateHealthBar();
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
 
     }
@@ -75,5 +72,12 @@ public class Bee : MonoBehaviour, Enemy
         currency = EnemyData.currency;
         SpawnHealthBar();
         healthBar.SetMaxHealth(health);
+    }
+
+    public void ChangeMovementAnimation(Vector3 direction)
+    {
+        animator.SetFloat("X", direction.normalized.x);
+        animator.SetFloat("Y", direction.normalized.y);
+        //Debug.Log($"Animation changed: X={direction.normalized.x}, Y={direction.normalized.y}");
     }
 }

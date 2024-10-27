@@ -32,7 +32,7 @@ public class TurretInShop : MonoBehaviour
         turretPrefab = turretSO.turretPrefab;
 
         Image[] image = GetComponentsInChildren<Image>();
-        image[0].sprite = turretSprite;
+        image[1].sprite = turretSprite;
         GetComponentInChildren<Text>().text = turretCost.ToString();;
 
     }
@@ -40,7 +40,6 @@ public class TurretInShop : MonoBehaviour
     public void SetupTurret(Plot plot)
     {
         this.plot = plot;
-        Debug.Log("set plot in shop" + plot );
         
     }
 
@@ -50,7 +49,6 @@ public class TurretInShop : MonoBehaviour
         if ( plot.checkTurret == false && plot != null)
         {
             Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
-            Debug.Log("Build Tower");
             buildManager.SetActive(false);
             plot.checkTurret = true;
         }

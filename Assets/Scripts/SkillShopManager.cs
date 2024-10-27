@@ -3,62 +3,61 @@ using UnityEngine.UI;
 
 public class SkillShopManager : MonoBehaviour
 {
-    public GameObject skillPrefab; // Tham chiếu tới prefab kỹ năng
-    public Transform skillPanel; // Vị trí để spawn các kỹ năng (UI Panel)
-    public Text goldText;
-    public Button resetButton;
-    public Button backButton;
+    public Image skillIcon;
+    public Text skillNameText;
+    public Text skillDescriptionText;
+    public Text skillLevelText;
+    public Text upgradeCostText;
+    public Button upgradeButton;
 
-    private int playerGold = 100;
+    private int skillLevel = 1;
+    private int upgradeCost = 100;
+    private int playerGold = 0;
 
-    // Dữ liệu giả lập cho các kỹ năng
-    private string[] skillNames = { "Kỹ Năng 1", "Kỹ Năng 2", "Kỹ Năng 3", "Kỹ Năng 4" };
-    private string[] skillDescriptions = { "Mô tả 1", "Mô tả 2", "Mô tả 3", "Mô tả 4" };
-    private Sprite[] skillIcons; // Gắn các sprite cho icon của kỹ năng
-
-    void Start()
+    // Hàm khởi tạo skill
+    public void InitializeSkill(Sprite icon, string name, string description, int level, int cost)
     {
-        InitializeSkills();
-        UpdateGoldUI();
-        resetButton.onClick.AddListener(OnResetButtonClick);
-        backButton.onClick.AddListener(OnBackButtonClick);
+        skillIcon.sprite = icon;
+        skillNameText.text = name;
+        skillDescriptionText.text = description;
+        skillLevel = level;
+        upgradeCost = cost;
+        UpdateSkillUI();
     }
 
-    // Khởi tạo các kỹ năng
-    void InitializeSkills()
+    // Cập nhật UI kỹ năng
+    void UpdateSkillUI()
     {
-        for (int i = 0; i < 4; i++)
+        skillLevelText.text = "Cấp độ: " + skillLevel.ToString();
+        upgradeCostText.text = "Nâng cấp: " + upgradeCost.ToString() + " Gold";
+
+        if (playerGold >= upgradeCost)
         {
-            // Tạo kỹ năng từ prefab
-            GameObject skillObject = Instantiate(skillPrefab);
-            
-            // Lấy script SkillManager để khởi tạo giá trị cho từng kỹ năng
-            SkillManager skillManager = skillObject.GetComponent<SkillManager>();
-            skillManager.InitializeSkill(skillIcons[i], skillNames[i], skillDescriptions[i], 1, 50);
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeButton.interactable = false;
         }
     }
 
-    // Cập nhật UI vàng
-    void UpdateGoldUI()
+    // Xử lý nút nâng cấp
+    public void OnUpgradeButtonClick()
     {
-        goldText.text = "Gold: " + playerGold.ToString();
-    }
-
-    // Xử lý nút reset
-    void OnResetButtonClick()
-    {
-        SkillManager[] skillManagers = skillPanel.GetComponentsInChildren<SkillManager>();
-        foreach (var skill in skillManagers)
+        if (playerGold >= upgradeCost)
         {
-            skill.ResetSkill();
+            playerGold -= upgradeCost;
+            skillLevel++;
+            upgradeCost += 100;
+            UpdateSkillUI();
         }
-        playerGold = 100;
-        UpdateGoldUI();
     }
 
-    // Xử lý nút back
-    void OnBackButtonClick()
+    // Hàm reset kỹ năng
+    public void ResetSkill()
     {
-        Debug.Log("Quay lại màn hình trước");
+        skillLevel = 1;
+        upgradeCost = 0;
+        UpdateSkillUI();
     }
 }
