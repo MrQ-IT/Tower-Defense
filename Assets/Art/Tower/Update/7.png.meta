@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 7_0
+      name: 7_3
       rect:
         serializedVersion: 2
         x: 144
@@ -118,7 +118,7 @@ TextureImporter:
         width: 64
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 7_1
+      name: 7_2
       rect:
         serializedVersion: 2
         x: 214
@@ -139,7 +139,7 @@ TextureImporter:
         width: 64
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,15 +152,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 7_2
+      name: 7_0
       rect:
         serializedVersion: 2
-        x: 74
+        x: 73
         y: 0
         width: 64
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 7_3
+      name: 7_1
       rect:
         serializedVersion: 2
         x: 4
@@ -181,7 +181,7 @@ TextureImporter:
         width: 64
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      7_0: 185665182
-      7_1: -1466405594
-      7_2: -10628853
-      7_3: -1045427772
+      7_0: -10628853
+      7_1: -1045427772
+      7_2: -1466405594
+      7_3: 185665182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

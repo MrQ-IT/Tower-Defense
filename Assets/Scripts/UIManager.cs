@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UIElements.VisualElement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,18 +18,16 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void EnableBuildManager()
     {
         transform.Find("BuildManager").gameObject.SetActive(true);
         foreach (var turret in transform.GetComponentsInChildren<TurretInShop>())
-        {   
-            Debug.Log(plot);
+        {
             turret.SetupTurret(plot);
         }
-
     }
 
     public void DisableBuildManager()
@@ -38,8 +37,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject CreateHealthBar()
     {
-        GameObject healthBar = Instantiate(pfHealthBar); // Tạo đối tượng mà không chỉ định parent
-        healthBar.transform.SetParent(transform, false); // Đặt parent là UI Manager, nếu cần
+        GameObject healthBar = Instantiate(pfHealthBar, transform, false);
         return healthBar;
     }
 }

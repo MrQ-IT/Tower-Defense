@@ -7,18 +7,17 @@ using UnityEngine;
 
 public class EnemysMove : MonoBehaviour
 {
-    private int enemySpeed = 2;
+    private int enemySpeed;
     private WaypointManager waypointManager;
-    private int indexWaypoint = 0;
-    private Animator animator;
+    private int indexWaypoint;
     private Vector3 direction;
-    // Start is called before the first frame update
-    void Start()
-    {   
+    private LivesManager livesManager;
+
+    private void Start()
+    {
         Initialize();
     }
 
-    // Update is called once per frame
     void Update()
     {   
         EnemyMoves();
@@ -26,22 +25,10 @@ public class EnemysMove : MonoBehaviour
 
     private void Initialize()
     {
-        animator = GetComponent<Animator>();
-        WaypointManager waypointsObject = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
-        if (waypointsObject != null)
-        {
-            waypointManager = waypointsObject;
-        }
-        else
-        {
-            Debug.Log("Waypoint Manager is null !");
-        }
-    }
-
-    private void ChangeMovementAnimation()
-    {
-        animator.SetFloat("X", direction.normalized.x);
-        animator.SetFloat("Y", direction.normalized.y);
+        livesManager = UIManager.main.GetComponentInChildren<LivesManager>();
+        waypointManager = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
+        enemySpeed = GetComponent<Bee>().speed;
+        indexWaypoint = 0;
     }
 
     private void EnemyMoves()
@@ -51,15 +38,16 @@ public class EnemysMove : MonoBehaviour
             Transform targetWaypoint = waypointManager.wayPoints[indexWaypoint];
             direction = targetWaypoint.position - transform.position;
             transform.Translate(direction.normalized * enemySpeed * Time.deltaTime);
-            ChangeMovementAnimation();
+            GetComponent<Bee>().ChangeMovementAnimation(direction);
             if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.01f)
             {
                 indexWaypoint++;
             }
         }
         else
-        {
-            Destroy(gameObject);
+        {   
+            livesManager.DecreaseLives();
+            GetComponent<Bee>().RemoveOnPathEnd();
         }
     }
     

@@ -1,45 +1,34 @@
-﻿using Assets.Scripts.Logic;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bee : MonoBehaviour, Enemy
+public class Bee : MonoBehaviour
 {
     public EnemySO EnemyData;
     public int speed { get; set; }
     public int health { get; set; }
     public int currency { get; set; }
+    public string enemyName { get; set; }
     private HealthBar healthBar;
     private GameObject healthBarObject;
-    [SerializeField] private UIManager uIManager;
-    
     private Animator animator;
-    private float dieHealth = 0;
-
-
-    // Thử chức năng tiền
-    [SerializeField] private CurrencyManager currencyManager;
-
-    // Start is called before the first frame update
-    void Start()
+    private bool isDestroyed = false;
+    
+    void Awake()
     {
         Initialize();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if (healthBarObject != null)
-        {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-            healthBarObject.transform.position = screenPosition + new Vector3(0, 10, 0); // Điều chỉnh vị trí nếu cần
-        }
+        UpdateHealthBarPos();
     }
     
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= dieHealth)
+        if (health <= 0)
         {
             Die();
         }
@@ -54,26 +43,48 @@ public class Bee : MonoBehaviour, Enemy
     // Animation Event
     public void DestroyBee()
     {
-        currencyManager.IncreaseCurrency(currency);
+        RemoveOnPathEnd();
+        CurrencyManager.main.IncreaseCurrency(currency);
+    }
+
+    public void RemoveOnPathEnd()
+    {
+        if (isDestroyed) return;
+        isDestroyed = true;
         Destroy(gameObject);
+        Destroy(healthBarObject);
     }
 
     // Show HealthBar
     public void SpawnHealthBar()
     {
-        healthBarObject = uIManager.CreateHealthBar();
-        healthBarObject.transform.SetParent(uIManager.transform, false);
+        healthBarObject = UIManager.main.CreateHealthBar();
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
-
     }
 
-    private void Initialize()
+    public void Initialize()
     {   
         animator = GetComponent<Animator>();
         health = EnemyData.health;
         speed = (int)EnemyData.speed;
         currency = EnemyData.currency;
+        enemyName = EnemyData.enemyName;
         SpawnHealthBar();
         healthBar.SetMaxHealth(health);
+    }
+
+    public void ChangeMovementAnimation(Vector3 direction)
+    {
+        animator.SetFloat("X", direction.normalized.x);
+        animator.SetFloat("Y", direction.normalized.y);
+    }
+
+    public void UpdateHealthBarPos()
+    {
+        if (healthBarObject != null)
+        {
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+            healthBarObject.transform.position = screenPosition + new Vector3(0, 10, 0);
+        }
     }
 }

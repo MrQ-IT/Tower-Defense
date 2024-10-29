@@ -1,71 +1,75 @@
-﻿using Assets.Scripts.Logic;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Archer : MonoBehaviour, Unit
+public class Archer : MonoBehaviour
 {   
-    public int attackRange { get; set; }
+    public ArcherSO archerSO;
+    public float attackRange { get; set; }
+    public int towerCost {  get; set; }
+    public int damage { get; set; }
+    public float attackSpeed { get; set; }
+    public string description { get; set; }
+    public Sprite towerSprite { get; set; }
+    public string towerName { get; set; }
     [SerializeField] private GameObject pfProjectileArrow;
-    [SerializeField] private GameObject attackArrow;
+    public GameObject range;
     private Animator animator;
-    private GameObject[] Bees;
+    private GameObject[] enemies;
     private GameObject focusBee;
-    private bool isSelected; // Kiểm tra sự kiện click vào Archer
-    
-    // Start is called before the first frame update
+    private GameObject arrow;
+    private bool isSelected;
+    public bool isAttack { get; set; }
+
     private void Start()
     {
         Initialize();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         ChangeAnimation();
     }
 
-    // Khởi tạo
     private void Initialize()
     {
-        attackRange = 4;
         animator = GetComponent<Animator>();
-        animator.SetBool("Idle", true);
-        animator.SetFloat("X", 0);
-        animator.SetFloat("Y", -1);
-
+        attackRange = archerSO.range;
+        towerCost = archerSO.towerCost;
+        damage = archerSO.damage;
+        attackSpeed = archerSO.attackSpeed;
+        description = archerSO.description;
+        towerSprite = archerSO.towerSprite;
+        towerName = archerSO.towerName;
+        range.transform.localScale = new Vector3(attackRange*2, attackRange*2, 0);
         // Tắt hình tròn hiện tầm bắn ban đầu
-        attackArrow.SetActive(false);
+        range.SetActive(false);
         isSelected = false;
+        isAttack = false;
     }
 
     // Đây là Event Animation
     public void ShootArrow()
     {
-        if (focusBee != null )
-        {   
+        if (focusBee != null && arrow == null)
+        {
             // Tạo ra mũi tên và đặt kẻ địch cần bắn cho nó
-            GameObject arrow = Instantiate(pfProjectileArrow, transform.position, Quaternion.identity);
+            arrow = Instantiate(pfProjectileArrow);
+            arrow.transform.SetParent(transform, false);
+            arrow.transform.position = transform.position;
             arrow.GetComponent<ProjectileArrow>().CheckFocusEnemy(focusBee.GetComponent<Bee>());
+            animator.SetBool("Idle", true);
         }
     }
-
-    // Vẽ tầm bắn trong Scene View khi nhấn nào Archer
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
-
     // Kiểm tra kẻ địch nào ở trong vùng, có thì trả về đối tượng đầu tiên, không thì trả về null
-    private GameObject GetEnemyInRange(GameObject[] Bees) 
+    private GameObject GetEnemyInRange(GameObject[] enemies) 
     {
-        for (int i = 0; i < Bees.Length; i++)
+        for (int i = 0; i < enemies.Length; i++)
         {
-            if (Vector3.Distance(Bees[i].transform.position, transform.position) <= attackRange)
+            if (Vector3.Distance(enemies[i].transform.position, transform.position) <= attackRange)
             {   
-                return Bees[i];
+                return enemies[i];
             }
         }
         return null;
@@ -75,20 +79,21 @@ public class Archer : MonoBehaviour, Unit
     private void OnMouseDown()
     {
         isSelected = !isSelected;
-        attackArrow.SetActive(isSelected);
+        range.SetActive(isSelected);
+        UIManager.main.transform.Find("TowerInfoManager").gameObject.SetActive(isSelected);
+        Tower tower =  transform.parent.GetComponentInChildren<Tower>();
+        TowerInfoManager.main.SetArcherSO(this, tower);
     }  
 
     // Thay đổi animation của Archer
     private void ChangeAnimation()
     {
-        Bees = GameObject.FindGameObjectsWithTag("Bee"); // Lấy tất cả các GameObject Bee
-        focusBee = GetEnemyInRange(Bees); // Kiểm tra tầm bắn
-
-        if (focusBee != null) // Nếu có đối tượng trong vùng thì chuyển animation
+        enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Lấy tất cả các GameObject Bee
+        focusBee = GetEnemyInRange(enemies); // Kiểm tra tầm bắn
+        Debug.Log(isAttack);
+        if (focusBee != null && !isAttack) // Nếu có đối tượng trong vùng thì chuyển animation
         {
             Vector3 dir = (focusBee.transform.position - transform.position).normalized; // Cập nhật hướng đối tượng liên tục
-            animator.SetBool("Idle", false);
-
             if (Math.Abs(dir.x) > Math.Abs(dir.y)) // Ưu tiên hướng có giá trị lớn hơn
             {
                 dir.x = Mathf.Sign(dir.x);  // Làm tròn về 1 hoặc -1
@@ -101,10 +106,29 @@ public class Archer : MonoBehaviour, Unit
             }
             animator.SetFloat("X", dir.x);
             animator.SetFloat("Y", dir.y);
+            isAttack = true;
+            StartCoroutine(AttackCooldown());
         }
-        else
+        //else
+        //{
+        //    animator.SetBool("Idle", true);
+        //}
+        else if ( focusBee == null)
         {
             animator.SetBool("Idle", true);
         }
+    }
+
+    private IEnumerator AttackCooldown()
+    {
+        ChangeAttackAnimation();
+        yield return new WaitForSeconds(attackSpeed);
+        isAttack = false;
+        //animator.SetBool("Idle", true);
+    }
+
+    public void ChangeAttackAnimation()
+    {
+        animator.SetBool("Idle", false);
     }
 }
