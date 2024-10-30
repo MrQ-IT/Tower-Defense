@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AchievementManager : MonoBehaviour
 {
@@ -29,5 +30,10 @@ public class AchievementManager : MonoBehaviour
     {
         // Ở đây, bạn có thể dùng dữ liệu người chơi để xác định trạng thái
         return PlayerPrefs.GetInt("Achievement_" + index, 0) == 1;
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

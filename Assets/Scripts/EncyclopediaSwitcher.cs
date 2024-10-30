@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EncyclopediaSwitcher : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class EncyclopediaSwitcher : MonoBehaviour
     public Button enemiesBackButton;
     public Button tipsBackButton;
 
+        // Thêm nút Quit cho từng Panel
+    public Button encyclopediaQuitButton;
+    public Button towersQuitButton;
+    public Button enemiesQuitButton;
+    public Button tipsQuitButton;
+
     void Start()
     {
         // Đặt trạng thái hiển thị ban đầu
@@ -32,6 +39,12 @@ public class EncyclopediaSwitcher : MonoBehaviour
         towersBackButton.onClick.AddListener(() => ShowPanel(encyclopediaPanel));
         enemiesBackButton.onClick.AddListener(() => ShowPanel(encyclopediaPanel));
         tipsBackButton.onClick.AddListener(() => ShowPanel(encyclopediaPanel));
+
+        // Thêm sự kiện cho nút Quit quay về MainMenu
+        encyclopediaQuitButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        towersQuitButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        enemiesQuitButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        tipsQuitButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
     }
 
     void ShowPanel(GameObject panelToShow)

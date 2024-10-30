@@ -1,15 +1,14 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UI; // Use the UnityEngine.UI namespace
 
 public class TipsController : MonoBehaviour
 {
-    public TextMeshProUGUI tipsText;
-    public TextMeshProUGUI pageNumberText;
+    public Text tipsText; // Change back to Text
+    public Text pageNumberText; // Change back to Text
     public Button nextButton;
     public Button previousButton;
 
-    // Mảng chứa các mẹo chơi
+    // Array containing gameplay tips
     private string[] tips = {
         "Tip 1: Always start by placing basic towers near the entrance.",
         "Tip 2: Upgrade your towers instead of building too many new ones.",
@@ -20,21 +19,21 @@ public class TipsController : MonoBehaviour
 
     void Start()
     {
-        // Gán sự kiện cho các nút
+        // Assign events to buttons
         nextButton.onClick.AddListener(NextTip);
         previousButton.onClick.AddListener(PreviousTip);
 
-        // Cập nhật thông tin ban đầu
+        // Update initial information
         UpdateTip();
     }
 
     void UpdateTip()
     {
-        // Cập nhật text hiển thị mẹo và số trang
+        // Update the displayed tip and page number
         tipsText.text = tips[currentPage];
         pageNumberText.text = (currentPage + 1) + "/" + tips.Length;
 
-        // Kiểm tra trạng thái của nút
+        // Check the state of the buttons
         previousButton.interactable = currentPage > 0;
         nextButton.interactable = currentPage < tips.Length - 1;
     }

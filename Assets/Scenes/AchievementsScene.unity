@@ -289,9 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 2134866590}
-  titleText: {fileID: 749962070}
-  descriptionText: {fileID: 1984661798}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &95067785
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,9 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1144131172}
-  titleText: {fileID: 1138716594}
-  descriptionText: {fileID: 1289270979}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &114377512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,9 +1994,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1640073399}
-  titleText: {fileID: 883010289}
-  descriptionText: {fileID: 810470882}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &542593620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,9 +2168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1945721890}
-  titleText: {fileID: 1759495580}
-  descriptionText: {fileID: 272415907}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &607650035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,9 +2341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 221775243}
-  titleText: {fileID: 130000566}
-  descriptionText: {fileID: 542593622}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &692678903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,9 +2906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1288883729}
-  titleText: {fileID: 305841465}
-  descriptionText: {fileID: 1600362273}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &857982846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,9 +3289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1849981903}
-  titleText: {fileID: 326924010}
-  descriptionText: {fileID: 2026502100}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1016528210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,7 +3883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1439092203}
+  achievementIcon: {fileID: 0}
   titleText: {fileID: 0}
   descriptionText: {fileID: 0}
 --- !u!1 &1138716592
@@ -4969,9 +4969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 337481934}
-  titleText: {fileID: 1238474979}
-  descriptionText: {fileID: 607650037}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1439092201
 GameObject:
   m_ObjectHideFlags: 0
@@ -6490,9 +6490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 267720535}
-  titleText: {fileID: 1772460971}
-  descriptionText: {fileID: 1034994533}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1707829258
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,6 +6637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1712967457}
   - component: {fileID: 1712967458}
+  - component: {fileID: 1712967459}
   m_Layer: 5
   m_Name: AchievemntManager
   m_TagString: Untagged
@@ -6695,6 +6696,20 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 40}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1712967459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712967456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73dc5710d0931ff428eebf5623c6f9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementSlots: []
+  killCount: 1
 --- !u!1 &1724783321
 GameObject:
   m_ObjectHideFlags: 0
@@ -7278,9 +7293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 1162430516}
-  titleText: {fileID: 176525301}
-  descriptionText: {fileID: 1204948697}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1810389011
 GameObject:
   m_ObjectHideFlags: 0
@@ -8058,9 +8073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324d3153a2fd5549a97345c408e5fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementIcon: {fileID: 692678905}
-  titleText: {fileID: 330943292}
-  descriptionText: {fileID: 1559050529}
+  achievementIcon: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1978523255
 GameObject:
   m_ObjectHideFlags: 0
@@ -8589,7 +8604,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2111447765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1712967459}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2111447765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8603,7 +8630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.39215687, g: 0.19607843, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8926,18 +8953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dc5710d0931ff428eebf5623c6f9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementSlots:
-  - {fileID: 1972106765}
-  - {fileID: 605747381}
-  - {fileID: 1412352113}
-  - {fileID: 494352228}
-  - {fileID: 849142081}
-  - {fileID: 630398755}
-  - {fileID: 1701508487}
-  - {fileID: 95067789}
-  - {fileID: 1787053689}
-  - {fileID: 929691112}
-  - {fileID: 14112657}
+  achievementSlots: []
   killCount: 1
 --- !u!114 &2146872201
 MonoBehaviour:
@@ -8951,18 +8967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dc5710d0931ff428eebf5623c6f9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementSlots:
-  - {fileID: 1972106765}
-  - {fileID: 605747381}
-  - {fileID: 1412352113}
-  - {fileID: 494352228}
-  - {fileID: 849142081}
-  - {fileID: 630398755}
-  - {fileID: 1701508487}
-  - {fileID: 95067789}
-  - {fileID: 1787053689}
-  - {fileID: 929691112}
-  - {fileID: 14112657}
+  achievementSlots: []
   killCount: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
