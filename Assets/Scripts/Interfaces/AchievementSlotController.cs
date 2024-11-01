@@ -22,6 +22,10 @@ public class AchievementSlotController : MonoBehaviour
         }
         else
         {
+            //achievementIcon.color = Color.red;
+            //titleText.color = Color.red;
+            //descriptionText.color = Color.red;
+
             // Nếu chưa đạt, làm tối nhưng vẫn nhìn thấy chữ
             achievementIcon.color = new Color(0.5f, 0.5f, 0.5f, 0.6f); // Màu xám nhạt với độ trong suốt
             titleText.color = new Color(1f, 1f, 1f, 0.7f); // Màu trắng nhạt để vẫn đọc được

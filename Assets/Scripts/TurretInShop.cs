@@ -12,6 +12,8 @@ public class TurretInShop : MonoBehaviour
     private Plot plot;
 
     [SerializeField] private GameObject buildManager;
+    public AchievementSO achievementSO;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,7 @@ public class TurretInShop : MonoBehaviour
             buildManager.SetActive(false);
             CurrencyManager.main.SpendCurrency(turretCost);
             plot.checkTurret = true;
+            achievementSO.value = achievementSO.value + 1;
         }
         else
         {

@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bee : MonoBehaviour
 {
@@ -12,8 +15,8 @@ public class Bee : MonoBehaviour
     private HealthBar healthBar;
     private GameObject healthBarObject;
     private Animator animator;
-    private bool isDestroyed = false;
-    
+
+    public AchievementSO achievementSO;
     void Awake()
     {
         Initialize();
@@ -36,8 +39,8 @@ public class Bee : MonoBehaviour
     }
 
     public void Die()
-    {   
-        animator.SetBool("Death", true);
+    {
+        animator.SetBool("Death", true); 
     }
 
     // Animation Event
@@ -49,8 +52,6 @@ public class Bee : MonoBehaviour
 
     public void RemoveOnPathEnd()
     {
-        if (isDestroyed) return;
-        isDestroyed = true;
         Destroy(gameObject);
         Destroy(healthBarObject);
     }
@@ -75,6 +76,16 @@ public class Bee : MonoBehaviour
 
     public void ChangeMovementAnimation(Vector3 direction)
     {
+        if (Math.Abs(direction.x) > Math.Abs(direction.y)) // Ưu tiên hướng có giá trị lớn hơn
+        {
+            direction.x = Mathf.Sign(direction.x);  // Làm tròn về 1 hoặc -1
+            direction.y = 0;
+        }
+        else if (Math.Abs(direction.y) > Math.Abs(direction.x))
+        {
+            direction.y = Mathf.Sign(direction.y);  // Làm tròn về 1 hoặc -1
+            direction.x = 0;
+        }
         animator.SetFloat("X", direction.normalized.x);
         animator.SetFloat("Y", direction.normalized.y);
     }
