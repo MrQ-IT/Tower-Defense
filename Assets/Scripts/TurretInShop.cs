@@ -44,7 +44,6 @@ public class TurretInShop : MonoBehaviour
             Debug.Log(tower.transform.GetComponentInChildren<Tower>());
             tower.transform.GetComponentInChildren<Tower>().plot = plot;
             buildManager.SetActive(false);
-            //CurrencyManager.main.SpendCurrency(turretCost);
             plot.checkTurret = true;
         }
         else

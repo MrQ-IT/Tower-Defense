@@ -30,27 +30,6 @@ public class Archer : MonoBehaviour
     private void Update()
     {
         ChangeAnimation();
-        if ( isSelected)
-        if (Input.GetMouseButtonDown(0)) // Kiểm tra nếu nhấp chuột trái
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Debug.Log("Mouse");
-            // Kiểm tra va chạm với đối tượng được chỉ định
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    Debug.Log("Clicked on target object!");
-                    // Cho phép tương tác với targetObject
-                }
-                else
-                {
-                    Debug.Log("Interaction blocked.");
-                    // Ngăn chặn tương tác với các đối tượng khác
-                }
-            }
-        }
     }
 
     private void Initialize()
@@ -138,13 +117,9 @@ public class Archer : MonoBehaviour
 
     private IEnumerator AttackCooldown()
     {
-        ChangeAttackAnimation();
+        animator.SetBool("Idle", false);
         yield return new WaitForSeconds(attackSpeed);
         isAttack = false;
     }
 
-    public void ChangeAttackAnimation()
-    {
-        animator.SetBool("Idle", false);
-    }
 }

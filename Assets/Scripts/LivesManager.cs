@@ -13,11 +13,6 @@ public class LivesManager : MonoBehaviour
         Initialize();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Initialize()
     {
