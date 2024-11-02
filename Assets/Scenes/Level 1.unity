@@ -3783,6 +3783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   archerSO: {fileID: 11400000, guid: 251b0434753958e4dbc7a5a3dc34a808, type: 2}
   buildManager: {fileID: 2534590591713551043}
+  achievementSO: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
 --- !u!114 &756956600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19830,6 +19831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   archerSO: {fileID: 11400000, guid: e9c0b76f517c2504bb5e7d34e3d58ac0, type: 2}
   buildManager: {fileID: 2534590591713551043}
+  achievementSO: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
 --- !u!114 &1804346687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24002,6 +24004,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8744528887829306870, guid: 43131697a123e6f4789a146c6e3c3499, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24610,6 +24616,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 484494417585433330, guid: dd7e71a6a0da33d4baf9b42f55a841b6, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
     - target: {fileID: 5742081352563395753, guid: dd7e71a6a0da33d4baf9b42f55a841b6, type: 3}
       propertyPath: m_Name
       value: Tower1_Level1
@@ -24725,6 +24735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   archerSO: {fileID: 11400000, guid: 4ac2befef77750842930c3ec89ea1739, type: 2}
   buildManager: {fileID: 2534590591713551043}
+  achievementSO: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
 --- !u!222 &7311178244707397448
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25186,6 +25197,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7402498353295409925, guid: 140239488c0eecf40b92fb9b9b95b6cd, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

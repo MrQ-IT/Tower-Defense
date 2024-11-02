@@ -11,6 +11,8 @@ public class TurretInShop : MonoBehaviour
     public Sprite turretSprite { get; set; }
     private Plot plot;
     [SerializeField] private GameObject buildManager;
+    public AchievementSO achievementSO;
+
 
 
     void Start()
@@ -45,6 +47,7 @@ public class TurretInShop : MonoBehaviour
             tower.transform.GetComponentInChildren<Tower>().plot = plot;
             buildManager.SetActive(false);
             plot.checkTurret = true;
+            achievementSO.value = achievementSO.value + 1;
         }
         else
         {

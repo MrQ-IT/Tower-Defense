@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 1bcae23531c3e814abf51bfa50aed59d, type: 2}
+  achievementSO: {fileID: 11400000, guid: af6d74a9635e0bb46b3a361ecf354eff, type: 2}

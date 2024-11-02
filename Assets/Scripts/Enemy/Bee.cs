@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bee : MonoBehaviour
 {
@@ -13,7 +15,8 @@ public class Bee : MonoBehaviour
     private HealthBar healthBar;
     private GameObject healthBarObject;
     private Animator animator;
-    
+
+    public AchievementSO achievementSO;
     void Awake()
     {
         Initialize();
@@ -35,21 +38,6 @@ public class Bee : MonoBehaviour
         healthBar.SetMaxHealth(health);
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            SetDeathAnimation();
-        }
-        healthBar.SetHealth(health);
-    }
-
-    public void SetDeathAnimation()
-    {
-        animator.SetBool("Death", true);
-    }
-
     // Animation Event
     public void DestroyBee()
     {
@@ -68,6 +56,22 @@ public class Bee : MonoBehaviour
     {
         healthBarObject = UIManager.main.CreateHealthBar();
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
+    }
+
+    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            SetDeathAnimation();
+        }
+        healthBar.SetHealth(health);
+    }
+
+    public void SetDeathAnimation()
+    {
+        animator.SetBool("Death", true);
     }
 
     public void ChangeMovementAnimation(Vector3 direction)
