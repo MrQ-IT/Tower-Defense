@@ -19,12 +19,22 @@ public class Bee : MonoBehaviour
         Initialize();
     }
 
-    
     void Update()
     {
         UpdateHealthBarPos();
     }
-    
+
+    public void Initialize()
+    {   
+        animator = GetComponent<Animator>();
+        health = EnemyData.health;
+        speed = (int)EnemyData.speed;
+        currency = EnemyData.currency;
+        enemyName = EnemyData.enemyName;
+        SpawnHealthBar();
+        healthBar.SetMaxHealth(health);
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -36,7 +46,7 @@ public class Bee : MonoBehaviour
     }
 
     public void SetDeathAnimation()
-    {   
+    {
         animator.SetBool("Death", true);
     }
 
@@ -58,17 +68,6 @@ public class Bee : MonoBehaviour
     {
         healthBarObject = UIManager.main.CreateHealthBar();
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
-    }
-
-    public void Initialize()
-    {   
-        animator = GetComponent<Animator>();
-        health = EnemyData.health;
-        speed = (int)EnemyData.speed;
-        currency = EnemyData.currency;
-        enemyName = EnemyData.enemyName;
-        SpawnHealthBar();
-        healthBar.SetMaxHealth(health);
     }
 
     public void ChangeMovementAnimation(Vector3 direction)
