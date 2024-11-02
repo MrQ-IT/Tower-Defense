@@ -20,7 +20,7 @@ public class Archer : MonoBehaviour
     private GameObject focusBee;
     private GameObject arrow;
     private bool isSelected;
-    public bool isAttack { get; set; }
+    public bool isAttack;
 
     private void Start()
     {
@@ -30,6 +30,27 @@ public class Archer : MonoBehaviour
     private void Update()
     {
         ChangeAnimation();
+        if ( isSelected)
+        if (Input.GetMouseButtonDown(0)) // Kiểm tra nếu nhấp chuột trái
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Debug.Log("Mouse");
+            // Kiểm tra va chạm với đối tượng được chỉ định
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    Debug.Log("Clicked on target object!");
+                    // Cho phép tương tác với targetObject
+                }
+                else
+                {
+                    Debug.Log("Interaction blocked.");
+                    // Ngăn chặn tương tác với các đối tượng khác
+                }
+            }
+        }
     }
 
     private void Initialize()
@@ -83,6 +104,7 @@ public class Archer : MonoBehaviour
         UIManager.main.transform.Find("TowerInfoManager").gameObject.SetActive(isSelected);
         Tower tower =  transform.parent.GetComponentInChildren<Tower>();
         TowerInfoManager.main.SetArcherSO(this, tower);
+        TowerInfoManager.main.SetPlot(tower.plot);
     }  
 
     // Thay đổi animation của Archer
@@ -90,7 +112,6 @@ public class Archer : MonoBehaviour
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Lấy tất cả các GameObject Bee
         focusBee = GetEnemyInRange(enemies); // Kiểm tra tầm bắn
-        Debug.Log(isAttack);
         if (focusBee != null && !isAttack) // Nếu có đối tượng trong vùng thì chuyển animation
         {
             Vector3 dir = (focusBee.transform.position - transform.position).normalized; // Cập nhật hướng đối tượng liên tục
@@ -109,10 +130,6 @@ public class Archer : MonoBehaviour
             isAttack = true;
             StartCoroutine(AttackCooldown());
         }
-        //else
-        //{
-        //    animator.SetBool("Idle", true);
-        //}
         else if ( focusBee == null)
         {
             animator.SetBool("Idle", true);
@@ -124,7 +141,6 @@ public class Archer : MonoBehaviour
         ChangeAttackAnimation();
         yield return new WaitForSeconds(attackSpeed);
         isAttack = false;
-        //animator.SetBool("Idle", true);
     }
 
     public void ChangeAttackAnimation()

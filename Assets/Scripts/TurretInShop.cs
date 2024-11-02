@@ -10,19 +10,12 @@ public class TurretInShop : MonoBehaviour
     public int turretCost { get; set; }
     public Sprite turretSprite { get; set; }
     private Plot plot;
-
     [SerializeField] private GameObject buildManager;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         Initialize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void Initialize()
@@ -44,11 +37,14 @@ public class TurretInShop : MonoBehaviour
     // Button Event
     public void BuildTurret()
     {
-        if ( plot.checkTurret == false && plot != null)
+        if ( plot.checkTurret == false && plot != null && CurrencyManager.main.SpendCurrency(turretCost))
         {
-            Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
+            GameObject tower = Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
+            tower.transform.parent = plot.transform;
+            Debug.Log(tower.transform.GetComponentInChildren<Tower>());
+            tower.transform.GetComponentInChildren<Tower>().plot = plot;
             buildManager.SetActive(false);
-            CurrencyManager.main.SpendCurrency(turretCost);
+            //CurrencyManager.main.SpendCurrency(turretCost);
             plot.checkTurret = true;
         }
         else

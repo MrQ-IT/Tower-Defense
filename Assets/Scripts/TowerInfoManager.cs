@@ -9,7 +9,6 @@ public class TowerInfoManager : MonoBehaviour
     public static TowerInfoManager main;
     private Archer archer;   
     private Tower tower;
-    
     private Image sprite;
     private Text towerName;
     private Text towerDescription;
@@ -18,16 +17,10 @@ public class TowerInfoManager : MonoBehaviour
     private Text attackSpeed;
     private Text upgradeCost;
     private Text sellCost;
-
-    void Start()
+    private Plot plot;
+    void Awake()
     {
         Initialize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Initialize()
@@ -93,11 +86,19 @@ public class TowerInfoManager : MonoBehaviour
 
     public void Sell()
     {
-
+        CurrencyManager.main.IncreaseCurrency(RoundToTen(archer.towerCost * 0.5));
+        plot.checkTurret = false;
+        Destroy(plot.transform.GetChild(0).gameObject);
+        gameObject.SetActive(false);
     }
 
     public int RoundToTen(double value)
     {
         return (int)(value / 10.0) * 10;
+    }
+
+    public void SetPlot(Plot plot)
+    {
+        this.plot = plot;
     }
 }
