@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52cdb8876edab2047baa41f944a7da29, type: 3}
+  m_Name: Lightning3SO
+  m_EditorClassIdentifier: 
+  skillType: 1
+  skillName: Lightning lvl3
+  skillIcon: {fileID: -1676514005, guid: a6a296507ab154f45861f780b6f1da6c, type: 3}
+  skillPrefab: {fileID: 3690066659588036104, guid: 53ef1fdbbb265bd4dbb39d79ba6d4be4, type: 3}
+  cooldown: 9
+  baseDamage: 450
+  skillLevel: 3
+  cooldownTimer: 0
