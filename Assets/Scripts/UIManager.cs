@@ -34,4 +34,16 @@ public class UIManager : MonoBehaviour
         GameObject healthBar = Instantiate(pfHealthBar, transform, false);
         return healthBar;
     }
+
+    public void GameOver()
+    {
+        transform.Find("GameOver").gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void GameWin()
+    {
+        transform.Find("GameWin").gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
 }

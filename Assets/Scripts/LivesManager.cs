@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LivesManager : MonoBehaviour
-{
-    private int lives;
+{   
+    public static LivesManager main;
+    public int lives { get; set; }
     private Text text;
-    // Start is called before the first frame update
+
     void Start()
     {
         Initialize();
@@ -15,7 +16,8 @@ public class LivesManager : MonoBehaviour
 
 
     public void Initialize()
-    {
+    {   
+        main = this;
         lives = 20;
         text = GetComponentInChildren<Text>();
         text.text = lives.ToString();
@@ -27,6 +29,10 @@ public class LivesManager : MonoBehaviour
         {
             lives--;
             text.text = lives.ToString();
+        }
+        else
+        {
+            UIManager.main.GameOver();
         }
     }
 }

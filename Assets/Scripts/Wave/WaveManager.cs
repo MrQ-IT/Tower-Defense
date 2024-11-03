@@ -7,16 +7,20 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    public static WaveManager main;
     [SerializeField] private WaveSO[] waveSO;
     private float waveInterval = 15f;
     private float spawnTime = 2f;
     private float repeatTime = 0.5f;
-
-    private int currentWaveIndex = 0;
+    private int currentWaveIndex = 14;
     private int enemyIndex = 0;
     private int[] currentNumberOfEnemies;
+    public int lastEnemyCount = 0;
+    public bool outOfEnemies = false;
+
     void Start()
-    {
+    {   
+        main = this;
         Initialize();
     }
 
@@ -27,6 +31,7 @@ public class WaveManager : MonoBehaviour
             if (currentNumberOfEnemies[enemyIndex] > 0)
             {
                 Instantiate(waveSO[currentWaveIndex].pfEnemies[enemyIndex], transform.position, Quaternion.identity);
+                lastEnemyCount++;
                 currentNumberOfEnemies[enemyIndex]--;
             }
             else
@@ -42,14 +47,14 @@ public class WaveManager : MonoBehaviour
                 {
                     Invoke("Initialize", waveInterval);
                 }
+                else
+                {
+                    outOfEnemies = true;
+                    Debug.Log("Out of enemy");
+                }
             }
         }
-        else
-        {
-            CancelInvoke("SpawnEnemy");
-        }
     }
-
 
     public void Initialize()
     {

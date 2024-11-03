@@ -13,8 +13,6 @@ public class TurretInShop : MonoBehaviour
     [SerializeField] private GameObject buildManager;
     public AchievementSO achievementSO;
 
-
-
     void Start()
     {
         Initialize();
@@ -43,7 +41,6 @@ public class TurretInShop : MonoBehaviour
         {
             GameObject tower = Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
             tower.transform.parent = plot.transform;
-            Debug.Log(tower.transform.GetComponentInChildren<Tower>());
             tower.transform.GetComponentInChildren<Tower>().plot = plot;
             buildManager.SetActive(false);
             plot.checkTurret = true;

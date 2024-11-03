@@ -6,10 +6,11 @@ public class GameManager : MonoBehaviour
 {
     private Vector3 dragOrigin;
     [SerializeField] private float dragSpeed = 0.1f;
-    // Start is called before the first frame update
+    public static GameManager main;
+
     void Start()
     {
-
+        Initialize();
     }
 
     // Update is called once per frame
@@ -18,10 +19,11 @@ public class GameManager : MonoBehaviour
         DragMap();
     }
 
-    private void GameOver()
+    public void Initialize()
     {
-        Debug.Log("Game Over");
+        main = this;
     }
+
 
     private void DragMap()
     {

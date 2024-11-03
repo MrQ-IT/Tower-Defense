@@ -15,8 +15,8 @@ public class Bee : MonoBehaviour
     private HealthBar healthBar;
     private GameObject healthBarObject;
     private Animator animator;
-
     public AchievementSO achievementSO;
+
     void Awake()
     {
         Initialize();
@@ -49,6 +49,11 @@ public class Bee : MonoBehaviour
     {
         Destroy(gameObject);
         Destroy(healthBarObject);
+        WaveManager.main.lastEnemyCount--;
+        if (WaveManager.main.outOfEnemies && WaveManager.main.lastEnemyCount == 0)
+        {
+            UIManager.main.GameWin();
+        }
     }
 
     // Show HealthBar
@@ -58,7 +63,6 @@ public class Bee : MonoBehaviour
         healthBar = healthBarObject.GetComponentInChildren<HealthBar>();
     }
 
-    
     public void TakeDamage(int damage)
     {
         health -= damage;

@@ -11,7 +11,6 @@ public class EnemysMove : MonoBehaviour
     private WaypointManager waypointManager;
     private int indexWaypoint;
     private Vector3 direction;
-    private LivesManager livesManager;
 
     private void Start()
     {
@@ -25,7 +24,6 @@ public class EnemysMove : MonoBehaviour
 
     private void Initialize()
     {
-        livesManager = UIManager.main.GetComponentInChildren<LivesManager>();
         waypointManager = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
         enemySpeed = GetComponent<Bee>().speed;
         indexWaypoint = 0;
@@ -46,7 +44,7 @@ public class EnemysMove : MonoBehaviour
         }
         else
         {   
-            livesManager.DecreaseLives();
+            LivesManager.main.DecreaseLives();
             GetComponent<Bee>().RemoveOnPathEnd();
         }
     }

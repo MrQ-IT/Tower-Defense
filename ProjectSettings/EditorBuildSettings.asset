@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/AchievementsScene.unity
+    guid: 83282d7b0a260554c971af328268f717
+  - enabled: 1
+    path: Assets/Scenes/Audio.unity
+    guid: c7f220ae16bdfaf4ba54bb76a647bbb4
+  - enabled: 1
+    path: Assets/Scenes/CyclopediaScene.unity
+    guid: 190fcd7dc1744094ca3d57ff491267f3
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3e1f6e004edbb8b408038d51196d371e
   m_configObjects: {}
