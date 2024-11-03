@@ -6,31 +6,21 @@ using UnityEngine.UI;
 
 public class SkillHandler : MonoBehaviour
 {
-	public SkillsSO skillData;            // Reference to SkillSO
-	public GameObject castingCirclePrefab;  // Prefab for the casting circle UI
-	public Text chargeText;
+	public SkillsSO skillData;                // Reference to SkillSO
+	public GameObject castingCirclePrefab;    // Prefab for the casting circle UI
+	public Text cooldownText;                 // Text to display cooldown information
 
 	private GameObject castingCircleInstance;
-	private bool isCasting = false;      // Track if we are in casting mode
-	private int currentCharges;
-
-	void Start()
-	{
-		currentCharges = skillData.maxCharges;
-		UpdateChargeText();
-	}
-
-	// Called when skill button is clicked
-	public void SelectSkill()
-	{
-		if (currentCharges > 0)
-		{
-			EnableCastingMode();
-		}
-	}
+	private bool isCasting = false;           // Track if we are in casting mode
 
 	void Update()
 	{
+		// Update cooldown timer in SkillSO
+		skillData.UpdateCooldown();
+
+		// Update the cooldown text display
+		UpdateCooldownText();
+
 		// Only update casting circle position if we're in casting mode
 		if (isCasting && castingCircleInstance != null)
 		{
@@ -50,6 +40,19 @@ public class SkillHandler : MonoBehaviour
 		}
 	}
 
+	// Called when skill button is clicked
+	public void SelectSkill()
+	{
+		if (!skillData.IsOnCooldown) // Only enable casting if the skill is not on cooldown
+		{
+			EnableCastingMode();
+		}
+		else
+		{
+			Debug.Log($"{skillData.skillName} is on cooldown!");
+		}
+	}
+
 	private void EnableCastingMode()
 	{
 		isCasting = true;
@@ -58,25 +61,18 @@ public class SkillHandler : MonoBehaviour
 
 	private void CastSkill(Vector3 castPosition)
 	{
-		if (currentCharges > 0)
+		if (!skillData.IsOnCooldown) // Check for cooldown before casting
 		{
-			GameObject skillInstance = Instantiate(skillData.skillPrefab, castPosition, Quaternion.identity);
-			ApplySkillProperties(skillInstance);
-			currentCharges--;
-			UpdateChargeText();
+			// Execute the skill and start cooldown
+			skillData.ExecuteSkill(castPosition);
+			skillData.cooldownTimer = skillData.cooldown;  // Start cooldown timer
+		}
+		else
+		{
+			Debug.Log($"{skillData.skillName} is on cooldown!"); // Feedback if trying to cast on cooldown
 		}
 
 		CancelCastingMode();  // Exit casting mode after casting
-	}
-
-	private void ApplySkillProperties(GameObject skillInstance)
-	{
-		Spike spikeScript = skillInstance.GetComponent<Spike>();
-		if (spikeScript != null)
-		{
-			spikeScript.damage = skillData.baseDamage * skillData.skillLevel;
-			spikeScript.durationInFrames = skillData.durationInFrames;
-		}
 	}
 
 	private void CancelCastingMode()
@@ -88,8 +84,16 @@ public class SkillHandler : MonoBehaviour
 		}
 	}
 
-	private void UpdateChargeText()
+	private void UpdateCooldownText()
 	{
-		chargeText.text = $"x{currentCharges}";
+		// Display cooldown with one decimal place, or clear text if no cooldown
+		if (skillData.IsOnCooldown)
+		{
+			cooldownText.text = $"{skillData.cooldownTimer:F1}";
+		}
+		else
+		{
+			cooldownText.text = ""; // Clear text when cooldown is over
+		}
 	}
 }

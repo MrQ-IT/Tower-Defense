@@ -12,21 +12,36 @@ public class SkillsSO : ScriptableObject
 	public string skillName;
 	public Sprite skillIcon;
 	public GameObject skillPrefab;
-	public int maxCharges;
 	public float cooldown;
 	public int baseDamage;
 
 	[Range(1, 4)]
 	public int skillLevel = 1;
 
-	public int durationInFrames;
+	[HideInInspector] public float cooldownTimer;
+
+	public bool IsOnCooldown => cooldownTimer > 0;
+
+	public void StartCooldown()
+	{
+		cooldownTimer = cooldown;
+	}
+
+	public void UpdateCooldown()
+	{
+		if (cooldownTimer > 0)
+		{
+			cooldownTimer -= Time.deltaTime;
+			if (cooldownTimer < 0) cooldownTimer = 0;
+		}
+	}
 
 	public void ExecuteSkill(Vector3 position)
 	{
-		// Instantiate the skill's effect at the specified position
-		if (skillPrefab != null)
+		if (skillPrefab != null && !IsOnCooldown)
 		{
 			Instantiate(skillPrefab, position, Quaternion.identity);
+			StartCooldown(); // Start cooldown after executing the skill
 		}
 	}
 }
