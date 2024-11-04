@@ -15,12 +15,6 @@ public class UIManager : MonoBehaviour
         main = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void EnableBuildManager()
     {
         transform.Find("BuildManager").gameObject.SetActive(true);

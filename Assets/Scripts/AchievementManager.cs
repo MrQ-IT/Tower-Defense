@@ -7,33 +7,26 @@ public class AchievementManager : MonoBehaviour
 {
     public AchievementSlotController[] achievementSlots; // Mảng chứa các ô thành tựu
 
-    public int killCount = 1;
-
+    bool isAchieved = false;
+    public AchievementSO[] achievementSO;
     void Start()
     {
+        int killCount = PlayerPrefs.GetInt("KillCount", 0);
+
         // Kiểm tra trạng thái của từng thành tựu khi bắt đầu
         for (int i = 0; i < achievementSlots.Length; i++)
         {
-            bool isAchieved = (i == 0) ? (killCount > 0) : CheckAchievementStatus(i);
+
+            if (achievementSO[0].value >= achievementSO[0].condition && i == 0) isAchieved = true;
+            else isAchieved = false;
+
+            if (achievementSO[0].value >= 5 && i == 1) isAchieved = true;
+
+            if (achievementSO[1].value >= achievementSO[1].condition && i == 2) isAchieved = true;
+            if (achievementSO[1].value >= 5 && i == 3) isAchieved = true;
+
             achievementSlots[i].UpdateAchievementStatus(isAchieved);
 
-            // Lưu trạng thái thành tựu đầu tiên
-            if (i == 0 && killCount > 0)
-            {
-                PlayerPrefs.SetInt("Achievement_0", 1);
-            }
         }
-    }
-
-    // Hàm giả định kiểm tra trạng thái thành tựu
-    bool CheckAchievementStatus(int index)
-    {
-        // Ở đây, bạn có thể dùng dữ liệu người chơi để xác định trạng thái
-        return PlayerPrefs.GetInt("Achievement_" + index, 0) == 1;
-    }
-
-    public void Quit()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 }

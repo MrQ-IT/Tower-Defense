@@ -9,16 +9,10 @@ public class CurrencyManager : MonoBehaviour
     private int initialCurrency;
     private int currentCurrency;
     private Text currencyText;
-    // Start is called before the first frame update
+
     void Start()
     {
         Initialize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void Initialize()
@@ -38,7 +32,7 @@ public class CurrencyManager : MonoBehaviour
 
     public bool SpendCurrency(int amount)
     {
-        if (amount < currentCurrency)
+        if (amount <= currentCurrency)
         {
             currentCurrency -= amount;
             currencyText.text = currentCurrency.ToString();

@@ -6,19 +6,13 @@ public class Tower : MonoBehaviour
 {
     private Animator animator;
     private float idleNumber;
-    public float upgradeNumber { get; set; }
+    public float upgradeNumber;
     [SerializeField] private GameObject archer;
+    public Plot plot;
 
-    // Start is called before the first frame update
     void Start()
     {
         Initialize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void Initialize()

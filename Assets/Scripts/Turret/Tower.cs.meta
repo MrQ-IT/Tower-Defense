@@ -3,7 +3,9 @@ guid: f601e038720f58948802bdecab8307e6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - archer: {instanceID: 0}
+  - achievementSO: {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
