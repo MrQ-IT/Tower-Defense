@@ -3,7 +3,10 @@ guid: 2d46ad6ee24fa3e458c4b42c37aa7b20
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - skillData: {instanceID: 0}
+  - castingCirclePrefab: {fileID: 4139587418596122812, guid: 972aa57f71ad5cb4781bdf6e2156c502, type: 3}
+  - cooldownText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
