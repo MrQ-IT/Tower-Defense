@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Bee : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class Bee : MonoBehaviour
     public string enemyName { get; set; }
     private HealthBar healthBar;
     private GameObject healthBarObject;
+    private GameObject coinPopupObject;
     private Animator animator;
+    private bool isDead;
     public AchievementSO achievementSO;
 
     void Awake()
@@ -36,11 +39,12 @@ public class Bee : MonoBehaviour
         enemyName = EnemyData.enemyName;
         SpawnHealthBar();
         healthBar.SetMaxHealth(health);
+        isDead = false;
     }
 
     // Animation Event
     public void DestroyBee()
-    {
+    {   
         RemoveOnPathEnd();
         CurrencyManager.main.IncreaseCurrency(currency);
     }
@@ -49,6 +53,7 @@ public class Bee : MonoBehaviour
     {
         Destroy(gameObject);
         Destroy(healthBarObject);
+        Destroy(coinPopupObject);
         WaveManager.main.lastEnemyCount--;
         if (WaveManager.main.outOfEnemies && WaveManager.main.lastEnemyCount == 0)
         {
@@ -65,17 +70,21 @@ public class Bee : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         health -= damage;
+        healthBar.SetHealth(health);
         if (health <= 0)
-        {
+        {   
+            isDead = true;
             SetDeathAnimation();
         }
-        healthBar.SetHealth(health);
     }
 
     public void SetDeathAnimation()
-    {
+    {   
         animator.SetBool("Death", true);
+        coinPopupObject = UIManager.main.CreateCoinPopup();
+        coinPopupObject.transform.GetComponentInChildren<Text>().text = "+" + currency.ToString();
     }
 
     public void ChangeMovementAnimation(Vector3 direction)
@@ -100,6 +109,11 @@ public class Bee : MonoBehaviour
         {
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
             healthBarObject.transform.position = screenPosition + new Vector3(0, 10, 0);
+        }
+        if (coinPopupObject != null)
+        {
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+            coinPopupObject.transform.position = screenPosition + new Vector3(10, 0, 0);
         }
     }
 }

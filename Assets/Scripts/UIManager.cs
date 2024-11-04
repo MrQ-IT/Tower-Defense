@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager main;
     public Plot plot { get; set; }
     [SerializeField] private GameObject pfHealthBar;
+    [SerializeField] private GameObject pfCoinPopup;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,12 @@ public class UIManager : MonoBehaviour
     {
         GameObject healthBar = Instantiate(pfHealthBar, transform, false);
         return healthBar;
+    }
+
+    public GameObject CreateCoinPopup()
+    {
+        GameObject coinPopup = Instantiate(pfCoinPopup, transform, false);
+        return coinPopup;
     }
 
     public void GameOver()
