@@ -6,121 +6,120 @@ using UnityEngine.UI;
 
 public class SkillHandler : MonoBehaviour
 {
-	public SkillsSO skillData;             // Reference to SkillsSO
-	public GameObject castingCirclePrefab; // Prefab for the casting circle UI
-	public Text cooldownText;              // Text to display cooldown information
+    public SkillsSO skillData;             // Reference to SkillsSO
+    public GameObject castingCirclePrefab; // Prefab for the casting circle UI
+    public Text cooldownText;              // Text to display cooldown information
+    private GameObject castingCircleInstance;
+    private bool isCasting = false;        // Track if we are in casting mode
+    private float cooldownTimer = 0f;
+    
+    void Update()
+    {
+        UpdateCooldown();
 
-	private GameObject castingCircleInstance;
-	private bool isCasting = false;        // Track if we are in casting mode
-	private float cooldownTimer = 0f;
+        // Display the cooldown timer
+        DisplayCooldown();
 
-	// Static reference to the currently selected SkillHandler
-	private static SkillHandler currentSkillHandler;
+        // Only update casting circle position if we're in casting mode
+        SpawnCastingCircle();
+    }
 
-	void Update()
-	{
-		UpdateCooldown();
+    public void SpawnCastingCircle()
+    {
+        if (isCasting && castingCircleInstance != null)
+        {
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            cursorPosition.z = 0f;
+            castingCircleInstance.transform.position = cursorPosition;
 
-		// Display the cooldown timer
-		if (IsOnCooldown())
-		{
-			cooldownText.text = $"{cooldownTimer:F1}"; // Format timer to one decimal
-		}
-		else
-		{
-			cooldownText.text = ""; // Clear the text when not on cooldown
-		}
+            // Check for the cast trigger with left mouse button click
+            if (Input.GetMouseButtonDown(0))
+            {
+                ExecuteSkill(cursorPosition);
+            }
+            else if (Input.GetMouseButtonDown(1))  // Right-click cancels casting
+            {
+                CancelCastingMode();
+            }
+        }
+    }
 
-		// Only update casting circle position if we're in casting mode
-		if (isCasting && castingCircleInstance != null)
-		{
-			Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			cursorPosition.z = 0f;
-			castingCircleInstance.transform.position = cursorPosition;
+    // Determines if the skill is currently on cooldown
+    public bool IsOnCooldown()
+    {
+        return cooldownTimer > 0;
+    }
 
-			// Check for the cast trigger with left mouse button click
-			if (Input.GetMouseButtonDown(0))
-			{
-				ExecuteSkill(cursorPosition);
-			}
-			else if (Input.GetMouseButtonDown(1))  // Right-click cancels casting
-			{
-				CancelCastingMode();
-			}
-		}
-	}
+    public void DisplayCooldown()
+    {
+        if (IsOnCooldown())
+        {
+            cooldownText.text = $"{cooldownTimer:F1}"; // Format timer to one decimal
+        }
+        else
+        {
+            cooldownText.text = ""; // Clear the text when not on cooldown
+        }
+    }
 
-	// Determines if the skill is currently on cooldown
-	public bool IsOnCooldown()
-	{
-		return cooldownTimer > 0;
-	}
+    // Starts the cooldown for the skill
+    public void StartCooldown()
+    {
+        cooldownTimer = skillData.cooldown;
+    }
 
-	// Starts the cooldown for the skill
-	public void StartCooldown()
-	{
-		cooldownTimer = skillData.cooldown;
-	}
+    // Updates the cooldown timer each frame
+    private void UpdateCooldown()
+    {
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer < 0) cooldownTimer = 0;
+        }
+    }
 
-	// Updates the cooldown timer each frame
-	private void UpdateCooldown()
-	{
-		if (cooldownTimer > 0)
-		{
-			cooldownTimer -= Time.deltaTime;
-			if (cooldownTimer < 0) cooldownTimer = 0;
-		}
-	}
+    // Executes the skill if not on cooldown and starts the cooldown timer
+    public void ExecuteSkill(Vector3 position)
+    {
+        if (skillData.skillPrefab != null && !IsOnCooldown())
+        {   
+            if (skillData.skillName == "Lightning")
+            {
+                position.y += 2f;
+                Instantiate(skillData.skillPrefab, position, Quaternion.identity);
+                Debug.Log(skillData.skillPrefab.GetComponent<CircleCollider2D>().radius);
+            }
+            else
+            {
+                Instantiate(skillData.skillPrefab, position, Quaternion.identity);
+            }
+            StartCooldown(); // Start cooldown after executing the skill
+            CancelCastingMode();
+        }
+    }
 
-	// Executes the skill if not on cooldown and starts the cooldown timer
-	public void ExecuteSkill(Vector3 position)
-	{
-		if (skillData.skillPrefab != null && !IsOnCooldown())
-		{
-			Instantiate(skillData.skillPrefab, position, Quaternion.identity);
-			StartCooldown(); // Start cooldown after executing the skill
-		}
-	}
+    // Button Event
+    public void SelectSkill()
+    {
+        if (!IsOnCooldown()) // Only enable casting if the skill is not on cooldown
+        {
+            isCasting = true;
+            castingCircleInstance = Instantiate(castingCirclePrefab);
+            castingCircleInstance.transform.localScale = Vector3.one * skillData.range;
+            skillData.skillPrefab.GetComponent<CircleCollider2D>().radius = skillData.range;
+        }
+        else
+        {
+            Debug.Log($"{skillData.skillName} is on cooldown!");
+        }
+    }
 
-	// Called when skill button is clicked
-	public void SelectSkill()
-	{
-		if (!IsOnCooldown()) // Only enable casting if the skill is not on cooldown
-		{
-			// Deselect the current skill if one is already selected
-			if (currentSkillHandler != null && currentSkillHandler != this)
-			{
-				currentSkillHandler.CancelCastingMode();
-			}
-
-			// Set this skill as the active one
-			currentSkillHandler = this;
-			EnableCastingMode();
-		}
-		else
-		{
-			Debug.Log($"{skillData.skillName} is on cooldown!");
-		}
-	}
-
-	private void EnableCastingMode()
-	{
-		isCasting = true;
-		castingCircleInstance = Instantiate(castingCirclePrefab);
-	}
-
-	private void CancelCastingMode()
-	{
-		isCasting = false;
-		if (castingCircleInstance != null)
-		{
-			Destroy(castingCircleInstance);
-		}
-
-		// Clear the current skill reference if this skill was the active one
-		if (currentSkillHandler == this)
-		{
-			currentSkillHandler = null;
-		}
-	}
+    private void CancelCastingMode()
+    {
+        isCasting = false;
+        if (castingCircleInstance != null)
+        {
+            Destroy(castingCircleInstance);
+        }
+    }
 }

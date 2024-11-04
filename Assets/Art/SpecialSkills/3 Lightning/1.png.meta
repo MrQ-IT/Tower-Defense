@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,211 +110,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_0(Lightning)
+      name: 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 65
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 64, z: 0, w: 0}
+        y: 0
+        width: 64
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42db3513668686f409ce9134077bbac4
-      internalID: -833529438
+      spriteID: fd82ff0d02fe25644ad120249cc31d70
+      internalID: -904366690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_1(Lightning)
+      name: 1_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69aa805df269d12428b5cb5667ab9c09
-      internalID: 342251013
+      spriteID: 414d07964d88d794bab1797d86290784
+      internalID: 675606295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_2(Lightning)
+      name: 1_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e2891dc125e8ca44b76407cb49a3a0a
-      internalID: -1515469969
+      spriteID: f3b355b49f00994488af76dd4ec5e068
+      internalID: -668785114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_3(Lightning)
+      name: 1_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03a4ac970d619434d8cabaf305750ee5
-      internalID: 231468313
+      spriteID: 519c06dd9704bf8428bd7b371d41d92c
+      internalID: -1322701549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_4(Lightning)
+      name: 1_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f805fd2d38432e4c8de1b6ae20b0bea
-      internalID: -1842757425
+      spriteID: a7afaa0e3e4f7b647bdcccb98dad6d54
+      internalID: 320030586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_5(Lightning)
+      name: 1_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 200e07994c018ae49a81ba0bff42b068
-      internalID: -1640949412
+      spriteID: 7b23291107d85af4abade81852169317
+      internalID: -1232198876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_6(Lightning)
+      name: 1_6
       rect:
         serializedVersion: 2
-        x: 386
+        x: 384
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4a768a12d584b948a580fe740476bb3
-      internalID: 1613170997
+      spriteID: 2fd72e0e6f1346248ba8aba71b5e6ef5
+      internalID: -537901291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_7(Lightning)
+      name: 1_7
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a220745b935f44e9ba4dc5f3dda825
-      internalID: 560969678
+      spriteID: ef3bcefd7b7275e4eafc7a9b51750cda
+      internalID: 1981951234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_8(Lightning)
+      name: 1_8
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a104f8a5c486a3548b0945f0f1150018
-      internalID: -1879091399
+      spriteID: 65afa17197045734aa41df2af36d3385
+      internalID: -1798197982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_9(Lightning)
+      name: 1_9
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 64
         height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c01e97c1a0f74754b9f518a2d27674c4
-      internalID: 461190636
+      spriteID: c8f713bc516342d4db5f31a12ef63998
+      internalID: -222405046
       vertices: []
       indices: 
       edges: []
@@ -330,25 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      1_0(Lightning): -833529438
-      1_1(Lightning): 342251013
-      1_10(Lightning): -2063212825
-      1_11(Lightning): 696348010
-      1_12(Lightning): 1740359687
-      1_13(Lightning): 1643579697
-      1_14(Lightning): -45501288
-      1_15(Lightning): 2036403377
-      1_16(Lightning): 348629959
-      1_17(Lightning): 1792157892
-      1_18(Lightning): 769945639
-      1_2(Lightning): -1515469969
-      1_3(Lightning): 231468313
-      1_4(Lightning): -1842757425
-      1_5(Lightning): -1640949412
-      1_6(Lightning): 1613170997
-      1_7(Lightning): 560969678
-      1_8(Lightning): -1879091399
-      1_9(Lightning): 461190636
+      1_0: -904366690
+      1_1: 675606295
+      1_2: -668785114
+      1_3: -1322701549
+      1_4: 320030586
+      1_5: -1232198876
+      1_6: -537901291
+      1_7: 1981951234
+      1_8: -1798197982
+      1_9: -222405046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

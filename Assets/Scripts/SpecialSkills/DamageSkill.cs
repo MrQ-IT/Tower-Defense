@@ -8,12 +8,15 @@ public class DamageSkill : MonoBehaviour
 
 	private void Start()
 	{
-		int calculatedDamage = skillData.damage * skillData.level;
-		float skillDuration = skillData.duration;
-		Destroy(gameObject, skillDuration);
-
-		// Set damage-related properties in the specific skill script
+		Initialize();
 	}
+
+	public void Initialize()
+	{
+        int calculatedDamage = skillData.damage * skillData.level;
+        float skillDuration = skillData.duration;
+        Destroy(gameObject, skillDuration);
+    }
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{

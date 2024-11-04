@@ -8,10 +8,8 @@ public class Non_DamageSkill : MonoBehaviour
 
 	private void Start()
 	{
-
 		float skillDuration = skillData.duration;
 		Destroy(gameObject, skillDuration);
-		// Non-damaging skill logic, e.g., slow effect or barricade properties
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)

@@ -18,5 +18,5 @@ MonoBehaviour:
   cooldown: 5
   damage: 100
   level: 1
-  range: 2
+  range: 1
   duration: 2
