@@ -123,7 +123,7 @@ public class LevelManager : MonoBehaviour
     public void CheckCompleteCondition()
     {
         LevelCompleteManager levelCompleteManager = new LevelCompleteManager();
-        if(levelCompleteManager.CheckLevelComp() == true && levelCompleteManager.levelCompCurrent() == currentIndex)
+        if(levelCompleteManager.CheckLevelComp() == true)
         {
             CompleteMap();
         }
