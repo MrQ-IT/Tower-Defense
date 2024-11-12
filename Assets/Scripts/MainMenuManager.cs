@@ -13,7 +13,7 @@ public class MainMenuManager : MonoBehaviour
 
    public void SettingGame()
     {
-        SceneManager.LoadScene("Audio");
+        SceneManager.LoadScene("AudioSetting");
     }
 
        public void AchivementGame()
@@ -23,7 +23,7 @@ public class MainMenuManager : MonoBehaviour
 
    public void EncyclopediaGame()
     {
-        SceneManager.LoadScene("CyclopediaScene");
+        SceneManager.LoadScene("EncyclopediaScene");
     }
 
    public void QuitGame()

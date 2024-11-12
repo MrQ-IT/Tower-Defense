@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -23,5 +24,10 @@ public class AudioManager : MonoBehaviour
     {
         sFXSource.clip = click;
         sFXSource.PlayOneShot(click);
+    }
+    
+        public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

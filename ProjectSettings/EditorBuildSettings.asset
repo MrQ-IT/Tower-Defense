@@ -4,5 +4,38 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/AchievementsScene.unity
+    guid: 83282d7b0a260554c971af328268f717
+  - enabled: 0
+    path: Assets/Scenes/Audio.unity
+    guid: c7f220ae16bdfaf4ba54bb76a647bbb4
+  - enabled: 1
+    path: Assets/Scenes/SpecialSkill.unity
+    guid: 08ad66ae047ff8e49beef41999cb820b
+  - enabled: 1
+    path: Assets/Scenes/AudioSetting.unity
+    guid: 962f6eda183128445aa50a7a28466787
+  - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: 543c40bd22115ae4e8639de403c65d80
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 959ca4e4106b4f44f8866dc393c3ce11
+  - enabled: 1
+    path: Assets/Scenes/EncyclopediaScene.unity
+    guid: 190fcd7dc1744094ca3d57ff491267f3
+  - enabled: 1
+    path: Assets/Scenes/Level 1.1.unity
+    guid: 6b62864b68dce644bb2971c15c715b69
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3e1f6e004edbb8b408038d51196d371e
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 23500913e600ed84abbf9a35477bb6f3
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
