@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 8cc7815ce5052c6429a6ee85b2d380b5, type: 2}
+  achievementSO: {fileID: 11400000, guid: af6d74a9635e0bb46b3a361ecf354eff, type: 2}
 --- !u!114 &4287405859057654514
 MonoBehaviour:
   m_ObjectHideFlags: 0

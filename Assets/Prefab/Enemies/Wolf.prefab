@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c664961d5442a44933306ba1b673fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointManager: {fileID: 9124559981762446174, guid: ec4d96dbf723d014283f649719491571, type: 3}
 --- !u!114 &6637609281829890152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 304925122d3834a44b6f90911330435b, type: 2}
+  achievementSO: {fileID: 11400000, guid: af6d74a9635e0bb46b3a361ecf354eff, type: 2}
