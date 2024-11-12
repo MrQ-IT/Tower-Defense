@@ -6,19 +6,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Bee : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public EnemySO EnemyData;
     public int speed { get; set; }
     public int health { get; set; }
     public int currency { get; set; }
     public string enemyName { get; set; }
+
     private HealthBar healthBar;
     private GameObject healthBarObject;
     private GameObject coinPopupObject;
     private Animator animator;
-    private bool isDead;
     public AchievementSO achievementSO;
+    private bool isDead;
+
+    private bool isSlowing;
+    private Color originalColor; // Lưu màu gốc của kẻ địch
+    private Renderer enemyRenderer; // Renderer của đối tượng
+
+    // enemy moves
+    private WaypointManager waypointManager;
+    private int indexWaypoint;
+    private Vector3 direction;
 
     void Awake()
     {
@@ -27,11 +37,14 @@ public class Bee : MonoBehaviour
 
     void Update()
     {
+        EnemyMoves();
         UpdateHealthBarPos();
     }
 
     public void Initialize()
-    {   
+    {
+        enemyRenderer = GetComponent<Renderer>();
+        originalColor = enemyRenderer.material.color; // Lưu màu gốc
         animator = GetComponent<Animator>();
         health = EnemyData.health;
         speed = (int)EnemyData.speed;
@@ -40,6 +53,9 @@ public class Bee : MonoBehaviour
         SpawnHealthBar();
         healthBar.SetMaxHealth(health);
         isDead = false;
+
+        waypointManager = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
+        indexWaypoint = 0;
     }
 
     // Animation Event
@@ -87,7 +103,7 @@ public class Bee : MonoBehaviour
         coinPopupObject.transform.GetComponentInChildren<Text>().text = "+" + currency.ToString();
     }
 
-    public void ChangeMovementAnimation(Vector3 direction)
+    public void ChangeMovementAnimation()
     {
         if (Math.Abs(direction.x) > Math.Abs(direction.y)) // Ưu tiên hướng có giá trị lớn hơn
         {
@@ -115,5 +131,39 @@ public class Bee : MonoBehaviour
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
             coinPopupObject.transform.position = screenPosition + new Vector3(10, 0, 0);
         }
+    }
+
+    private void EnemyMoves()
+    {
+        if (indexWaypoint < waypointManager.wayPoints.Length)
+        {
+            Transform targetWaypoint = waypointManager.wayPoints[indexWaypoint];
+            direction = targetWaypoint.position - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime);
+            ChangeMovementAnimation();
+            if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.01f)
+            {
+                indexWaypoint++;
+            }
+        }
+        else
+        {
+            LivesManager.main.DecreaseLives();
+            GetComponent<Enemy>().RemoveOnPathEnd();
+        }
+    }
+
+    public void ApplySlowEffect()
+    {
+        enemyRenderer.material.color = new Color(127f / 255f, 189f / 255f, 248f / 255f);
+        speed = (int)(speed / 2);
+        Debug.Log(speed);
+        Invoke("RemoveSlowEffect", 2f);
+    }
+
+    public void RemoveSlowEffect()
+    {
+        enemyRenderer.material.color = originalColor;
+        speed = (int)EnemyData.speed;
     }
 }

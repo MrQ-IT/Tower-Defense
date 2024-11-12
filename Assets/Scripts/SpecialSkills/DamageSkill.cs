@@ -22,7 +22,7 @@ public class DamageSkill : MonoBehaviour
 	{
 		if (other.CompareTag("Enemy"))
 		{
-			Bee enemy = other.GetComponent<Bee>();
+			Enemy enemy = other.GetComponent<Enemy>();
 			if (enemy != null)
 			{
 				enemy.TakeDamage(skillData.damage * skillData.level);

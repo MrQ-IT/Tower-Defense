@@ -1,31 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class ProjectileArrow : MonoBehaviour
 {
-    // khai bao bien
-    private float projectileArrowSpeed = 10.0f;
+    private float projectileArrowSpeed = 10f;
     private Vector3 targetPostion;
     private Vector3 spawnPosition;
-    private Bee focusBee;
+    private Enemy focusEnemy;
     private Animator animator;
     private int damage;
-
-    // Start is called before the first frame update
+    public bool isSlowing;
 
     void Start()
-    {   
+    {
         Initialize();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ProjectileArrowMoves();
-        BeeTakeDamage();
     }
-    
+
     private void Initialize()
     {
         animator = GetComponent<Animator>();
@@ -34,32 +32,37 @@ public class ProjectileArrow : MonoBehaviour
     }
 
     // Truyền bee trong tầm bắn từ Archer vào
-    public void CheckFocusEnemy(Bee bee)
+    public void CheckFocusEnemy(Enemy enemy)
     {
-        focusBee = bee;
-        targetPostion = focusBee.transform.position;
+        focusEnemy = enemy;
+        targetPostion = focusEnemy.transform.position;
     }
 
     private void ProjectileArrowMoves()
     {
-        if (focusBee == null) // Hủy mũi tên nếu không có kẻ địch phù hợp
+        if (focusEnemy == null) // Hủy mũi tên nếu không có kẻ địch phù hợp
         {
             Destroy(gameObject);
             return;
         }
-        targetPostion = focusBee.transform.position; // Cập nhật vị trí kẻ địch liên tục để mũi tên đuổi theo
-        Vector3 direction = (targetPostion - spawnPosition).normalized; // Hướng mũi tên di chuyển
+        targetPostion = focusEnemy.transform.position;
+        Vector3 direction = (targetPostion - spawnPosition).normalized;
         animator.SetFloat("X", direction.x);
         animator.SetFloat("Y", direction.y);
-        transform.position += direction * projectileArrowSpeed * Time.deltaTime; // Di chuyển mũi tên
+        transform.Translate(direction * projectileArrowSpeed * Time.deltaTime);
 
     }
-    private void BeeTakeDamage()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Vector3.Distance(transform.position, targetPostion) < 1.5f && focusBee != null)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            focusBee.TakeDamage(damage);
+            focusEnemy.TakeDamage(damage);
             Destroy(gameObject);
+            if (isSlowing)
+            {
+                focusEnemy.ApplySlowEffect();
+            }
         }
     }
 }

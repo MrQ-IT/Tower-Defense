@@ -58,7 +58,7 @@ public class Archer : MonoBehaviour
             arrow = Instantiate(pfProjectileArrow);
             arrow.transform.SetParent(transform, false);
             arrow.transform.position = transform.position;
-            arrow.GetComponent<ProjectileArrow>().CheckFocusEnemy(focusBee.GetComponent<Bee>());
+            arrow.GetComponent<ProjectileArrow>().CheckFocusEnemy(focusBee.GetComponent<Enemy>());
             animator.SetBool("Idle", true);
         }
     }

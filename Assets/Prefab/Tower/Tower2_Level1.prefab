@@ -119,7 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f601e038720f58948802bdecab8307e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeNumber: 0
   archer: {fileID: 8308479422588653617}
+  plot: {fileID: 0}
 --- !u!1 &6547008274670497670
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +175,14 @@ PrefabInstance:
       propertyPath: archerSO
       value: 
       objectReference: {fileID: 11400000, guid: 251b0434753958e4dbc7a5a3dc34a808, type: 2}
+    - target: {fileID: 1172462018198515154, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: isAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172462018198515154, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
+      propertyPath: pfProjectileArrow
+      value: 
+      objectReference: {fileID: 1352490645651944410, guid: 74142e4ffded6a54aa702f69f2a894ef, type: 3}
     - target: {fileID: 1664951512057406272, guid: 3a9238bf0d5c883499d34c9c613bd22d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
