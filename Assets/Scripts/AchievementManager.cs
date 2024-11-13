@@ -29,4 +29,9 @@ public class AchievementManager : MonoBehaviour
 
         }
     }
+
+        public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

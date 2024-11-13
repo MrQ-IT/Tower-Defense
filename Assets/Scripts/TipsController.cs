@@ -19,7 +19,6 @@ public class TipsController : MonoBehaviour
         "Tip 7: Keep resources under control and invest properly.",
         "Tip 8: Prepare the anti-air tower when the enemy is flying.",
         "Tip 9: Actively deal with bosses by saving powerful skills and upgrading strategies.",
-        "Tip 9: Actively deal with bosses by saving powerful skills and upgrading strategies.",
         "Tip 10: Take advantage of the terrain to extend the time enemies move through the tower.",
         "Tip 11: Build a continuous damage tower where there is a detour to increase the shooting time.",
         "Tip 12: Observe and adjust tactics continuously based on the situation.",
@@ -33,15 +32,12 @@ public class TipsController : MonoBehaviour
 
     void Start()
     {
-        // Assign events to buttons
-        nextButton.onClick.AddListener(NextTip);
-        previousButton.onClick.AddListener(PreviousTip);
-
         // Update initial information
         UpdateTip();
     }
 
-    void UpdateTip()
+    // This method updates the tip text and page number
+    public void UpdateTip()
     {
         // Update the displayed tip and page number
         tipsText.text = tips[currentPage];
@@ -52,7 +48,8 @@ public class TipsController : MonoBehaviour
         nextButton.interactable = currentPage < tips.Length - 1;
     }
 
-    void NextTip()
+    // This method is called when the Next button is clicked
+    public void NextTip()
     {
         if (currentPage < tips.Length - 1)
         {
@@ -61,7 +58,8 @@ public class TipsController : MonoBehaviour
         }
     }
 
-    void PreviousTip()
+    // This method is called when the Previous button is clicked
+    public void PreviousTip()
     {
         if (currentPage > 0)
         {
