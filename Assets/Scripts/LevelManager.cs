@@ -122,11 +122,11 @@ public class LevelManager : MonoBehaviour
     }
     public void CheckCompleteCondition()
     {
-        LevelCompleteManager levelCompleteManager = new LevelCompleteManager();
-        if(levelCompleteManager.CheckLevelComp() == true)
-        {
-            CompleteMap();
-        }
+        //LevelCompleteManager levelCompleteManager = new LevelCompleteManager();
+        //if(levelCompleteManager.CheckLevelComp() == true)
+        //{
+        //    CompleteMap();
+        //}
     }
 
     public void Reset()

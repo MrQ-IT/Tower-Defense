@@ -139,7 +139,7 @@ public class StarManager : MonoBehaviour
         {
             starSO.starCurrent -= skills[selectSkillIndex].star;
             currentStarText.text = starSO.starCurrent.ToString();
-            starSO.starCurrent = starSO.starCurrent;
+            //starSO.starCurrent = starSO.starCurrent;
 
             skillData[selectSkillIndex].isPurchased = true; // Đánh dấu kỹ năng đã mua
 
