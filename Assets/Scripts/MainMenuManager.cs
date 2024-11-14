@@ -1,39 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Các phương thức cho các nút
-    public void StartGame()
+    [SerializeField] private SkillsSO[] skillsSO;
+    private GameData gameData;
+
+    // button event
+    public void NewGame()
     {
         SceneManager.LoadScene("Level 1");
+        NewGameData();
+        FileHandler.SaveToJSON<GameData>(gameData, "GameData.json");
     }
 
-   public void SettingGame()
+    public void NewGameData()
+    {
+        List<SkillUpgradeData> upgradeDataList = new List<SkillUpgradeData>();
+        foreach (var skill in skillsSO)
+        {
+            SkillUpgradeData upgradeData = new SkillUpgradeData(skill.skillName, skill.cooldown,
+            skill.damage, skill.level, skill.range);
+            upgradeDataList.Add(upgradeData);
+            gameData = new GameData(1, 20, 500, 0, upgradeDataList);
+        }
+    }
+
+    public void SettingGame()
     {
         SceneManager.LoadScene("AudioSetting");
     }
 
-       public void AchivementGame()
+    public void Continue()
     {
-        SceneManager.LoadScene("AchievementsScene");
+
     }
 
-   public void EncyclopediaGame()
+    public void Ranking()
+    {
+
+    }
+
+    public void EncyclopediaGame()
     {
         SceneManager.LoadScene("EncyclopediaScene");
     }
 
-   public void QuitGame()
+    public void QuitGame()
     {
         // Thoát ứng dụng
         Application.Quit();
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         // Chỉ hoạt động trong Unity editor
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
     }
 
     public void OpenFacebook()

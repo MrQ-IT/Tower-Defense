@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52cdb8876edab2047baa41f944a7da29, type: 3}
-  m_Name: LightningSO
+  m_Name: Default LightningSO
   m_EditorClassIdentifier: 
   skillName: Lightning
   skillIcon: {fileID: 675606295, guid: 088917205993ed142aec11d338bd1899, type: 3}

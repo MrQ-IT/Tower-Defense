@@ -17,6 +17,7 @@ public static class FileHandler
 
     public static void SaveToJSON<T>(T toSave, string filename)
     {
+        Debug.Log(GetPath(filename));
         string content = JsonUtility.ToJson(toSave);
         WriteFile(GetPath(filename), content);
     }
@@ -88,7 +89,6 @@ public static class FileHandler
 //vì vậy JsonHelper được xây dựng để hỗ trợ các mảng và danh sách.
 public static class JsonHelper
 {
-
     // Chuyển đổi chuỗi JSON thành mảng các đối tượng kiểu T.
     public static T[] FromJson<T>(string json)
     {

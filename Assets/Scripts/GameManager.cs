@@ -1,61 +1,26 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private Vector3 dragOrigin;
-    [SerializeField] private float dragSpeed = 0.1f;
-    public static GameManager main;
+    public static GameManager Instance;
+    public int level { get; set; }
+    public int lives { get; set; }
+    public int inGameCurrency { get; set; }
+    public int starCurrency { get; set; }
+    public List<SkillUpgradeData> skills = new List<SkillUpgradeData>();
 
-    void Start()
+    private void Start()
     {
-        Initialize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        DragMap();
-    }
-
-    public void Initialize()
-    {
-        main = this;
-    }
-
-
-    private void DragMap()
-    {
-        // Khi người chơi nhấn chuột trái
-        if (Input.GetMouseButtonDown(0))
+        if ( Instance == null)
         {
-            dragOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        // Khi người chơi kéo chuột trái
-        if (Input.GetMouseButton(0))
+        else
         {
-            Vector3 difference = dragOrigin - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 newPosition = Camera.main.transform.position + difference * dragSpeed;
-
-            // Tạo một biến để lưu vị trí cuối cùng sẽ cập nhật
-            Vector3 finalPosition = Camera.main.transform.position;
-
-            // Kiểm tra giới hạn cho trục x
-            if (newPosition.x >= -5 && newPosition.x <= 16)
-            {
-                finalPosition.x = newPosition.x;
-            }
-
-            // Kiểm tra giới hạn cho trục y
-            if (newPosition.y >= -6 && newPosition.y <= 4)
-            {
-                finalPosition.y = newPosition.y;
-            }
-
-            // Cập nhật vị trí camera
-            Camera.main.transform.position = finalPosition;
+            Destroy(gameObject);
         }
     }
 }

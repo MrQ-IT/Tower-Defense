@@ -18,7 +18,7 @@ public class StarManager : MonoBehaviour
     }
 
     public StarSkill[] skillData;
-    public StarSO starSO; 
+    public StarSO starSO;
 
     public Skills[] skills;
     public Text currentStarText;
@@ -86,8 +86,8 @@ public class StarManager : MonoBehaviour
         // Đặt màu cho tất cả button thành màu đen
         for (int i = 0; i < skills.Length; i++)
         {
-            if (skillData[i].isPurchased == true) 
-                skills[i].button.image.color = skillData[i].purchasedColor; 
+            if (skillData[i].isPurchased == true)
+                skills[i].button.image.color = skillData[i].purchasedColor;
             else
                 skills[i].button.image.color = new Color(0, 0, 0, 0.5f); // Đặt màu đen nếu chưa mua
         }
@@ -127,11 +127,11 @@ public class StarManager : MonoBehaviour
         //}
         //else
         //{
-            if (selectSkillIndex < 9 && skillData[(selectSkillIndex + 3)].isPurchased == false )
-                {
-                    Debug.Log("Cấp độ trước đó chưa được mua.");
-                    return; // Nếu chưa mua cấp độ trước đó, không cho mua
-                }
+        if (selectSkillIndex < 9 && skillData[(selectSkillIndex + 3)].isPurchased == false)
+        {
+            Debug.Log("Cấp độ trước đó chưa được mua.");
+            return; // Nếu chưa mua cấp độ trước đó, không cho mua
+        }
         //}
 
         // Xử lý sự kiện khi nhấp vào BuyButton
@@ -150,20 +150,20 @@ public class StarManager : MonoBehaviour
             }
             else
                 if (selectSkillIndex < 6)
-                {
-                    skills[selectSkillIndex].button.image.color = new Color(0.361f, 0.871f, 0.400f);
-                    skillData[selectSkillIndex].purchasedColor = new Color(0.361f, 0.871f, 0.400f);
+            {
+                skills[selectSkillIndex].button.image.color = new Color(0.361f, 0.871f, 0.400f);
+                skillData[selectSkillIndex].purchasedColor = new Color(0.361f, 0.871f, 0.400f);
             }
-                else
-                        if (selectSkillIndex < 9)
-                        {
-                            skills[selectSkillIndex].button.image.color = new Color(1f, 0.859f, 0f);
-                            skillData[selectSkillIndex].purchasedColor = new Color(1f, 0.859f, 0f);
+            else
+                if (selectSkillIndex < 9)
+            {
+                skills[selectSkillIndex].button.image.color = new Color(1f, 0.859f, 0f);
+                skillData[selectSkillIndex].purchasedColor = new Color(1f, 0.859f, 0f);
             }
-                        else
-                        {
-                            skills[selectSkillIndex].button.image.color = new Color(0.737f, 0.674f, 0.674f, 0.737f);
-                            skillData[selectSkillIndex].purchasedColor = new Color(0.737f, 0.674f, 0.674f, 0.737f);
+            else
+            {
+                skills[selectSkillIndex].button.image.color = new Color(0.737f, 0.674f, 0.674f, 0.737f);
+                skillData[selectSkillIndex].purchasedColor = new Color(0.737f, 0.674f, 0.674f, 0.737f);
             }
 
             Debug.Log("Mua thành công!");

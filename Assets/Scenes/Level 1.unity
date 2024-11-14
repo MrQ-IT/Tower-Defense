@@ -26174,6 +26174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragSpeed: 0.1
+  skillsSO:
+  - {fileID: 11400000, guid: 70af837acbb15d342a6618669cb35d95, type: 2}
+  - {fileID: 11400000, guid: 1e438e17d8c20a44cadab4c4aa6306bb, type: 2}
+  - {fileID: 11400000, guid: 99a04fc337e1d7749a61ba4f49f75d79, type: 2}
 --- !u!1 &7563557087371731897
 GameObject:
   m_ObjectHideFlags: 0

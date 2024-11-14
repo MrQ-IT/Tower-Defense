@@ -11,7 +11,6 @@ public class SkillsSO : ScriptableObject
 	public GameObject skillPrefab;
 	public float cooldown;
 	public int damage;
-	[Range(1, 4)]
 	public int level = 1;
 	public float range;
 	public float duration;
