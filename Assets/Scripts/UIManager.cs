@@ -53,4 +53,17 @@ public class UIManager : MonoBehaviour
         transform.Find("GameWin").gameObject.SetActive(true);
         Time.timeScale = 0;
     }
+
+    // button event
+    public void Option()
+    {
+        transform.Find("GamePause").gameObject.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Continue()
+    {
+        transform.Find("GamePause").gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }

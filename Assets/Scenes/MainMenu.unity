@@ -1642,6 +1642,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca8f2cb8e62fabd4b8987e4a96d2cb82, type: 2}
   - {fileID: 11400000, guid: 72ed98dedc0caf4488bcabd9b2d4cfed, type: 2}
   - {fileID: 11400000, guid: d0910733135a0374ea8f46bff7ca3d43, type: 2}
+  levelSO:
+  - {fileID: 11400000, guid: ea69bc19b92ce9b4a9e7bd50fde25436, type: 2}
+  - {fileID: 11400000, guid: b4d50ea2fb8306a47a24fffae00b2fc3, type: 2}
+  - {fileID: 11400000, guid: 0ddf0f730f384bd4aae391974978043f, type: 2}
+  - {fileID: 11400000, guid: 231f57fda45db2342aa6d91270b844f8, type: 2}
+  - {fileID: 11400000, guid: 299428492d1285249b1a7acc803278a4, type: 2}
 --- !u!1 &1028010564
 GameObject:
   m_ObjectHideFlags: 0

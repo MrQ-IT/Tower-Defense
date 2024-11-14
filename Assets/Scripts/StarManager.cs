@@ -105,7 +105,6 @@ public class StarManager : MonoBehaviour
         }
         resetButton.onClick.AddListener(ResetSkills);
 
-
     }
 
     void OnBuyButtonClick()

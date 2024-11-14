@@ -43,13 +43,13 @@ public class InGameManager : MonoBehaviour
             Vector3 finalPosition = Camera.main.transform.position;
 
             // Kiểm tra giới hạn cho trục x
-            if (newPosition.x >= -5 && newPosition.x <= 16)
+            if (newPosition.x >= -3 && newPosition.x <= 13)
             {
                 finalPosition.x = newPosition.x;
             }
 
             // Kiểm tra giới hạn cho trục y
-            if (newPosition.y >= -6 && newPosition.y <= 4)
+            if (newPosition.y >= -4 && newPosition.y <= 2)
             {
                 finalPosition.y = newPosition.y;
             }

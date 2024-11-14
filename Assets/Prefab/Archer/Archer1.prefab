@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -327954847
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1162077035, guid: d57e1a08da12c834f8a881bd8e499c2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,8 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ead15820163b784e802f161126aa865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  archerSO: {fileID: 0}
   pfProjectileArrow: {fileID: 2693069313780928850, guid: 754d78dafac50554b917206b9213a8f8, type: 3}
-  attackArrow: {fileID: 1845721316860430388}
+  range: {fileID: 0}
+  isAttack: 0
 --- !u!58 &1935683550319388812
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -229,7 +231,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -327954847
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.12156861, g: 0.36272743, b: 0.8039216, a: 0.36862746}

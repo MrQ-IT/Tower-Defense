@@ -27,7 +27,6 @@ public class LevelManager : MonoBehaviour
     public Button clickToLoadScene;
     public Button nextButton;
     public Button prevButton;
-    public Button resetDataButton;
 
     public int currentIndex = 0;
 

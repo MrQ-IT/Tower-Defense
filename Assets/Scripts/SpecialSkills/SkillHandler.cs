@@ -9,10 +9,18 @@ public class SkillHandler : MonoBehaviour
     public SkillsSO skillData;             // Reference to SkillsSO
     public GameObject castingCirclePrefab; // Prefab for the casting circle UI
     public Text cooldownText;              // Text to display cooldown information
+    [SerializeField] Image lockImage;
     private GameObject castingCircleInstance;
     private bool isCasting = false;        // Track if we are in casting mode
     private float cooldownTimer = 0f;
-    
+
+    private void Start()
+    {
+        cooldownTimer = 0f;
+        isCasting = false ;
+        lockImage.gameObject.SetActive(skillData.islock);
+    }
+
     void Update()
     {
         UpdateCooldown();
@@ -101,7 +109,7 @@ public class SkillHandler : MonoBehaviour
     // Button Event
     public void SelectSkill()
     {
-        if (!IsOnCooldown()) // Only enable casting if the skill is not on cooldown
+        if (!IsOnCooldown() && !skillData.islock) // Only enable casting if the skill is not on cooldown
         {
             isCasting = true;
             castingCircleInstance = Instantiate(castingCirclePrefab);

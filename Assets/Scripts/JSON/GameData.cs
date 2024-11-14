@@ -6,18 +6,14 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-    public int level;
-    public int lives;
-    public int inGameCurrency;
     public int starCurrency;
     public List<SkillUpgradeData> skills = new List<SkillUpgradeData>();
+    public List<LevelData> levels = new List<LevelData>();
 
-    public GameData(int level, int lives, int inGameCurrency, int starCurrency, List<SkillUpgradeData> skills)
+    public GameData(int starCurrency, List<SkillUpgradeData> skills, List<LevelData> levels)
     {
-        this.level = level;
-        this.lives = lives;
-        this.inGameCurrency = inGameCurrency;
         this.starCurrency = starCurrency;
         this.skills = skills;
+        this.levels = levels;
     }
 }

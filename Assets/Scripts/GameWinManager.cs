@@ -9,6 +9,7 @@ public class GameWinManager : MonoBehaviour
     public int star { get; set; }
     public Sprite[] starImage;
     public Sprite skillImage;
+    public SkillsSO SkillsSO;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class GameWinManager : MonoBehaviour
         }
         transform.Find("Star").GetComponent<Image>().sprite = starImage[star];
         transform.Find("Skill").GetComponent<Image>().sprite = skillImage;
+        SkillsSO.islock = false;
     }
 
     public void HomeButton()

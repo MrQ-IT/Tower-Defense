@@ -20,3 +20,4 @@ MonoBehaviour:
   level: 1
   range: 1
   duration: 2
+  islock: 1
