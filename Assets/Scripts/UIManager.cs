@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.UIElements.VisualElement;
 
 public class UIManager : MonoBehaviour
@@ -61,9 +62,26 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void Continue()
+    public void ContinueButton()
     {
         transform.Find("GamePause").gameObject.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    // cac su kien cua button
+    public void HomeButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RetryButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void NextButton()
+    {
+        SceneManager.LoadScene("Level 2");
     }
 }

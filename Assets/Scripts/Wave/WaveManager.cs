@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     private float waveInterval = 15f;
     private float spawnTime = 2f;
     private float repeatTime = 0.5f;
-    private int currentWaveIndex = 0;
+    private int currentWaveIndex = 14;
     private int enemyIndex = 0;
     private int[] currentNumberOfEnemies;
     public int lastEnemyCount = 0;

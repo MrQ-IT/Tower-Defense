@@ -811,6 +811,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4d09e791239d224794b7c4c9290b9af, type: 3}
   skillImage: {fileID: 675606295, guid: 088917205993ed142aec11d338bd1899, type: 3}
   SkillsSO: {fileID: 11400000, guid: 1e438e17d8c20a44cadab4c4aa6306bb, type: 2}
+  LevelSO1: {fileID: 11400000, guid: ea69bc19b92ce9b4a9e7bd50fde25436, type: 2}
+  levelSO2: {fileID: 11400000, guid: b4d50ea2fb8306a47a24fffae00b2fc3, type: 2}
 --- !u!114 &256831195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1594,8 +1596,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameWinManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HomeButton
         m_Mode: 1
         m_Arguments:
@@ -1727,8 +1729,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 480662246}
-        m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HomeButton
         m_Mode: 1
         m_Arguments:
@@ -2089,8 +2091,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 256831194}
-        m_TargetAssemblyTypeName: GameWinManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: HomeButton
         m_Mode: 1
         m_Arguments:
@@ -3296,7 +3298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1120967867614529479}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Continue
+        m_MethodName: ContinueButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4265,8 +4267,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 256831194}
-        m_TargetAssemblyTypeName: GameWinManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
@@ -4942,8 +4944,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 256831194}
-        m_TargetAssemblyTypeName: GameWinManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: NextButton
         m_Mode: 1
         m_Arguments:
@@ -21260,8 +21262,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 480662246}
-        m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
@@ -21525,8 +21527,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameWinManager, Assembly-CSharp
+      - m_Target: {fileID: 1120967867614529479}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
@@ -27672,8 +27674,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 4691053122856961315}
   - {fileID: 937998198}
-  - {fileID: 627561546}
-  - {fileID: 4300805318266935030}
   - {fileID: 694993537533054510}
   - {fileID: 1542137656}
+  - {fileID: 627561546}
+  - {fileID: 4300805318266935030}
   - {fileID: 159027136}

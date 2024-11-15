@@ -6,16 +6,24 @@ using UnityEngine.UI;
 
 public class GameWinManager : MonoBehaviour
 {
-    public int star { get; set; }
+    private int star;
     public Sprite[] starImage;
     public Sprite skillImage;
+
+    // ki nang duoc mo khoa
     public SkillsSO SkillsSO;
+
+    // du lieu cua map level 1
+    public LevelSO LevelSO1;
+    // du lieu cua map level 1
+    public LevelSO levelSO2;
 
     private void Start()
     {
         Initialize();
     }
 
+    // khoi tao so sao dat duoc, skill duoc mo khoa va mo khoa map tiep theo
     public void Initialize()
     {
         if (LivesManager.main.lives >= 17)
@@ -37,21 +45,24 @@ public class GameWinManager : MonoBehaviour
         transform.Find("Star").GetComponent<Image>().sprite = starImage[star];
         transform.Find("Skill").GetComponent<Image>().sprite = skillImage;
         SkillsSO.islock = false;
+        levelSO2.islock = false;
+        LevelSO1.star = star;
     }
 
-    public void HomeButton()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
+    //// cac su kien cua button
+    //public void HomeButton()
+    //{
+    //    SceneManager.LoadScene("MainMenu");
+    //}
 
-    public void RetryButton()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("Level 1");
-    }
+    //public void RetryButton()
+    //{
+    //    Time.timeScale = 1;
+    //    SceneManager.LoadScene("Level 1");
+    //}
 
-    public void NextButton()
-    {
-        SceneManager.LoadScene("Level 2");
-    }
+    //public void NextButton()
+    //{
+    //    SceneManager.LoadScene("Level 2");
+    //}
 }

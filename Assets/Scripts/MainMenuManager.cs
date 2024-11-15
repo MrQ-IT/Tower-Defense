@@ -6,34 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private SkillsSO[] skillsSO;
-    [SerializeField] private LevelSO[] levelSO;
-    private GameData gameData;
-
     // button event
     public void NewGame()
     {
-        SceneManager.LoadScene("Level 1");
-        NewGameData();
-        FileHandler.SaveToJSON<GameData>(gameData, "GameData.json");
-    }
-
-    public void NewGameData()
-    {
-        List<SkillUpgradeData> upgradeDataList = new List<SkillUpgradeData>();
-        List<LevelData> levelDataList = new List<LevelData>();
-        foreach (var skill in skillsSO)
-        {
-            SkillUpgradeData upgradeData = new SkillUpgradeData(skill.skillName, skill.cooldown,
-            skill.damage, skill.level, skill.range);
-            upgradeDataList.Add(upgradeData);
-        }
-        foreach (var level in levelSO)
-        {
-            LevelData levelData = new LevelData(level.islock, level.star, level.lives, level.currency);
-            levelDataList.Add(levelData);
-        }
-        gameData = new GameData(5, upgradeDataList, levelDataList);
+        GameManager.Instance.SetDefaultData();
+        GameManager.Instance.GetDefaultData();
+        SceneManager.LoadScene("Level Select");
     }
 
     public void SettingGame()
@@ -43,7 +21,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void Continue()
     {
-
+        GameManager.Instance.LoadData();
+        SceneManager.LoadScene("Level Select");
     }
 
     public void Ranking()
