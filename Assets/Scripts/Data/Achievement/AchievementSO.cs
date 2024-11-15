@@ -6,5 +6,6 @@ using UnityEngine;
 public class AchievementSO : ScriptableObject
 {
     public int value; 
-    public int condition;
+    public int normalCondition;
+    public int hardCondition;
 }

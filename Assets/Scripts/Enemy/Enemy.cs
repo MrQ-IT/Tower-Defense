@@ -60,7 +60,8 @@ public class Enemy : MonoBehaviour
 
     // Animation Event
     public void DestroyBee()
-    {   
+    {
+        achievementSO.value = achievementSO.value + 1;
         RemoveOnPathEnd();
         CurrencyManager.main.IncreaseCurrency(currency);
     }
