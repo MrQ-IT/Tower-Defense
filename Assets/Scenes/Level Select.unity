@@ -1337,9 +1337,9 @@ MonoBehaviour:
   star: {fileID: 1490324192}
   starSprite:
   - {fileID: 21300000, guid: 86c30380113a4fa4fb2cf790b4fd90a2, type: 3}
-  - {fileID: 21300000, guid: d4d09e791239d224794b7c4c9290b9af, type: 3}
-  - {fileID: 21300000, guid: 14d5c5e92ab993747bad1af59591310b, type: 3}
   - {fileID: 21300000, guid: 34c9a939cf8d72748b8d855e68a34d88, type: 3}
+  - {fileID: 21300000, guid: 14d5c5e92ab993747bad1af59591310b, type: 3}
+  - {fileID: 21300000, guid: d4d09e791239d224794b7c4c9290b9af, type: 3}
   imageLockMap: {fileID: 861132433}
   preMapImage: {fileID: 1810235847}
   nextMapImage: {fileID: 1384006973}

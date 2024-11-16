@@ -72,6 +72,7 @@ public class UIManager : MonoBehaviour
     public void HomeButton()
     {
         SceneManager.LoadScene("MainMenu");
+        GameManager.Instance.SaveData();
     }
 
     public void RetryButton()

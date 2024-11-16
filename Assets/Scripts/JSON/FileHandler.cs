@@ -39,6 +39,7 @@ public static class FileHandler
 
     public static T ReadFromJSON<T>(string filename)
     {
+        Debug.Log(GetPath(filename));
         string content = ReadFile(GetPath(filename));
 
         if (string.IsNullOrEmpty(content) || content == "{}")
