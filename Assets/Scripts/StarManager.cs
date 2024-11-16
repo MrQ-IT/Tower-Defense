@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -17,6 +18,7 @@ public class StarManager : MonoBehaviour
         public Image imageButton;
     }
 
+
     public StarSkill[] skillData;
     public StarSO starSO;
     public SkillsSO[] skillSO;
@@ -29,6 +31,13 @@ public class StarManager : MonoBehaviour
     public Button buyButton;
     public Button resetButton;
     int selectSkillIndex = -1;
+    int[] checkLevel = new int[3];
+    Color colorLevel5 = new Color(0.835f, 0f, 1f);
+    Color colorLevel4 = new Color(0.361f, 0.871f, 0.400f);
+    Color colorLevel3 = new Color(1f, 0.859f, 0f);
+    Color colorLevel2 = new Color(1f, 0f, 0f, 0.737f);
+    Color colorLevel1 = new Color(0, 0, 0, 0.5f);
+    Color colorSelectButton = new Color(0.396f, 0.059f, 0.059f, 0.737f);
 
     string[] skillTitles = new string[]
     {
@@ -81,20 +90,49 @@ public class StarManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameData gameData = FileHandler.ReadFromJSON<GameData>("GameData.json");
-        starSO.starCurrent = gameData.starCurrency;
-
         currentStarText.text = "" + starSO.starCurrent;
+        checkLevel[0] = skillSO[0].level;
+        checkLevel[1] = skillSO[1].level;
+        checkLevel[2] = skillSO[2].level;
+
         descriptionPanel.SetActive(false);
 
         // Đặt màu cho tất cả button thành màu đen
-        for (int i = 0; i < skills.Length; i++)
+        for (int i = 0; i < skillSO.Length; i++)
         {
-            if (skillData[i].isPurchased == true)
-                skills[i].button.image.color = skillData[i].purchasedColor;
-            else
-                skills[i].button.image.color = new Color(0, 0, 0, 0.5f); // Đặt màu đen nếu chưa mua
+            if (checkLevel[i] == 1)
+            {
+                for(int j = 0; j < skills.Length; j++)
+                {
+                    skills[j].button.image.color = colorLevel1;
+                }
+            }
+            for (int j = checkLevel[i]; j > 1; j--)
+            {
+                if (j == 5)
+                {
+                    skills[j * 3].button.image.color = colorLevel5;
+                }
+                else if (j == 4)
+                {
+                    skills[j * 3].button.image.color = colorLevel4;
+                }
+                else if (j == 3)
+                {
+                    skills[j * 3].button.image.color = colorLevel3;
+                    Debug.Log(i + " " + j);
+
+                }
+                else if (j == 2)
+                {
+                    skills[j * 3].button.image.color = colorLevel2;
+                }
+            }
         }
+        //if (skillData[i].isPurchased == true)
+        //    skills[i].button.image.color = skillData[i].purchasedColor;
+        //else
+        //    skills[i].button.image.color = new Color(0, 0, 0, 0.5f); // Đặt màu đen nếu chưa mua
 
         // Thêm sự kiện click cho từng button
         for (int i = 0; i < skills.Length; i++)
@@ -136,7 +174,7 @@ public class StarManager : MonoBehaviour
             UpdateSkill(selectSkillIndex);
 
             UpdateButtonColor(selectSkillIndex, true);
-           
+
             Debug.Log("Mua thành công!");
         }
         else
@@ -176,13 +214,26 @@ public class StarManager : MonoBehaviour
         skills[index].description.text = skillTexts[index];
         buyStarText.text = "" + skills[index].star;
 
+        //for (int i = 0; i < skills.Length; i++)
+        //{
+        //    if (i == index && checkLevel[i%3] == 1)
+        //    {
+        //        skills[i].button.image.color = new Color(0.396f, 0.059f, 0.059f, 0.737f); // sang button
+        //    }          
+        //    else if (checkLevel[i % 3] == 1)
+        //    {
+        //        skills[i].button.image.color = colorLevel1; // mau mac dinh
+        //    }
+        //}
+
+        /////////////////////////////////// 5 - i / 3
         for (int i = 0; i < skills.Length; i++)
         {
             if (i == index && skillData[i].isPurchased == false)
                 skills[i].button.image.color = new Color(0.396f, 0.059f, 0.059f, 0.737f); // sang button
             else if (skillData[i].isPurchased == false)
             {
-                skills[i].button.image.color = new Color(0, 0, 0, 0.5f);
+                skills[i].button.image.color = colorLevel1;
             }
         }
 
@@ -228,30 +279,29 @@ public class StarManager : MonoBehaviour
 
     void UpdateLevelSkill(int i)
     {
-        if(skillSO[i].level == 2)
+        if (skillSO[i].level == 2)
         {
-            skillSO[i].range += skillSO[i].range * 0.2f;
-            skillSO[i].cooldown -= skillSO[i].cooldown * 0.2f;
-            skillSO[i].damage += 20;
+            UpdateSkillAttribute(i, 0.1f, 0.2f, 20);
         }
         if (skillSO[i].level == 3)
         {
-            skillSO[i].range += skillSO[i].range * 0.3f;
-            skillSO[i].cooldown -= skillSO[i].cooldown * 0.3f;
-            skillSO[i].damage += 40;
+            UpdateSkillAttribute(i, 0.1f, 0.3f, 20);
         }
         if (skillSO[i].level == 4)
         {
-            skillSO[i].range += skillSO[i].range * 0.4f;
-            skillSO[i].cooldown -= skillSO[i].cooldown * 0.4f;
-            skillSO[i].damage += 85;
+            UpdateSkillAttribute(i, 0.15f, 0.4f, 35);
         }
         if (skillSO[i].level == 5)
         {
-            skillSO[i].range += skillSO[i].range * 0.5f;
-            skillSO[i].cooldown -= skillSO[i].cooldown * 0.5f;
-            skillSO[i].damage += 120;
+            UpdateSkillAttribute(i, 0.15f, 0.5f, 60);
         }
+    }
+
+    void UpdateSkillAttribute(int i, float range, float cooldown, int damage)
+    {
+        skillSO[i].range += skillSO[i].range * range;
+        skillSO[i].cooldown -= skillSO[i].cooldown * cooldown;
+        skillSO[i].damage += damage;
     }
     void UpdateButtonColor(int index, bool isPurchased)
     {
@@ -261,7 +311,7 @@ public class StarManager : MonoBehaviour
             {
                 skills[selectSkillIndex].button.image.color = new Color(0.835f, 0f, 1f);
                 skillData[selectSkillIndex].purchasedColor = new Color(0.835f, 0f, 1f);
-            }
+            }           
             else
                 if (selectSkillIndex < 6)
             {
@@ -284,6 +334,13 @@ public class StarManager : MonoBehaviour
         {
             skills[index].button.image.color = new Color(0, 0, 0, 0.5f); // Màu đen cho nút chưa mua
         }
+    }
+
+    // exit button
+    public void ExitButton()
+    {
+        GameManager.Instance.SaveData();
+        SceneManager.LoadScene("Level Select");
     }
 
 }
