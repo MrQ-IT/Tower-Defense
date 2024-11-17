@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ede63267b65b848b8803251acd96dc, type: 3}
   m_Name: StarSO
   m_EditorClassIdentifier: 
-  starCurrent: 10
+  starCurrent: 4

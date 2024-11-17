@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe741515715d5554bb34fd2c79179d7e, type: 3}
-  m_Name: StarSkillSO_0 10
+  m_Name: SpikeLevel5
   m_EditorClassIdentifier: 
-  isPurchased: 1
-  purchasedColor: {r: 1, g: 0, b: 0, a: 0.737}
+  isPurchased: 0
+  description: Piercing spikes, maximum damage!
+  star: 4
+  skillName: Spike Eruption

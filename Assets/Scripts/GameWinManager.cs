@@ -18,6 +18,9 @@ public class GameWinManager : MonoBehaviour
     // du lieu cua map level 1
     public LevelSO levelSO2;
 
+    // du lieu sao nang cap ki nang
+    public StarSO starSO;
+
     private void Start()
     {
         Initialize();
@@ -47,22 +50,7 @@ public class GameWinManager : MonoBehaviour
         SkillsSO.islock = false;
         levelSO2.islock = false;
         LevelSO1.star = star;
+        starSO.starCurrent += star;
     }
 
-    //// cac su kien cua button
-    //public void HomeButton()
-    //{
-    //    SceneManager.LoadScene("MainMenu");
-    //}
-
-    //public void RetryButton()
-    //{
-    //    Time.timeScale = 1;
-    //    SceneManager.LoadScene("Level 1");
-    //}
-
-    //public void NextButton()
-    //{
-    //    SceneManager.LoadScene("Level 2");
-    //}
 }

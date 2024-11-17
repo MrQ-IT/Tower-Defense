@@ -78,12 +78,17 @@ public class Archer : MonoBehaviour
     // Hiện tầm bắn của Archer khi nhấn chuột
     private void OnMouseDown()
     {
+        if (!isSelected && UIManager.main.isTowerSelected) return;
         isSelected = !isSelected;
         range.SetActive(isSelected);
         UIManager.main.transform.Find("TowerInfoManager").gameObject.SetActive(isSelected);
-        Tower tower =  transform.parent.GetComponentInChildren<Tower>();
-        TowerInfoManager.main.SetArcherSO(this, tower);
-        TowerInfoManager.main.SetPlot(tower.plot);
+        UIManager.main.isTowerSelected = isSelected;
+        if (isSelected)
+        {
+            Tower tower = transform.parent.GetComponentInChildren<Tower>();
+            TowerInfoManager.main.SetArcherSO(this, tower);
+            TowerInfoManager.main.SetPlot(tower.plot);
+        }
     }  
 
     // Thay đổi animation của Archer

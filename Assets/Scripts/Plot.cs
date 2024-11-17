@@ -18,12 +18,6 @@ public class Plot : MonoBehaviour
         Initialize();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void Initialize()
     {
         startColor = sr.color;
@@ -38,24 +32,31 @@ public class Plot : MonoBehaviour
 
     private void OnMouseExit()
     {
-        sr.color = startColor;
+        if (!selected)
+            sr.color = startColor;
     }
 
     private void OnMouseDown()
     {
         // Kiểm tra nếu chuột đang không ở trên UI
         if (EventSystem.current.IsPointerOverGameObject()) return;
-
-        if (!selected)
-        {   
+        if (UIManager.main.isPlotSelected && !selected)
+        {
+            Debug.Log("can't");
+            return;
+        }
+        if (!selected && !checkTurret)
+        {
             UIManager.main.plot = this;
             UIManager.main.EnableBuildManager();
+            UIManager.main.isPlotSelected = true;
             selected = true;
         }
         else
         {
             UIManager.main.plot = null;
             UIManager.main.DisableBuildManager();
+            UIManager.main.isPlotSelected = false;
             selected = false;
         }
     }

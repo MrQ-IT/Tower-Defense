@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe741515715d5554bb34fd2c79179d7e, type: 3}
-  m_Name: StarSkillSO_0 9
+  m_Name: LightningLevel2
   m_EditorClassIdentifier: 
   isPurchased: 0
-  purchasedColor: {r: 0, g: 0, b: 0, a: 0}
+  description: Basic thunder, light damage.
+  star: 1
+  skillName: Basic Thunder
+  skillType: 1
