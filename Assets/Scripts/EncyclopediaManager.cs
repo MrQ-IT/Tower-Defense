@@ -7,6 +7,7 @@ public class EncyclopediaManager : MonoBehaviour
     public GameObject towersPanel;
     public GameObject enemiesPanel;
     public GameObject tipsPanel;
+    public GameObject storylinePanel;
 
     // This method is called when a panel button is clicked
     public void ShowTowersPanel()
@@ -22,6 +23,11 @@ public class EncyclopediaManager : MonoBehaviour
     public void ShowTipsPanel()
     {
         ShowPanel(tipsPanel);
+    }
+
+    public void ShowStorylinePanel()
+    {
+        ShowPanel(storylinePanel);
     }
 
     public void ShowEncyclopediaPanel()
@@ -43,6 +49,7 @@ public class EncyclopediaManager : MonoBehaviour
         towersPanel.SetActive(false);
         enemiesPanel.SetActive(false);
         tipsPanel.SetActive(false);
+        storylinePanel.SetActive(false);
 
         // Show the selected panel
         panelToShow.SetActive(true);
