@@ -27,7 +27,7 @@ public class SkillShop : MonoBehaviour
     // sao de mua ki nang
     private int stars;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
         UpdateStar();
@@ -80,16 +80,25 @@ public class SkillShop : MonoBehaviour
     // dat dieu kien mua khi bat dau game
     public void InitializeSkillButtons()
     {
-        for (int i = 0; i < skillsSO.Length; i++) // Lặp qua từng kỹ năng
+        // Trước khi bắt đầu, đặt tất cả các nút là false (chưa mua)
+        for (int k = 0; k < skillShopButton.Length; k++)
         {
-            for (int j = 2; j <= skillsSO[i].level; j++) // Duyệt cấp độ từ max về 2
+            skillShopButton[k].SetPurchased(false);
+        }
+
+        // Duyệt qua tất cả kỹ năng
+        for (int i = 0; i < skillsSO.Length; i++)
+        {
+            // Duyệt qua các cấp độ của kỹ năng
+            for (int j = 2; j <= skillsSO[i].level; j++) // Từ cấp độ max về cấp 2
             {
                 int index = (5 - j) * 3 + i; // Tính chỉ số nút
 
-                if (index >= 0 && index < skillShopButton.Length) // Kiểm tra chỉ số hợp lệ
+                // Kiểm tra chỉ số hợp lệ
+                if (index >= 0 && index < skillShopButton.Length)
                 {
                     skillShopButton[index].SetPurchased(true); // Đánh dấu nút đã mua
-                    Debug.Log($"Skill: {i}, Level: {j}, Button Index: {index}");
+                    Debug.Log($"Skill: {i}, Level: {j}, Button Index: {index} - Set to Purchased");
                 }
             }
         }
