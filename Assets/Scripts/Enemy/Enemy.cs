@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     private Renderer enemyRenderer; // Renderer của đối tượng
 
     // enemy moves
-    private WaypointManager waypointManager;
+    public WaypointManager waypointManager;
     private int indexWaypoint;
     private Vector3 direction;
 
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
         healthBar.SetMaxHealth(health);
         isDead = false;
 
-        waypointManager = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
+        //waypointManager = GameObject.Find("WayPoints").GetComponent<WaypointManager>();
         indexWaypoint = 0;
     }
 
@@ -71,8 +71,9 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         Destroy(healthBarObject);
         Destroy(coinPopupObject);
-        WaveManager.main.lastEnemyCount--;
-        if (WaveManager.main.outOfEnemies && WaveManager.main.lastEnemyCount == 0)
+        InGameManager.main.lastEnemyCount--;
+        Debug.Log(InGameManager.main.lastEnemyCount + " " + InGameManager.main.outOfEnemies);
+        if (InGameManager.main.outOfEnemies && InGameManager.main.lastEnemyCount == 0)
         {
             UIManager.main.GameWin();
         }
@@ -142,7 +143,7 @@ public class Enemy : MonoBehaviour
             direction = targetWaypoint.position - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);
             ChangeMovementAnimation();
-            if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.01f)
+            if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
             {
                 indexWaypoint++;
             }
