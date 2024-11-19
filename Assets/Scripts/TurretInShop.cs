@@ -45,6 +45,7 @@ public class TurretInShop : MonoBehaviour
             buildManager.SetActive(false);
             plot.checkTurret = true;
             achievementSO.value = achievementSO.value + 1;
+            UIManager.main.isPlotSelected = false;
         }
         else
         {

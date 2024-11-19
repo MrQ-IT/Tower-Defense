@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEngine.UIElements.VisualElement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager main;
+    public bool isTowerSelected;
+    public bool isPlotSelected;
     public Plot plot { get; set; }
     [SerializeField] private GameObject pfHealthBar;
     [SerializeField] private GameObject pfCoinPopup;
@@ -73,6 +76,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         GameManager.Instance.SaveData();
+        Time.timeScale = 1;
     }
 
     public void RetryButton()
@@ -84,5 +88,6 @@ public class UIManager : MonoBehaviour
     public void NextButton()
     {
         SceneManager.LoadScene("Level 2");
+        Time.timeScale = 1;
     }
 }
