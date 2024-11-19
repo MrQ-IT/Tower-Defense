@@ -16,6 +16,9 @@ public class SkillShop : MonoBehaviour
     [SerializeField] private Text skillName; // ten ki nang
     [SerializeField] private Text description; // mo ta cua ki nang
     [SerializeField] private Text skillStars; // so sao de mua ki nang
+    [SerializeField] private GameObject panelDes; // panel mo ta
+
+    //public SkillShopButton currentSelectedButton; // Nút hiện đang được chọn
 
     // button
     [SerializeField] private SkillShopButton[] skillShopButton;
@@ -23,9 +26,13 @@ public class SkillShop : MonoBehaviour
     // du lieu
     [SerializeField] private StarSO starSO; // du lieu tong so sao
     [SerializeField] private SkillsSO[] skillsSO;
+    [SerializeField] private SkillsSO[] skillsDefaultSO;
+
 
     // sao de mua ki nang
     private int stars;
+
+    
 
     private void Awake()
     {
@@ -37,7 +44,30 @@ public class SkillShop : MonoBehaviour
     // su kien cho 2 button
     public void ResetButton()
     {
+        int totalRefundStar = 0;
 
+        // hoan lai sao tu ki nang da mua
+        for(int i = 0; i < skillShopButton.Length; i++)
+        {
+            SkillShopButton sb = skillShopButton[i];
+            if(sb.GetPurchased() == true)
+            {
+                totalRefundStar += sb.GetStar();
+                sb.SetActivePurchased(false);
+                sb.SetPurchased(false);
+            }
+        }
+
+        //cap nhat sao
+        starSO.starCurrent += totalRefundStar;
+        UpdateStar();
+
+        for(int i = 0; i < skillShopButton.Length; i++)
+        {
+            DefaultSkill(i);
+        }
+
+        Debug.Log("All skills reset");
     }
 
     public void BuyButton()
@@ -65,10 +95,13 @@ public class SkillShop : MonoBehaviour
     // dat thong tin khi nhan vao button
     public void GetLevelInformation(string skillName, string description, int stars)
     {
+        panelDes.SetActive(true);
         this.skillName.text = skillName;
         this.description.text = description;
         this.skillStars.text = stars.ToString();
         this.stars = stars;
+
+        
     }
 
     // cap nhat so sao con lai len man hinh
@@ -80,6 +113,8 @@ public class SkillShop : MonoBehaviour
     // dat dieu kien mua khi bat dau game
     public void InitializeSkillButtons()
     {
+        panelDes.SetActive(false);
+
         // Trước khi bắt đầu, đặt tất cả các nút là false (chưa mua)
         for (int k = 0; k < skillShopButton.Length; k++)
         {
@@ -111,6 +146,13 @@ public class SkillShop : MonoBehaviour
         skillsSO[i].damage += damage;
         skillsSO[i].range += range;
         skillsSO[i].level += 1;
+    }
+    public void DefaultSkill(int i)
+    {
+        skillsSO[i % 3].cooldown = skillsDefaultSO[(i % 3)].cooldown;
+        skillsSO[i % 3].damage = skillsDefaultSO[(i % 3)].damage;
+        skillsSO[i % 3].range = skillsDefaultSO[(i % 3)].range;
+        skillsSO[i % 3].level = skillsDefaultSO[(i % 3)].level;
     }
 
     // button quay lai level select

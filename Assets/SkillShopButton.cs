@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,7 +6,9 @@ using UnityEngine;
 public class SkillShopButton : MonoBehaviour
 {
     [SerializeField] private GameObject Purchased;
-    [SerializeField] private SkillShopSO skillShopSO;
+    [SerializeField] private SkillShopSO skillShopSO;   
+
+
 
     private void Start()
     {
