@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelSO[] defaultLevelSO;
     [SerializeField] private SkillsSO[] skillsSO;
     [SerializeField] private SkillsSO[] defaultSkillsSO;
+    [SerializeField] private AchievementSO achievementSO;
 
     private void Start()
     {
@@ -23,34 +24,29 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //private void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+
+    // tao gia tri mac dinh khi new game roi luu vao file json
     public void SetDefaultData()
     {
         var skillsData = GameManager.Instance.GenerateSkillUpgradeData(GameManager.Instance.defaultSkillsSO);
         var levelsData = GameManager.Instance.GenerateLevelData(GameManager.Instance.defaultLevelSO);
-        GameData gameData = new GameData(5, skillsData, levelsData);
-        FileHandler.SaveToJSON<GameData>( gameData, "DefaultGameData.json");
+        var achievement = new AchievementData(0, 0, 0, false, false, false, 0);
+        GameData gameData = new GameData(5, achievement, skillsData, levelsData);
+        FileHandler.SaveToJSON<GameData>(gameData, "DefaultGameData.json");
     }
 
+    // lay du lieu de luu vao file khi tat game hoac khi can luu
     public void SaveData()
     {
         var skillsData = GameManager.Instance.GenerateSkillUpgradeData(GameManager.Instance.skillsSO);
         var levelsData = GameManager.Instance.GenerateLevelData(GameManager.Instance.levelSO);
-        GameData gameData = new GameData(GameManager.Instance.starSO.starCurrent, skillsData, levelsData);
+        AchievementData achievement = new AchievementData(achievementSO.kills, achievementSO.builds, achievementSO.useSkill,
+            achievementSO.starsEarned, achievementSO.normalSkill, achievementSO.hardSkill, achievementSO.defense);
+        GameData gameData = new GameData(GameManager.Instance.starSO.starCurrent, achievement, skillsData, levelsData);
         FileHandler.SaveToJSON<GameData>(gameData, "GameData.json");
     }
 
+    // lay du lieu khi tiep tuc game
     public void LoadData()
     {
         // Đọc dữ liệu từ file JSON
@@ -81,8 +77,17 @@ public class GameManager : MonoBehaviour
                 levelSO[i].currency = gameData.levels[i].currency;
             }
         }
+
+        achievementSO.kills = gameData.achievement.kills;
+        achievementSO.builds = gameData.achievement.builds;
+        achievementSO.useSkill = gameData.achievement.useSkill;
+        achievementSO.starsEarned = gameData.achievement.starsEarned;
+        achievementSO.normalSkill = gameData.achievement.normalSkill;
+        achievementSO.hardSkill = gameData.achievement.hardSkill;
+        achievementSO.defense = gameData.achievement.defense;
     }
 
+    // lay du lieu mac dinh ra tu file json de su dung
     public void GetDefaultData()
     {
         // Đọc dữ liệu từ file JSON
@@ -113,6 +118,14 @@ public class GameManager : MonoBehaviour
                 levelSO[i].currency = gameData.levels[i].currency;
             }
         }
+        
+        achievementSO.kills = gameData.achievement.kills;
+        achievementSO.builds = gameData.achievement.builds;
+        achievementSO.useSkill = gameData.achievement.useSkill;
+        achievementSO.starsEarned = gameData.achievement.starsEarned;
+        achievementSO.normalSkill = gameData.achievement.normalSkill;
+        achievementSO.hardSkill = gameData.achievement.hardSkill;
+        achievementSO.defense = gameData.achievement.defense;
     }
 
     // tao ra danh sach skilldata
@@ -136,6 +149,7 @@ public class GameManager : MonoBehaviour
         }
         return levelDataList;
     }
+
     private void OnApplicationQuit()
     {
         SaveData();
