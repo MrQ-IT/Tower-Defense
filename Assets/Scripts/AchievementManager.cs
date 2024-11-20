@@ -17,11 +17,11 @@ public class AchievementManager : MonoBehaviour
             int slotNomarl = i * 2;
             int slotHard = slotNomarl + 1;
 
-            // Cập nhật trạng thái cho achievement slot thông thường
-            CheckAchievement(slotNomarl, achievementSO[i].value, achievementSO[i].normalCondition);
+            //// Cập nhật trạng thái cho achievement slot thông thường
+            //CheckAchievement(slotNomarl, achievementSO[i].value, achievementSO[i].normalCondition);
 
-            // Cập nhật trạng thái cho achievement slot khó
-            CheckAchievement(slotHard, achievementSO[i].value, achievementSO[i].hardCondition);
+            //// Cập nhật trạng thái cho achievement slot khó
+            //CheckAchievement(slotHard, achievementSO[i].value, achievementSO[i].hardCondition);
         }
     }
 
