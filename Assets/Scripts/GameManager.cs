@@ -23,7 +23,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    //private void Awake()
+    //{
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
     public void SetDefaultData()
     {
         var skillsData = GameManager.Instance.GenerateSkillUpgradeData(GameManager.Instance.defaultSkillsSO);
@@ -125,7 +136,6 @@ public class GameManager : MonoBehaviour
         }
         return levelDataList;
     }
-
     private void OnApplicationQuit()
     {
         SaveData();

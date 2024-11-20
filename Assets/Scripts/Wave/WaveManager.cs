@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,23 +9,21 @@ using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
-    public static WaveManager main;
     [SerializeField] private WaveSO[] waveSO;
     [SerializeField] private Text waveNumber;
-    private float waveInterval = 15f;
-    private float spawnTime = 2f;
+    [SerializeField] private Text waveTimer;
+
+    private float waveInterval = 4f;
+    private float spawnTime = 0f;
     private float repeatTime = 0.5f;
-    private int currentWaveIndex = 14;
+    private int currentWaveIndex = 0;
     private int enemyIndex = 0;
     private int[] currentNumberOfEnemies;
-    public int lastEnemyCount = 0;
-    public bool outOfEnemies = false;
 
     void Start()
-    {   
-        main = this;
+    {
         SetWaveNumber();
-        Initialize();
+        StartCoroutine(CountdownToNextWave());
     }
 
     public void SpawnEnemy()
@@ -34,8 +33,9 @@ public class WaveManager : MonoBehaviour
             SetWaveNumber();
             if (currentNumberOfEnemies[enemyIndex] > 0)
             {
-                Instantiate(waveSO[currentWaveIndex].pfEnemies[enemyIndex], transform.position, Quaternion.identity);
-                lastEnemyCount++;
+                GameObject enemy = Instantiate(waveSO[currentWaveIndex].pfEnemies[enemyIndex], transform.position, Quaternion.identity);
+                enemy.GetComponent<Enemy>().waypointManager = transform.GetComponentInParent<WaypointManager>();
+                InGameManager.main.lastEnemyCount++;
                 currentNumberOfEnemies[enemyIndex]--;
             }
             else
@@ -44,17 +44,20 @@ public class WaveManager : MonoBehaviour
             }
             if (enemyIndex >= waveSO[currentWaveIndex].pfEnemies.Length)
             {
-                currentWaveIndex++;
                 enemyIndex = 0;
-                CancelInvoke("SpawnEnemy");
-                if (currentWaveIndex < waveSO.Length)
+                if (InGameManager.main.lastEnemyCount == 0)
                 {
-                    Invoke("Initialize", waveInterval);
-                }
-                else
-                {
-                    outOfEnemies = true;
-                    Debug.Log("Out of enemy");
+                    currentWaveIndex++;
+                    CancelInvoke("SpawnEnemy");
+                    if (currentWaveIndex < waveSO.Length)
+                    {
+                        if ( currentWaveIndex == 14)
+                        {
+                            InGameManager.main.outOfEnemies = true;
+                            Debug.Log("Out of enemy");
+                        }
+                        StartCoroutine(CountdownToNextWave());
+                    }
                 }
             }
         }
@@ -71,6 +74,22 @@ public class WaveManager : MonoBehaviour
             }
         }
         InvokeRepeating("SpawnEnemy", spawnTime, repeatTime);
+    }
+
+    private IEnumerator CountdownToNextWave()
+    {
+        float remainingTime = waveInterval;
+
+        while (remainingTime > 0)
+        {
+            if (waveTimer != null)
+                waveTimer.text = "Next wave in: " + Mathf.CeilToInt(remainingTime).ToString() + "s";
+            yield return new WaitForSeconds(1f);
+            remainingTime--;
+        }
+        if (waveTimer != null)
+            waveTimer.text = ""; // Xóa text khi thời gian đếm ngược kết thúc
+        Initialize(); // Bắt đầu wave tiếp theo
     }
 
     public void SetWaveNumber()

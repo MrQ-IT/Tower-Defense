@@ -7,7 +7,8 @@ public class InGameManager : MonoBehaviour
     private Vector3 dragOrigin;
     [SerializeField] private float dragSpeed = 0.1f;
     public static InGameManager main;
-
+    public int lastEnemyCount = 0;
+    public bool outOfEnemies = false;
 
     void Start()
     {

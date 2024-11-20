@@ -12,13 +12,13 @@ public class StorylineController : MonoBehaviour
     private string[] Storyline = {
     "Cốt truyện chính:\nTrong một ngôi làng yên bình nằm sâu trong rừng, nơi sinh sống của những cư dân hiền hòa, một thế lực đen tối đã trỗi dậy và muốn xâm chiếm ngôi làng. Người chơi sẽ đóng vai một anh hùng hoặc thủ lĩnh, tổ chức việc bảo vệ ngôi làng khỏi các đợt tấn công của kẻ thù. Các tòa tháp phòng thủ sẽ được xây dựng trên các vị trí chiến lược trong ngôi làng để ngăn chặn kẻ địch tiếp cận.",
 
-    "Bối cảnh ngôi làng:\nNgôi làng trong rừng: Làng có các căn nhà tranh, suối nước, cối xay gió và những cánh đồng. Người chơi có thể sử dụng các công trình và địa hình để tạo ra các chiến lược phòng thủ khác nhau.\nTài nguyên của làng: Mỗi căn nhà hoặc khu vực đặc biệt có thể tạo ra tài nguyên (vàng, gỗ, đá) mà người chơi cần để xây dựng và nâng cấp các tòa tháp.",
+    "Bối cảnh ngôi làng:\nNgôi làng trong rừng: Làng có các túp lều, sạp hàng, căn nhà, hoa cỏ và những cánh đồng. Người chơi có thể sử dụng các công trình và địa hình để tạo ra các chiến lược phòng thủ khác nhau.",
 
-    "Nhân vật trong làng:\nDân làng: Là những người bình thường nhưng sẽ cung cấp hỗ trợ, nâng cấp các tòa tháp hoặc thậm chí tham gia chiến đấu.\nKẻ thù: Có thể là những sinh vật đến từ khu rừng, bao gồm cả các quái vật và phù thủy đã từng bị trục xuất khỏi làng trước đây.",
+    "Nhân vật trong làng:\nCung thủ: Là những người tham gia chiến đấu trên các tòa tháp cao.\nKẻ thù: Có thể là những sinh vật đến từ khu rừng, bao gồm cả các quái vật đã từng bị trục xuất khỏi làng trước đây.",
 
-    "Các tòa tháp phòng thủ:\nTháp cung thủ: Được đặt trên những căn nhà cao hoặc tháp canh.\nTháp pháp sư: Đặt gần các khu vực linh thiêng hoặc đền đài cổ.\nChướng ngại vật: Sử dụng các yếu tố của làng như cối xay gió hoặc bức tường để làm vật cản.",
+    "Các tòa tháp phòng thủ:\nTháp đơn: Tháp mục tiêu đơn, tốc độ tấn công trung bình, sát thương ổn định.\nTháp làm chậm: Làm chậm kẻ địch, diện tích ảnh hưởng rộng, sát thương thấp.\nTháp bắn tỉa: Tháp tầm xa, sát thương cao, tốc độ tấn công chậm. Hiệu quả chống lại kẻ thù mạnh.",
 
-    "Cấp độ và mục tiêu:\nMỗi cấp độ sẽ là một cuộc tấn công mới với kẻ thù ngày càng mạnh. Người chơi phải bảo vệ các công trình quan trọng trong làng, ví dụ như tòa nhà chính, nguồn nước, hoặc đền thờ. Những công trình này nếu bị phá hủy sẽ ảnh hưởng đến khả năng phòng thủ."
+    "Cấp độ và mục tiêu:\nMỗi cấp độ sẽ là một cuộc tấn công mới với kẻ thù ngày càng mạnh. Người chơi phải bảo vệ các công trình quan trọng trong làng, ví dụ như tòa nhà chính, nguồn nước, hoặc đền thờ."
     };
 
 
