@@ -58,9 +58,6 @@ public class LevelManager : MonoBehaviour
     //show image lock
     public void ShowImage()
     {
-        //Color color = imageLockMap.color;
-        //color.a = 1f;
-        //imageLockMap.color = color;
         imageLockMap.gameObject.SetActive(true);
         star.gameObject.SetActive(false);
     }
@@ -68,9 +65,6 @@ public class LevelManager : MonoBehaviour
     //hide image lock
     public void HideImage()
     {
-        //Color color = imageLockMap.color;
-        //color.a = 0f;
-        //imageLockMap.color = color;
         imageLockMap.gameObject.SetActive(false);
         star.gameObject.SetActive(true);
     }
@@ -94,10 +88,6 @@ public class LevelManager : MonoBehaviour
             preMapImage.color = new Color(1, 1, 1, 0.5f);
             nextMapImage.color = new Color(1, 1, 1, 0.5f);
 
-            //PlayerPrefManager.UnlockMap(0);
-            //CheckCompleteCondition();
-            // check selected map is unlock
-            //if (PlayerPrefManager.IsMapUnlocked(currentIndex))
             if (!levelSO[currentIndex].islock)
             {
                 if (levelSO[currentIndex].star == 0)
@@ -158,28 +148,5 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("AchievementsScene");
     }
-    //public void CompleteMap()
-    //{
-    //    if (currentIndex < maps.Length - 1)
-    //    {
-    //        Debug.Log("Finish Lvl,Unlock next map");
-    //        Debug.Log(maps.Length);
-    //        PlayerPrefManager.UnlockMap(currentIndex + 1);
-    //    }
-    //    else if (currentIndex == maps.Length - 1)
-    //    {
-    //        Debug.Log("Max level you can play");
-    //    }
-
-    //}
-    //public void CheckCompleteCondition()
-    //{
-
-    //}
-
-    //public void Reset()
-    //{
-    //    PlayerPrefManager.ResetAllData();
-    //}
 }
 

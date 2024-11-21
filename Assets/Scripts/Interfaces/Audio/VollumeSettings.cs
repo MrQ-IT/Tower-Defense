@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -86,5 +87,11 @@ public class VollumeSettings : MonoBehaviour
     {
         float value = sfxSlider.value;
         mixer.SetFloat("sfx", Mathf.Log10(value) * 20);
+    }
+
+    // back button
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

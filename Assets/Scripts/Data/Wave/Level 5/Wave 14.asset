@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df0bf6bdaa274d48aa0d71cd395a265, type: 3}
+  m_Name: Wave 14
+  m_EditorClassIdentifier: 
+  pfEnemies:
+  - {fileID: 7678396565098421927, guid: f45517af1f16fb24a801e1399c73f912, type: 3}
+  - {fileID: 7229564352721946097, guid: 8e73fe4ea3fe6894b87d6e73feb3dbdf, type: 3}
+  - {fileID: 3932845994123607023, guid: e9090fe51fc6a384baa0297e143e8b54, type: 3}
+  - {fileID: 2331572565579454370, guid: ca780e1bc9afec849bcd568409fc44d4, type: 3}
+  - {fileID: 774210420533388025, guid: bfe2994147dd19a40a13e6984ee5df14, type: 3}
+  - {fileID: 1160254663845285187, guid: 48e86d706fa9ff54198bc9af4ee75289, type: 3}
+  numberOfEnemy: 0a0000000800000008000000050000000a00000005000000
