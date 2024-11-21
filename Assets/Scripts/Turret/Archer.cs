@@ -21,6 +21,7 @@ public class Archer : MonoBehaviour
     private GameObject arrow;
     private bool isSelected;
     public bool isAttack;
+    //public AchievementSO achievementSO;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class Archer : MonoBehaviour
 
     private void Initialize()
     {
+        //achievementSO.builds += 1;
         animator = GetComponent<Animator>();
         attackRange = archerSO.range;
         towerCost = archerSO.towerCost;

@@ -23100,6 +23100,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 884827510876641859, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     - target: {fileID: 1293155544732698258, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -23128,6 +23132,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1995781277696505074, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     - target: {fileID: 2144834139235642416, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -23160,6 +23168,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4140903367176569673, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     - target: {fileID: 4994892854396824800, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_Camera
       value: 
@@ -23244,6 +23256,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7445452842992114872, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8755152859892032112, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8823001201961935734, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8830832871071833078, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

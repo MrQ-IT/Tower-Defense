@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 70af837acbb15d342a6618669cb35d95, type: 2}
+  achievementSO: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
 --- !u!58 &2450713035899787393
 CircleCollider2D:
   m_ObjectHideFlags: 0

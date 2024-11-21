@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 8cc7815ce5052c6429a6ee85b2d380b5, type: 2}
-  achievementSO: {fileID: 11400000, guid: af6d74a9635e0bb46b3a361ecf354eff, type: 2}
+  achievementSO: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+  waypointManager: {fileID: 0}
 --- !u!61 &-5223894982050661703
 BoxCollider2D:
   m_ObjectHideFlags: 0

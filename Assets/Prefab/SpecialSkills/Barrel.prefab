@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -929667327
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1837180258, guid: 38e5a5ff23b11ec42bc6eddeb413e58c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -184,3 +184,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 99a04fc337e1d7749a61ba4f49f75d79, type: 2}
+  achievementSO: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}

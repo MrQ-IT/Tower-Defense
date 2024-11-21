@@ -39,6 +39,7 @@ public class TurretInShop : MonoBehaviour
     {
         if ( plot.checkTurret == false && plot != null && CurrencyManager.main.SpendCurrency(turretCost))
         {
+            achievementSO.builds += 1;
             GameObject tower = Instantiate(turretPrefab, plot.transform.position, Quaternion.identity);
             tower.transform.parent = plot.transform;
             tower.transform.GetComponentInChildren<Tower>().plot = plot;

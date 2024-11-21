@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -929667327
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 109158353, guid: 9d674c82bf8b33c4c8797c292621bf08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 1bcae23531c3e814abf51bfa50aed59d, type: 2}
-  achievementSO: {fileID: 11400000, guid: af6d74a9635e0bb46b3a361ecf354eff, type: 2}
+  achievementSO: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+  waypointManager: {fileID: 0}
 --- !u!61 &1010043965371210974
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class SkillHandler : MonoBehaviour
     private GameObject castingCircleInstance;
     private bool isCasting = false;        // Track if we are in casting mode
     private float cooldownTimer = 0f;
+    public AchievementSO achievementSO;
 
     private void Start()
     {
@@ -101,6 +102,7 @@ public class SkillHandler : MonoBehaviour
             {
                 Instantiate(skillData.skillPrefab, position, Quaternion.identity);
             }
+            achievementSO.useSkill += 1;
             StartCooldown(); // Start cooldown after executing the skill
             CancelCastingMode();
         }

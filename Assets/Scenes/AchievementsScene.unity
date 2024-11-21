@@ -563,7 +563,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GOLD CUP
+  m_Text: SKILL ADEPT
 --- !u!222 &130000567
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STANDARD CHAMPION
+  m_Text: SKILL AWAKENING
 --- !u!222 &176525302
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRONZE CUP
+  m_Text: SKILL APPRENTICE
 --- !u!222 &305841466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1105,7 +1105,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOUGH MASTER
+  m_Text: SKILL ASCENSION
 --- !u!222 &326924011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 494352227}
   - component: {fileID: 494352226}
   m_Layer: 5
-  m_Name: AchievementSlot_Bows
+  m_Name: AchievementSlot_Builds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Complete all the first 30 levels
+  m_Text: Use skills 50 times
 --- !u!222 &542593623
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 630398754}
   - component: {fileID: 630398753}
   m_Layer: 5
-  m_Name: AchievementSlot_Gold_Cup
+  m_Name: AchievementSlot_Gold_Skills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2275,7 +2275,7 @@ GameObject:
   - component: {fileID: 849142080}
   - component: {fileID: 849142079}
   m_Layer: 5
-  m_Name: AchievementSlot_Bronze_Cup
+  m_Name: AchievementSlot_Bronze_Skill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2491,7 +2491,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 40
+    m_FontSize: 39
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -2524,7 +2524,7 @@ GameObject:
   - component: {fileID: 929691111}
   - component: {fileID: 929691110}
   m_Layer: 5
-  m_Name: AchievementSlot_Hard_Level
+  m_Name: AchievementSlot_Hard_LevelSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2751,7 +2751,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Earn 10 stars in battles
+  m_Text: Earn 3 stars in battles
 --- !u!222 &1034994534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3211,7 +3211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Complete all battles in normal mode
+  m_Text: Total level of all skills exceeds 3
 --- !u!222 &1204948698
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3534,7 +3534,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Earn 50 stars in battles
+  m_Text: Earn 15 stars in battles
 --- !u!222 &1289270980
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3707,7 +3707,7 @@ GameObject:
   - component: {fileID: 1412352112}
   - component: {fileID: 1412352111}
   m_Layer: 5
-  m_Name: AchievementSlot_Bow
+  m_Name: AchievementSlot_Build
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4157,7 +4157,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Complete the first 10 levels.
+  m_Text: 'Use a skill for the first time
+
+'
 --- !u!222 &1600362274
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4612,7 +4614,7 @@ GameObject:
   - component: {fileID: 1787053688}
   - component: {fileID: 1787053687}
   m_Layer: 5
-  m_Name: AchievementSlot_Normal_Level
+  m_Name: AchievementSlot_Normal_LeveSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5175,7 +5177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Complete 3 battles without base damage
+  m_Text: Complete 1 battles without base damage
 --- !u!222 &1984661799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5254,7 +5256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Complete all battles in hard mode
+  m_Text: Total level of all skills exceeds 9
 --- !u!222 &2026502101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5505,7 +5507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2146872198
@@ -5570,13 +5572,7 @@ MonoBehaviour:
   - {fileID: 1787053689}
   - {fileID: 929691112}
   - {fileID: 14112657}
-  achievementSO:
-  - {fileID: 11400000, guid: af6d74a9635e0bb46b3a361ecf354eff, type: 2}
-  - {fileID: 11400000, guid: c27f75f7b41cafa4088a944f119574b0, type: 2}
-  - {fileID: 11400000, guid: cdf3878891a982f4e944dc00bbda5b7d, type: 2}
-  - {fileID: 11400000, guid: dcd8d9aff4b919c43ba3eb43cb82a375, type: 2}
-  - {fileID: 11400000, guid: 72978d32774a08a4d9a93fdd5efa8037, type: 2}
-  - {fileID: 11400000, guid: a0e4a44997bb48342b3286b906626db4, type: 2}
+  achievementSO: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

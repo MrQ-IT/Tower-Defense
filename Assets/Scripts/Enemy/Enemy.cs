@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
     {
         RemoveOnPathEnd();
         CurrencyManager.main.IncreaseCurrency(currency);
+        achievementSO.kills += 1;
     }
 
     public void RemoveOnPathEnd()

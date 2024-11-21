@@ -5,7 +5,6 @@ using UnityEngine;
 public class DamageSkill : MonoBehaviour
 {
 	public SkillsSO skillData; // Reference to SkillsSO
-
 	private void Start()
 	{
 		Initialize();

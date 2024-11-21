@@ -28,6 +28,7 @@ public class SkillShop : MonoBehaviour
     [SerializeField] private SkillsSO[] skillsSO;
     [SerializeField] private SkillsSO[] skillsDefaultSO;
 
+    public AchievementSO achievementSO;
 
     // sao de mua ki nang
     private int stars;
@@ -123,10 +124,11 @@ public class SkillShop : MonoBehaviour
 
         // Duyệt qua tất cả kỹ năng
         for (int i = 0; i < skillsSO.Length; i++)
-        {
+        {           
             // Duyệt qua các cấp độ của kỹ năng
             for (int j = 2; j <= skillsSO[i].level; j++) // Từ cấp độ max về cấp 2
             {
+                
                 int index = (5 - j) * 3 + i; // Tính chỉ số nút
 
                 // Kiểm tra chỉ số hợp lệ
@@ -155,9 +157,28 @@ public class SkillShop : MonoBehaviour
         skillsSO[i % 3].level = skillsDefaultSO[(i % 3)].level;
     }
 
+    public void CheckAchievement()
+    {
+        int s = 0;
+        //kiem tra thanh tuu ki nang
+        for (int i = 0; i < skillsSO.Length; i++)
+        {
+
+            s = s + skillsSO[i].level;
+        }
+        if (s > 6)
+        {
+            achievementSO.normalSkill = true;
+            if (s > 18) achievementSO.hardSkill = true;
+            else achievementSO.hardSkill = false;
+        }
+        else achievementSO.normalSkill = false;
+    }
+
     // button quay lai level select
     public void BackButton()
-    {
+    {   
+        CheckAchievement();
         SceneManager.LoadScene("Level Select");
         GameManager.Instance.SaveData();
     }

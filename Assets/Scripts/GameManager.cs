@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         var skillsData = GameManager.Instance.GenerateSkillUpgradeData(GameManager.Instance.defaultSkillsSO);
         var levelsData = GameManager.Instance.GenerateLevelData(GameManager.Instance.defaultLevelSO);
-        var achievement = new AchievementData(0, 0, 0, false, false, false, 0);
+        var achievement = new AchievementData(0, 0, 0, 0, false, false, false);
         GameData gameData = new GameData(5, achievement, skillsData, levelsData);
         FileHandler.SaveToJSON<GameData>(gameData, "DefaultGameData.json");
     }
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         var skillsData = GameManager.Instance.GenerateSkillUpgradeData(GameManager.Instance.skillsSO);
         var levelsData = GameManager.Instance.GenerateLevelData(GameManager.Instance.levelSO);
         AchievementData achievement = new AchievementData(achievementSO.kills, achievementSO.builds, achievementSO.useSkill,
-            achievementSO.starsEarned, achievementSO.normalSkill, achievementSO.hardSkill, achievementSO.defense);
+            achievementSO.starsEarned, achievementSO.normalSkill, achievementSO.hardSkill,achievementSO.defense);
         GameData gameData = new GameData(GameManager.Instance.starSO.starCurrent, achievement, skillsData, levelsData);
         FileHandler.SaveToJSON<GameData>(gameData, "GameData.json");
     }

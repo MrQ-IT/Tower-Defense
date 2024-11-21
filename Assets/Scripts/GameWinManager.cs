@@ -21,6 +21,8 @@ public class GameWinManager : MonoBehaviour
     // du lieu sao nang cap ki nang
     public StarSO starSO;
 
+    public AchievementSO achievementSO;
+
     private void Start()
     {
         Initialize();
@@ -45,6 +47,11 @@ public class GameWinManager : MonoBehaviour
         {
             star = 0;
         }
+
+        if (LivesManager.main.lives == 20) achievementSO.defense = true;
+        else achievementSO.defense = false;
+
+        achievementSO.starsEarned += star;
         transform.Find("Star").GetComponent<Image>().sprite = starImage[star];
         transform.Find("Skill").GetComponent<Image>().sprite = skillImage;
         SkillsSO.islock = false;
