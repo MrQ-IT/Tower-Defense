@@ -27949,6 +27949,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 262220070927083328, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2592771105192817090}
+    - target: {fileID: 262220070927083328, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVollumeMusic
+      objectReference: {fileID: 0}
     - target: {fileID: 837599879464323349, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -28121,6 +28129,14 @@ PrefabInstance:
       propertyPath: achievementSO
       value: 
       objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8810694978136755366, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2592771105192817090}
+    - target: {fileID: 8810694978136755366, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVollumeSFX
+      objectReference: {fileID: 0}
     - target: {fileID: 8823001201961935734, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: achievementSO
       value: 
@@ -28134,6 +28150,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+--- !u!114 &2592771105192817090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243780007372323904, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+  m_PrefabInstance: {fileID: 2592771105192817089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988f3f066149096478c89ce0f10aa49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2637742188441202750
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -51,8 +51,10 @@ public class AudioManager : MonoBehaviour
             if (gameMusicSource != null && gameMusicSource.clip != gameMusic)
             {
                 if (musicSource != null && musicSource.isPlaying)
+                {
                     musicSource.Stop();
-
+                    musicSource.clip = null;
+                }
                 gameMusicSource.clip = gameMusic;
                 gameMusicSource.Play();
             }
@@ -63,10 +65,16 @@ public class AudioManager : MonoBehaviour
             if (musicSource != null && musicSource.clip != background)
             {
                 if (gameMusicSource != null && gameMusicSource.isPlaying)
+                {
                     gameMusicSource.Stop();
+                    gameMusicSource.clip = null;
+                }
 
                 musicSource.clip = background;
-                musicSource.Play();
+                if (!musicSource.isPlaying)
+                {
+                    musicSource.Play();
+                }
             }
         }
     }
