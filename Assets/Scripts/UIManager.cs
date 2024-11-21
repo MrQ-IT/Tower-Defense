@@ -83,6 +83,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         int index = SceneManager.GetActiveScene().buildIndex;
+        GameManager.Instance.SaveData();
         SceneManager.LoadScene(index);
     }
 
@@ -90,6 +91,7 @@ public class UIManager : MonoBehaviour
     {
         int index = SceneManager.GetActiveScene().buildIndex + 1;
         if (index == 11) return;
+        GameManager.Instance.SaveData();
         SceneManager.LoadScene(index);
         Time.timeScale = 1;
     }

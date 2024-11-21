@@ -149,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -2}
   serializedVersion: 2
-  m_Radius: 2.4
+  m_Radius: 2
 --- !u!95 &8162799865459074448
 Animator:
   serializedVersion: 5
@@ -184,4 +184,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 1e438e17d8c20a44cadab4c4aa6306bb, type: 2}
-  achievementSO: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}

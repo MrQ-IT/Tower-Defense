@@ -54,8 +54,14 @@ public class GameWinManager : MonoBehaviour
         achievementSO.starsEarned += star;
         transform.Find("Star").GetComponent<Image>().sprite = starImage[star];
         transform.Find("Skill").GetComponent<Image>().sprite = skillImage;
-        SkillsSO.islock = false;
-        levelSO2.islock = false;
+        if (SceneManager.GetActiveScene().buildIndex < 8)
+        {
+            SkillsSO.islock = false;
+        }
+        if (SceneManager.GetActiveScene().buildIndex < 10)
+        {
+            levelSO2.islock = false;
+        }
         LevelSO1.star = star;
         starSO.starCurrent += star;
     }

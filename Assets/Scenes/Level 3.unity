@@ -24894,6 +24894,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1995781277696505074, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     - target: {fileID: 2144834139235642416, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -24926,6 +24930,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4140903367176569673, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     - target: {fileID: 5925498210319257221, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -25006,6 +25014,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7445452842992114872, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8755152859892032112, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: LevelSO1
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ddf0f730f384bd4aae391974978043f, type: 2}
+    - target: {fileID: 8755152859892032112, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: levelSO2
+      value: 
+      objectReference: {fileID: 11400000, guid: 231f57fda45db2342aa6d91270b844f8, type: 2}
+    - target: {fileID: 8755152859892032112, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: skillImage
+      value: 
+      objectReference: {fileID: -1837180258, guid: 38e5a5ff23b11ec42bc6eddeb413e58c, type: 3}
+    - target: {fileID: 8755152859892032112, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
