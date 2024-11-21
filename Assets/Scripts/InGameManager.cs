@@ -18,7 +18,8 @@ public class InGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DragMap();
+        if (UIManager.main.transform.Find("GamePause").gameObject.activeSelf == false)
+            DragMap();
     }
 
     public void Initialize()

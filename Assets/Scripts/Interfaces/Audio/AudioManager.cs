@@ -19,58 +19,63 @@ public class AudioManager : MonoBehaviour
     public AudioClip click;
 
     public static AudioManager instance;
+
     private void Start()
     {
-        setBackgroundMusic();
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    public void setBackgroundMusic()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (sceneName != "Level 1")
+        if (instance == null)
         {
-            // Nhạc nền (không phải game)
-            if (musicSource != null && musicSource.clip != background)
-            {
-                musicSource.Stop();
-                musicSource.clip = background;
-                musicSource.loop = true;
-                musicSource.Play();
-            }
-            if (gameMusicSource != null) gameMusicSource.Stop();
+            instance = this;
         }
         else
         {
-            // Nhạc game (Level 1)
+            Destroy(gameObject);  // Hủy đối tượng mới tạo nếu đã có instance tồn tại
+            return;
+        }
+        SetBackgroundMusic();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode = LoadSceneMode.Single)
+    {
+        SetBackgroundMusic();
+    }
+
+    public void SetBackgroundMusic()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        Debug.Log(Time.timeScale + " " + sceneIndex);
+
+        if (sceneIndex >= 6)
+        {
             if (gameMusicSource != null && gameMusicSource.clip != gameMusic)
             {
                 if (musicSource != null && musicSource.isPlaying)
-                {
                     musicSource.Stop();
-                }
+
                 gameMusicSource.clip = gameMusic;
-                gameMusicSource.loop = true;
                 gameMusicSource.Play();
             }
-            if( sceneName != "Level 1")
+        }
+        else
+        {
+            Debug.Log(musicSource.clip);
+            if (musicSource != null && musicSource.clip != background)
             {
+                if (gameMusicSource != null && gameMusicSource.isPlaying)
+                    gameMusicSource.Stop();
+
                 musicSource.clip = background;
-                musicSource.loop = true;
                 musicSource.Play();
             }
-
         }
     }
+
+
     private void PlaySound()
     {
         sFXSource.clip = click;
         sFXSource.PlayOneShot(click);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        setBackgroundMusic(); // Cập nhật nhạc nền theo Scene
-    }
 }
