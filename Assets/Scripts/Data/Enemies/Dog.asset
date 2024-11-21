@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b363e1fe7d354041a4598811621f345, type: 3}
-  m_Name: Cavalry
+  m_Name: Dog
   m_EditorClassIdentifier: 
-  speed: 4
-  health: 250
-  currency: 80
-  enemyName: Cavalry
+  speed: 2
+  health: 300
+  currency: 100
+  enemyName: Dog

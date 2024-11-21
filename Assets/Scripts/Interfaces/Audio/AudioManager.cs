@@ -18,11 +18,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip gameMusic;
     public AudioClip click;
 
-    private bool checkQuit = false;
-
-    private static bool musicAlreadyPlaying = false; //biến tính kiểm tra nhạc đã phát chưa nếu rồi thì tiếp tục
-
-
     public static AudioManager instance;
     private void Start()
     {
@@ -73,21 +68,9 @@ public class AudioManager : MonoBehaviour
         sFXSource.clip = click;
         sFXSource.PlayOneShot(click);
     }
-    private void Awake()
-    {
-        //if (!musicAlreadyPlaying) {
-        //    musicAlreadyPlaying=true;
-        //    setBackgroundMusic();
-        //}
-    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         setBackgroundMusic(); // Cập nhật nhạc nền theo Scene
-    }
-    public void QuitToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-        checkQuit = true;
     }
 }

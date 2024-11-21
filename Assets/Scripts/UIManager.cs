@@ -82,12 +82,15 @@ public class UIManager : MonoBehaviour
     public void RetryButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Level 1");
+        int index = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(index);
     }
 
     public void NextButton()
     {
-        SceneManager.LoadScene("Level 2");
+        int index = SceneManager.GetActiveScene().buildIndex + 1;
+        if (index == 11) return;
+        SceneManager.LoadScene(index);
         Time.timeScale = 1;
     }
 }

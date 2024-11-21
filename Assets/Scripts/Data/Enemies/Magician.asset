@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b363e1fe7d354041a4598811621f345, type: 3}
   m_Name: Magician
   m_EditorClassIdentifier: 
-  speed: 3
-  health: 100
-  currency: 50
-  enemyName: Bee
+  speed: 5
+  health: 220
+  currency: 80
+  enemyName: Magician

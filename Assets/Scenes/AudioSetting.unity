@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.39215687, g: 0.19607843, b: 0, a: 0.88235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.88235295}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -838,8 +838,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 900, y: 530}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: 894.1, y: 476.3}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868861177
 MonoBehaviour:
@@ -885,9 +885,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1444465344}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: QuitToMainMenu
+      - m_Target: {fileID: 812016606}
+        m_TargetAssemblyTypeName: VollumeSettings, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1607,17 +1607,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c9753a5b7000d49bb905244115b7a7, type: 3}
---- !u!114 &1444465344 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1448012533251745322, guid: e8c9753a5b7000d49bb905244115b7a7, type: 3}
-  m_PrefabInstance: {fileID: 1444465343}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef7da1960dff3146b4d6b549cc4c923, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1503740865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,7 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.39215687, g: 0.19607843, b: 0, a: 0.88235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.88235295}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
