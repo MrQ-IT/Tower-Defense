@@ -10,16 +10,17 @@ public class StorylineController : MonoBehaviour
 
     // Mảng chứa các đoạn cốt truyện
     private string[] Storyline = {
-    "Cốt truyện chính:\nTrong một ngôi làng yên bình nằm sâu trong rừng, nơi sinh sống của những cư dân hiền hòa, một thế lực đen tối đã trỗi dậy và muốn xâm chiếm ngôi làng. Người chơi sẽ đóng vai một anh hùng hoặc thủ lĩnh, tổ chức việc bảo vệ ngôi làng khỏi các đợt tấn công của kẻ thù. Các tòa tháp phòng thủ sẽ được xây dựng trên các vị trí chiến lược trong ngôi làng để ngăn chặn kẻ địch tiếp cận.",
+        "Main storyline:\nIn a peaceful village nestled deep within the forest, home to gentle inhabitants, a dark force has risen and seeks to invade the village. The player takes on the role of a hero or leader, organizing the defense of the village against waves of enemy attacks. Defensive towers will be built at strategic locations in the village to stop the enemies from advancing.",
 
-    "Bối cảnh ngôi làng:\nNgôi làng trong rừng: Làng có các túp lều, sạp hàng, căn nhà, hoa cỏ và những cánh đồng. Người chơi có thể sử dụng các công trình và địa hình để tạo ra các chiến lược phòng thủ khác nhau.",
+        "Village setting:\nThe forest village: The village has huts, stalls, houses, flowers, and fields. Players can use buildings and terrain to create various defense strategies.",
 
-    "Nhân vật trong làng:\nCung thủ: Là những người tham gia chiến đấu trên các tòa tháp cao.\nKẻ thù: Có thể là những sinh vật đến từ khu rừng, bao gồm cả các quái vật đã từng bị trục xuất khỏi làng trước đây.",
+        "Village characters:\nArchers: Villagers who fight from atop tall towers.\nEnemies: Can include creatures from the forest, such as monsters that were previously exiled from the village.",
 
-    "Các tòa tháp phòng thủ:\nTháp đơn: Tháp mục tiêu đơn, tốc độ tấn công trung bình, sát thương ổn định.\nTháp làm chậm: Làm chậm kẻ địch, diện tích ảnh hưởng rộng, sát thương thấp.\nTháp bắn tỉa: Tháp tầm xa, sát thương cao, tốc độ tấn công chậm. Hiệu quả chống lại kẻ thù mạnh.",
+        "Defensive towers:\nSingle-target tower: Targets one enemy at a time, with average attack speed and stable damage.\nSlow tower: Slows enemies down, has a wide area of effect, but low damage.\nSniper tower: Long-range tower with high damage but slow attack speed. Effective against strong enemies.",
 
-    "Cấp độ và mục tiêu:\nMỗi cấp độ sẽ là một cuộc tấn công mới với kẻ thù ngày càng mạnh. Người chơi phải bảo vệ các công trình quan trọng trong làng, ví dụ như tòa nhà chính, nguồn nước, hoặc đền thờ."
+        "Levels and objectives:\nEach level represents a new wave of attacks with increasingly stronger enemies. Players must protect key structures in the village, such as the main hall, water sources, or temples."
     };
+
 
 
     private int currentPage = 0;

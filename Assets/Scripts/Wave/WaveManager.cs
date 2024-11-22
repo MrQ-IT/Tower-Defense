@@ -13,7 +13,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Text waveNumber;
     [SerializeField] private Text waveTimer;
 
-    private float waveInterval = 4f;
+    private float waveInterval = 7f;
     private float spawnTime = 0f;
     private float repeatTime = 0.5f;
     private int currentWaveIndex = 0;

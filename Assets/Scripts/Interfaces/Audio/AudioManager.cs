@@ -44,8 +44,6 @@ public class AudioManager : MonoBehaviour
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        Debug.Log(Time.timeScale + " " + sceneIndex);
-
         if (sceneIndex >= 6)
         {
             if (gameMusicSource != null && gameMusicSource.clip != gameMusic)
@@ -61,7 +59,6 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.Log(musicSource.clip);
             if (musicSource != null && musicSource.clip != background)
             {
                 if (gameMusicSource != null && gameMusicSource.isPlaying)

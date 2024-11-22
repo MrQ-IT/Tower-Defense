@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.SearchService;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -92,14 +94,14 @@ public class Enemy : MonoBehaviour
         health -= damage;
         healthBar.SetHealth(health);
         if (health <= 0)
-        {   
+        {
             isDead = true;
             SetDeathAnimation();
         }
     }
 
     public void SetDeathAnimation()
-    {   
+    {
         animator.SetBool("Death", true);
         coinPopupObject = UIManager.main.CreateCoinPopup();
         coinPopupObject.transform.GetComponentInChildren<Text>().text = "+" + currency.ToString();
@@ -157,7 +159,8 @@ public class Enemy : MonoBehaviour
 
     public void ApplySlowEffect()
     {
-        enemyRenderer.material.color = new Color(127f / 255f, 189f / 255f, 248f / 255f);
+        if (enemyRenderer != null)
+            enemyRenderer.material.color = new Color(127f / 255f, 189f / 255f, 248f / 255f);
         speed = (int)(speed / 2);
         Debug.Log(speed);
         Invoke("RemoveSlowEffect", 2f);

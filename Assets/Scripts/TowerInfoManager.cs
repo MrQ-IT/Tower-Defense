@@ -86,6 +86,7 @@ public class TowerInfoManager : MonoBehaviour
 
     public void Sell()
     {
+        UIManager.main.isTowerSelected = false;
         CurrencyManager.main.IncreaseCurrency(RoundToTen(archer.towerCost * 0.5));
         plot.checkTurret = false;
         Destroy(plot.transform.GetChild(0).gameObject);

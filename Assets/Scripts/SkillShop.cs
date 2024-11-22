@@ -33,7 +33,7 @@ public class SkillShop : MonoBehaviour
     // sao de mua ki nang
     private int stars;
 
-    
+
 
     private void Awake()
     {
@@ -48,10 +48,10 @@ public class SkillShop : MonoBehaviour
         int totalRefundStar = 0;
 
         // hoan lai sao tu ki nang da mua
-        for(int i = 0; i < skillShopButton.Length; i++)
+        for (int i = 0; i < skillShopButton.Length; i++)
         {
             SkillShopButton sb = skillShopButton[i];
-            if(sb.GetPurchased() == true)
+            if (sb.GetPurchased() == true)
             {
                 totalRefundStar += sb.GetStar();
                 sb.SetActivePurchased(false);
@@ -63,7 +63,7 @@ public class SkillShop : MonoBehaviour
         starSO.starCurrent += totalRefundStar;
         UpdateStar();
 
-        for(int i = 0; i < skillShopButton.Length; i++)
+        for (int i = 0; i < skillShopButton.Length; i++)
         {
             DefaultSkill(i);
         }
@@ -76,8 +76,13 @@ public class SkillShop : MonoBehaviour
         for (int i = 0; i < skillShopButton.Length; i++)
         {
             SkillShopButton sb = skillShopButton[i];
-            if (sb.GetSkillName() == skillName.text && !sb.GetPurchased() && starSO.starCurrent >= sb.GetStar())
+            if (sb.GetSkillName() == skillName.text && !sb.GetPurchased()
+                && starSO.starCurrent >= sb.GetStar())
             {
+                if (i < 9 && skillShopButton[i + 3].GetPurchased() == false)
+                {
+                    return;
+                }
                 sb.SetActivePurchased(true);
                 sb.SetPurchased(true);
                 starSO.starCurrent -= stars;
@@ -102,7 +107,7 @@ public class SkillShop : MonoBehaviour
         this.skillStars.text = stars.ToString();
         this.stars = stars;
 
-        
+
     }
 
     // cap nhat so sao con lai len man hinh
@@ -124,11 +129,11 @@ public class SkillShop : MonoBehaviour
 
         // Duyệt qua tất cả kỹ năng
         for (int i = 0; i < skillsSO.Length; i++)
-        {           
+        {
             // Duyệt qua các cấp độ của kỹ năng
             for (int j = 2; j <= skillsSO[i].level; j++) // Từ cấp độ max về cấp 2
             {
-                
+
                 int index = (5 - j) * 3 + i; // Tính chỉ số nút
 
                 // Kiểm tra chỉ số hợp lệ
@@ -177,7 +182,7 @@ public class SkillShop : MonoBehaviour
 
     // button quay lai level select
     public void BackButton()
-    {   
+    {
         CheckAchievement();
         SceneManager.LoadScene("Level Select");
         GameManager.Instance.SaveData();
