@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 100
-  currency: 50
+  currency: 25
   enemyName: Bee

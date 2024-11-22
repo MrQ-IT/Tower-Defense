@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
                 skillsSO[i].damage = gameData.skills[i].damage;
                 skillsSO[i].level = gameData.skills[i].level;
                 skillsSO[i].range = gameData.skills[i].range;
+                skillsSO[i].islock = gameData.skills[i].isLock;
             }
         }
 
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
                 skillsSO[i].damage = gameData.skills[i].damage;
                 skillsSO[i].level = gameData.skills[i].level;
                 skillsSO[i].range = gameData.skills[i].range;
+                skillsSO[i].islock = gameData.skills[i].isLock;
             }
         }
 
@@ -135,7 +137,7 @@ public class GameManager : MonoBehaviour
         List<SkillUpgradeData> upgradeDataList = new List<SkillUpgradeData>();
         foreach (var skill in skills)
         {
-            upgradeDataList.Add(new SkillUpgradeData(skill.skillName, skill.cooldown, skill.damage, skill.level, skill.range));
+            upgradeDataList.Add(new SkillUpgradeData(skill.skillName, skill.cooldown, skill.damage, skill.level, skill.range, skill.islock));
         }
         return upgradeDataList;
     }

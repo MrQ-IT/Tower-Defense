@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   health: 300
-  currency: 100
+  currency: 50
   enemyName: Dog

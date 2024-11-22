@@ -15,8 +15,8 @@ MonoBehaviour:
   skillName: Spike
   skillIcon: {fileID: -1438787344, guid: 9185f46b9a9e5d847bf96dd5b6e60661, type: 3}
   skillPrefab: {fileID: 3056821463465706189, guid: 557358e801b5dc6419751b88e2b96f6b, type: 3}
-  cooldown: 3
-  damage: 30
+  cooldown: 20
+  damage: 20
   level: 1
   range: 1
   duration: 2

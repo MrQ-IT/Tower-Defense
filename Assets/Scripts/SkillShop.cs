@@ -88,7 +88,7 @@ public class SkillShop : MonoBehaviour
                 starSO.starCurrent -= stars;
                 starCurrency.text = starSO.starCurrent.ToString();
                 int index = sb.GetSkillType();
-                UpgradeSkill(index, skillsSO[index].cooldown * 0.2f,
+                UpgradeSkill(index, skillsSO[index].cooldown * 0.1f,
                     Mathf.FloorToInt(skillsSO[index].damage * 0.2f), 0.2f);
             }
             else

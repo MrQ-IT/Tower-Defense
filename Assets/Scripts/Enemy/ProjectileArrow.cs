@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ProjectileArrow : MonoBehaviour
 {
-    private float projectileArrowSpeed = 10f;
+    private float projectileArrowSpeed = 17f;
     private Vector3 targetPostion;
     private Vector3 spawnPosition;
     private Enemy focusEnemy;

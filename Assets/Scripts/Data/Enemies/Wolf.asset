@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   health: 150
-  currency: 50
+  currency: 25
   enemyName: Wolf

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   health: 220
-  currency: 80
+  currency: 40
   enemyName: Magician

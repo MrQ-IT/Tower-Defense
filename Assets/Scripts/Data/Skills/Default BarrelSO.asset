@@ -15,8 +15,8 @@ MonoBehaviour:
   skillName: Barrel
   skillIcon: {fileID: 1968275903, guid: 38e5a5ff23b11ec42bc6eddeb413e58c, type: 3}
   skillPrefab: {fileID: 6734015437608445829, guid: 2b7bc0f617c27be478c416d972280d32, type: 3}
-  cooldown: 5
-  damage: 100
+  cooldown: 25
+  damage: 50
   level: 1
   range: 1
   duration: 2

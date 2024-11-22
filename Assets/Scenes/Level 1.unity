@@ -27957,6 +27957,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetVollumeMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 526403097116778525, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: m_Text
+      value: 56,5
+      objectReference: {fileID: 0}
     - target: {fileID: 837599879464323349, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
