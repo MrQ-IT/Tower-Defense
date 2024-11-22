@@ -59,8 +59,8 @@ public class ProjectileArrow : MonoBehaviour
         {
             focusEnemy.TakeDamage(damage);
             Destroy(gameObject);
-            if (isSlowing)
-            {
+            if (isSlowing && collision.gameObject != null)
+            {              
                 focusEnemy.ApplySlowEffect();
             }
         }

@@ -159,16 +159,33 @@ public class Enemy : MonoBehaviour
 
     public void ApplySlowEffect()
     {
-        if (enemyRenderer != null)
-            enemyRenderer.material.color = new Color(127f / 255f, 189f / 255f, 248f / 255f);
-        speed = (int)(speed / 2);
-        Debug.Log(speed);
-        Invoke("RemoveSlowEffect", 2f);
+        try
+        {
+            if (enemyRenderer != null)
+            {
+                enemyRenderer.material.color = new Color(127f / 255f, 189f / 255f, 248f / 255f);
+            }
+
+            speed = (int)(speed / 2);
+            Debug.Log(speed);
+
+            // Gọi hàm xóa hiệu ứng sau 2 giây
+            Invoke("RemoveSlowEffect", 2f);
+        }
+        catch (MissingReferenceException ex)
+        {
+            Debug.LogWarning("Đã xảy ra lỗi khi áp dụng hiệu ứng: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Một lỗi khác đã xảy ra: " + ex.Message);
+        }
     }
 
     public void RemoveSlowEffect()
     {
-        enemyRenderer.material.color = originalColor;
+        if (enemyRenderer != null)
+            enemyRenderer.material.color = originalColor;
         speed = (int)EnemyData.speed;
     }
 }

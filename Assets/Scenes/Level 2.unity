@@ -2594,6 +2594,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 884827510876641859, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
     - target: {fileID: 1520166188770001613, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2763,6 +2767,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1837180258, guid: 38e5a5ff23b11ec42bc6eddeb413e58c, type: 3}
     - target: {fileID: 8755152859892032112, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8823001201961935734, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
+      propertyPath: achievementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
+    - target: {fileID: 8830832871071833078, guid: bfcf82df658b06f40bd6c77db34d54c5, type: 3}
       propertyPath: achievementSO
       value: 
       objectReference: {fileID: 11400000, guid: ae897612de0cc3e49b3daf89d22d6ae2, type: 2}
