@@ -15,9 +15,9 @@ MonoBehaviour:
   skillName: Lightning
   skillIcon: {fileID: 675606295, guid: 088917205993ed142aec11d338bd1899, type: 3}
   skillPrefab: {fileID: 4706866079160069807, guid: de5f83b43089f7743810b50cc2c9580e, type: 3}
-  cooldown: 80
-  damage: 150
-  level: 1
-  range: 2
+  cooldown: 72
+  damage: 120
+  level: 2
+  range: 1.8
   duration: 1
   islock: 1
