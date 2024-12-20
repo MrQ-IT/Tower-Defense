@@ -16,3 +16,4 @@ MonoBehaviour:
   health: 220
   currency: 40
   enemyName: Magician
+  enemySprite: {fileID: 634990337, guid: b512d5b140fc4f24780573e34239c721, type: 3}

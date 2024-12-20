@@ -16,3 +16,4 @@ MonoBehaviour:
   health: 350
   currency: 60
   enemyName: Cavalry
+  enemySprite: {fileID: 112387404, guid: 48485fe9b0f2c5d4cbfaa79cde0ca113, type: 3}

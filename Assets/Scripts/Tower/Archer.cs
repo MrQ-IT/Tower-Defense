@@ -21,7 +21,9 @@ public class Archer : MonoBehaviour
     private GameObject arrow;
     private bool isSelected;
     public bool isAttack;
-    //public AchievementSO achievementSO;
+    
+    //biến kiểm tra chế độ tìm kiếm kẻ thù
+    
 
     private void Start()
     {
@@ -65,6 +67,7 @@ public class Archer : MonoBehaviour
         }
     }
     // Kiểm tra kẻ địch nào ở trong vùng, có thì trả về đối tượng đầu tiên, không thì trả về null
+
     private GameObject GetEnemyInRange(GameObject[] enemies) 
     {
         for (int i = 0; i < enemies.Length; i++)
@@ -127,6 +130,24 @@ public class Archer : MonoBehaviour
         animator.SetBool("Idle", false);
         yield return new WaitForSeconds(attackSpeed);
         isAttack = false;
+    }
+
+    // Tìm kiếm kẻ thù ít máu nhất
+    private void FindEnemyWithLeastHealth(GameObject[] enemies)
+    {
+        
+    }
+
+    // Tìm kiếm kẻ thù nhiều máu nhất
+    private void FindEnemyWithMostHealth()
+    {
+
+    }
+
+    // Tìm kiếm kẻ thù gần điểm cuối nhất
+    private void FindEnemyClosestToEnd()
+    {
+
     }
 
 }

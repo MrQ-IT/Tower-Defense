@@ -16,3 +16,4 @@ MonoBehaviour:
   health: 2000
   currency: 75
   enemyName: Monster
+  enemySprite: {fileID: -1508376229, guid: 3bdfd0614b72a2441bf4c7f023a9f2d8, type: 3}

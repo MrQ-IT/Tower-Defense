@@ -9,4 +9,5 @@ public class EnemySO : ScriptableObject
     public int health;
     public int currency;
     public string enemyName;
+    public Sprite enemySprite;
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   health: 100
   currency: 25
   enemyName: Bee
+  enemySprite: {fileID: 1415782449, guid: 36056ba21c946334b9034d49263858db, type: 3}

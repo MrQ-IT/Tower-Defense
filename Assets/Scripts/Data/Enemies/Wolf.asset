@@ -16,3 +16,4 @@ MonoBehaviour:
   health: 150
   currency: 25
   enemyName: Wolf
+  enemySprite: {fileID: 1395664696, guid: e3b13094351982d40bc2f908cf617b58, type: 3}
